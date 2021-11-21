@@ -35,6 +35,14 @@ module.exports = {
       }
     ],
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton']
+      }
+    ]
   }
 }
