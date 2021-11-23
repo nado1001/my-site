@@ -1,0 +1,1 @@
+export { useStaticSWR } from './useStaticSWR'
