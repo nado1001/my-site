@@ -1,7 +1,7 @@
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
-import { useEffect, VFC } from 'react'
-import { useState } from 'react'
+import type { VFC } from 'react'
+import { useEffect, useState } from 'react'
 
 /**
  * @package
