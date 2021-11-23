@@ -13,7 +13,8 @@ module.exports = {
         border01: '#E2E2E2',
         darkBorder01: '#818181',
         text01: '#2E2E2E'
-      }
+      },
+      screens: { sm: { max: '767px' } }
     }
   },
   variants: {},
