@@ -3,17 +3,19 @@ module.exports = {
   purge: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {}
-  },
-  variants: {
     extend: {
       colors: {
-        darkThema01: '#0F0F0F',
-        darkThema02: '#212121',
-        darkThema03: '#303133',
-        darkThema04: '#575757'
+        bg01: '#F8FCFF',
+        darkBg01: '#0F0F0F',
+        darkBg02: '#212121',
+        darkBg03: '#303133',
+        darkBg04: '#575757',
+        border01: '#E2E2E2',
+        darkBorder01: '#818181',
+        text01: '#2E2E2E'
       }
     }
   },
+  variants: {},
   plugins: []
 }
