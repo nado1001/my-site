@@ -10,6 +10,7 @@ module.exports = {
         darkBg02: '#212121',
         darkBg03: '#303133',
         darkBg04: '#575757',
+        darkHoverBg01: '#414142',
         border01: '#E2E2E2',
         darkBorder01: '#818181',
         text01: '#2E2E2E'
