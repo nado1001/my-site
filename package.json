@@ -36,7 +36,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-tailwindcss": "^1.17.2",
-    "msw": "^0.35.0",
+    "msw": "0.36.0",
     "postcss": "^8.3.11",
     "prettier": "2.5.1",
     "tailwindcss": "^2.2.19",
