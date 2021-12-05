@@ -21,6 +21,10 @@
     "swr": "1.1.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typescript": "^2.4.1",
+    "@graphql-codegen/typescript-operations": "^2.2.1",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.2",
     "@types/node": "16.11.7",
     "@types/react": "17.0.35",
     "@typescript-eslint/eslint-plugin": "5.5.0",
