@@ -12,7 +12,7 @@ export const Header: VFC = () => {
   const { theme } = useTheme()
 
   return (
-    <header className="dark:bg-darkBg02 dark:border-darkBorder01 md:dark:border-0 border-border01 border-b px-5">
+    <header className="dark:bg-darkBg02 dark:border-darkBorder01 md:dark:border-0 border-border01 border-b px-5 md:fixed md:w-full">
       <div className="flex items-center justify-between">
         <div>
           <Link href="/">
