@@ -15,7 +15,10 @@ module.exports = {
         darkBorder01: '#818181',
         text01: '#2E2E2E'
       },
-      screens: { sm: { max: '767px' } }
+      screens: { sm: { max: '767px' } },
+      gridTemplateColumns: {
+        article: 'minmax(724px 1fr) minmax(250px 1fr)'
+      }
     }
   },
   variants: {},
