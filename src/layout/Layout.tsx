@@ -15,7 +15,7 @@ export const Layout: VFC<Props> = ({ children }) => {
     <div>
       <Header />
       <Menu />
-      <main className="md:mx-[74px] sm:mx-4">{children}</main>
+      <main className="md:mx-[74px]">{children}</main>
     </div>
   )
 }
