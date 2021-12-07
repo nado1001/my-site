@@ -26,7 +26,7 @@ export const Menu: VFC = () => {
   const { theme } = useTheme()
 
   return (
-    <nav className="md:dark:bg-darkBg02 sm:dark:bg-darkBg01 sm:bg-white sm:border-t dark:border-darkBorder01 fixed md:w-[72px] md:h-screen md:py-5 md:dark:border-r-0 md:border-r border-border01 sm:bottom-0 sm:flex sm:items-center sm:w-screen sm:py-[14px] md:mt-[78px]">
+    <nav className="md:hidden md:dark:bg-darkBg02 sm:dark:bg-darkBg01 sm:bg-white sm:border-t dark:border-darkBorder01 fixed border-border01 sm:bottom-0 sm:flex sm:items-center sm:w-screen sm:py-[14px] z-50">
       {menuList.map((item, index) => {
         return (
           <div
