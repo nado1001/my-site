@@ -9,7 +9,7 @@ export const Author: VFC = () => {
   const { theme } = useTheme()
 
   return (
-    <div className="md:dark:bg-darkBg03 md:border sm:border-t dark:border-darkBorder01 md:rounded-lg px-5 md:py-10 sm:pt-8 sm:pb-28 shadow-md">
+    <div className="bg-white md:dark:bg-darkBg03 sm:dark:bg-darkBg01 md:border sm:border-t dark:border-darkBorder01 md:rounded-lg px-5 md:py-10 sm:pt-8 sm:pb-28 shadow-md">
       <div className="flex items-end">
         <Image
           src="/image/nado.svg"

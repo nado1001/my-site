@@ -10,10 +10,10 @@ export const Article: VFC = () => {
   const { theme } = useTheme()
 
   return (
-    <article className="dark:bg-darkBg03 dark:hover:bg-darkHoverBg01 hover:shadow-lg border dark:border-darkBorder01 border-border01 border-solid rounded-lg shadow-md">
+    <article className="bg-white dark:bg-darkBg03 dark:hover:bg-darkHoverBg01 hover:shadow-lg border dark:border-darkBorder01 border-border01 border-solid rounded-lg shadow-md">
       <Link href="/articles/1">
         <a className="block">
-          <div className="dark:bg-darkBg04 bg-bg01 flex justify-center items-center sm:py-4 md:py-6 dark:border-b-0 border-b border-border01 rounded-t-[6px]">
+          <div className="dark:bg-darkBg04 bg-bg02 flex justify-center items-center sm:py-4 md:py-6 dark:border-b-0 border-b border-border01 rounded-t-[6px]">
             <Image
               src={
                 theme === 'dark' ? '/image/book_dark.svg' : '/image/book.svg'
