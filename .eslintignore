@@ -3,3 +3,5 @@
 **/.next/*
 /.eslintrc.js
 /*.config.js
+/codegen.js
+/src/apollo/graphql.tsx
