@@ -18,7 +18,7 @@ module.exports = {
       },
       screens: { sm: { max: '767px' } },
       gridTemplateColumns: {
-        article: 'minmax(724px 1fr) minmax(250px 1fr)'
+        article: 'repeat(auto-fit, minmax(160px, 1fr))'
       }
     }
   },
