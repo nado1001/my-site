@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@apollo/client@^3.5.5", "@apollo/client@latest":
+"@apollo/client@3.5.5", "@apollo/client@latest":
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.5.5.tgz#ce331403ee5f099e595430890f9b510c8435c932"
   integrity sha512-EiQstc8VjeqosS2h21bwY9fhL3MCRRmACtRrRh2KYpp9vkDyx5pUfMnN3swgiBVYw1twdXg9jHmyZa1gZlvlog==
@@ -20,7 +20,7 @@
     tslib "^2.3.0"
     zen-observable-ts "^1.2.0"
 
-"@apollo/react-hooks@^4.0.0":
+"@apollo/react-hooks@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@apollo/react-hooks/-/react-hooks-4.0.0.tgz#7bf7b320c90d276f637d9a84b503e17b840dd4e6"
   integrity sha512-fCu0cbne3gbUl0QbA8X4L33iuuFVQbC5Jo2MIKRK8CyawR6PoxDpFdFA1kc6033ODZuZZ9Eo4RdeJFlFIIYcLA==
