@@ -20,7 +20,7 @@ export const GET_POST = gql`
       tags
       slug
       content {
-        markdown
+        html
       }
       updatedAt
       seo {
