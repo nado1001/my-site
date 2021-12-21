@@ -29,7 +29,7 @@ export const Article: VFC<Props> = (props) => {
       ])}
     >
       <Link href={`/articles/${props.slug}`}>
-        <a className="block">
+        <a className="block w-full h-full">
           <div className="dark:bg-darkBg04 bg-bg02 flex justify-center items-center sm:py-4 md:py-6 dark:border-b-0 border-b border-border01 rounded-t-[6px]">
             <Image
               src={
