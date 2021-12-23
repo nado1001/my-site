@@ -66,6 +66,7 @@ export type Asset = Node & {
   localizations: Array<Asset>
   /** The mime type of the file */
   mimeType?: Maybe<Scalars['String']>
+  ogpPost: Array<Post>
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>
   /** User that last published this document */
@@ -138,6 +139,18 @@ export type AssetHistoryArgs = {
 export type AssetLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean']
   locales?: Array<Locale>
+}
+
+/** Asset system model */
+export type AssetOgpPostArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  locales?: InputMaybe<Array<Locale>>
+  orderBy?: InputMaybe<PostOrderByInput>
+  skip?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<PostWhereInput>
 }
 
 /** Asset system model */
@@ -215,6 +228,7 @@ export type AssetCreateInput = {
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
+  ogpPost?: InputMaybe<PostCreateManyInlineInput>
   seoImage?: InputMaybe<SeoCreateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   updatedAt?: InputMaybe<Scalars['DateTime']>
@@ -317,6 +331,9 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>
+  ogpPost_every?: InputMaybe<PostWhereInput>
+  ogpPost_none?: InputMaybe<PostWhereInput>
+  ogpPost_some?: InputMaybe<PostWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -397,6 +414,7 @@ export type AssetUpdateInput = {
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
+  ogpPost?: InputMaybe<PostUpdateManyInlineInput>
   seoImage?: InputMaybe<SeoUpdateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   width?: InputMaybe<Scalars['Float']>
@@ -643,6 +661,9 @@ export type AssetWhereInput = {
   mimeType_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   mimeType_starts_with?: InputMaybe<Scalars['String']>
+  ogpPost_every?: InputMaybe<PostWhereInput>
+  ogpPost_none?: InputMaybe<PostWhereInput>
+  ogpPost_some?: InputMaybe<PostWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -2699,21 +2720,20 @@ export type Post = Node & {
   createdBy?: Maybe<User>
   /** What is the published date you would like to show for this post? */
   date: Scalars['Date']
+  description?: Maybe<Scalars['String']>
   /** Get the document in other stages */
   documentInStages: Array<Post>
-  /** Add a short excerpt to summarize this post */
-  excerpt?: Maybe<Scalars['String']>
   /** List of Post versions */
   history: Array<Version>
   /** The unique identifier */
   id: Scalars['ID']
+  keywords: Array<Scalars['String']>
+  ogp?: Maybe<Asset>
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>
   /** User that last published this document */
   publishedBy?: Maybe<User>
   scheduledIn: Array<ScheduledOperation>
-  /** Attach an SEO model to this post */
-  seo?: Maybe<Seo>
   /** Select a slug for this blog post, such as post-1, post-2, etc. */
   slug: Scalars['String']
   /** System stage field */
@@ -2752,6 +2772,10 @@ export type PostHistoryArgs = {
   stageOverride?: InputMaybe<Stage>
 }
 
+export type PostOgpArgs = {
+  locales?: InputMaybe<Array<Locale>>
+}
+
 export type PostPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>
 }
@@ -2764,10 +2788,6 @@ export type PostScheduledInArgs = {
   locales?: InputMaybe<Array<Locale>>
   skip?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<ScheduledOperationWhereInput>
-}
-
-export type PostSeoArgs = {
-  locales?: InputMaybe<Array<Locale>>
 }
 
 export type PostUpdatedByArgs = {
@@ -2797,8 +2817,9 @@ export type PostCreateInput = {
   coverImage?: InputMaybe<AssetCreateOneInlineInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   date: Scalars['Date']
-  excerpt?: InputMaybe<Scalars['String']>
-  seo?: InputMaybe<SeoCreateOneInlineInput>
+  description?: InputMaybe<Scalars['String']>
+  keywords?: InputMaybe<Array<Scalars['String']>>
+  ogp?: InputMaybe<AssetCreateOneInlineInput>
   slug: Scalars['String']
   tags?: InputMaybe<Array<Scalars['String']>>
   title: Scalars['String']
@@ -2871,25 +2892,25 @@ export type PostManyWhereInput = {
   date_not?: InputMaybe<Scalars['Date']>
   /** All values that are not contained in given list. */
   date_not_in?: InputMaybe<Array<Scalars['Date']>>
-  excerpt?: InputMaybe<Scalars['String']>
+  description?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
-  excerpt_contains?: InputMaybe<Scalars['String']>
+  description_contains?: InputMaybe<Scalars['String']>
   /** All values ending with the given string. */
-  excerpt_ends_with?: InputMaybe<Scalars['String']>
+  description_ends_with?: InputMaybe<Scalars['String']>
   /** All values that are contained in given list. */
-  excerpt_in?: InputMaybe<Array<Scalars['String']>>
+  description_in?: InputMaybe<Array<Scalars['String']>>
   /** All values that are not equal to given value. */
-  excerpt_not?: InputMaybe<Scalars['String']>
+  description_not?: InputMaybe<Scalars['String']>
   /** All values not containing the given string. */
-  excerpt_not_contains?: InputMaybe<Scalars['String']>
+  description_not_contains?: InputMaybe<Scalars['String']>
   /** All values not ending with the given string */
-  excerpt_not_ends_with?: InputMaybe<Scalars['String']>
+  description_not_ends_with?: InputMaybe<Scalars['String']>
   /** All values that are not contained in given list. */
-  excerpt_not_in?: InputMaybe<Array<Scalars['String']>>
+  description_not_in?: InputMaybe<Array<Scalars['String']>>
   /** All values not starting with the given string. */
-  excerpt_not_starts_with?: InputMaybe<Scalars['String']>
+  description_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
-  excerpt_starts_with?: InputMaybe<Scalars['String']>
+  description_starts_with?: InputMaybe<Scalars['String']>
   id?: InputMaybe<Scalars['ID']>
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>
@@ -2909,6 +2930,17 @@ export type PostManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  keywords?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array contains *all* items provided to the filter */
+  keywords_contains_all?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  keywords_contains_none?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array contains at least one item provided to the filter */
+  keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  keywords_not?: InputMaybe<Array<Scalars['String']>>
+  ogp?: InputMaybe<AssetWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -2928,7 +2960,6 @@ export type PostManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seo?: InputMaybe<SeoWhereInput>
   slug?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']>
@@ -3000,10 +3031,12 @@ export enum PostOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   DateAsc = 'date_ASC',
   DateDesc = 'date_DESC',
-  ExcerptAsc = 'excerpt_ASC',
-  ExcerptDesc = 'excerpt_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  KeywordsAsc = 'keywords_ASC',
+  KeywordsDesc = 'keywords_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   SlugAsc = 'slug_ASC',
@@ -3021,8 +3054,9 @@ export type PostUpdateInput = {
   content?: InputMaybe<Scalars['RichTextAST']>
   coverImage?: InputMaybe<AssetUpdateOneInlineInput>
   date?: InputMaybe<Scalars['Date']>
-  excerpt?: InputMaybe<Scalars['String']>
-  seo?: InputMaybe<SeoUpdateOneInlineInput>
+  description?: InputMaybe<Scalars['String']>
+  keywords?: InputMaybe<Array<Scalars['String']>>
+  ogp?: InputMaybe<AssetUpdateOneInlineInput>
   slug?: InputMaybe<Scalars['String']>
   tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
@@ -3048,7 +3082,8 @@ export type PostUpdateManyInlineInput = {
 export type PostUpdateManyInput = {
   content?: InputMaybe<Scalars['RichTextAST']>
   date?: InputMaybe<Scalars['Date']>
-  excerpt?: InputMaybe<Scalars['String']>
+  description?: InputMaybe<Scalars['String']>
+  keywords?: InputMaybe<Array<Scalars['String']>>
   tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
@@ -3139,25 +3174,25 @@ export type PostWhereInput = {
   date_not?: InputMaybe<Scalars['Date']>
   /** All values that are not contained in given list. */
   date_not_in?: InputMaybe<Array<Scalars['Date']>>
-  excerpt?: InputMaybe<Scalars['String']>
+  description?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
-  excerpt_contains?: InputMaybe<Scalars['String']>
+  description_contains?: InputMaybe<Scalars['String']>
   /** All values ending with the given string. */
-  excerpt_ends_with?: InputMaybe<Scalars['String']>
+  description_ends_with?: InputMaybe<Scalars['String']>
   /** All values that are contained in given list. */
-  excerpt_in?: InputMaybe<Array<Scalars['String']>>
+  description_in?: InputMaybe<Array<Scalars['String']>>
   /** All values that are not equal to given value. */
-  excerpt_not?: InputMaybe<Scalars['String']>
+  description_not?: InputMaybe<Scalars['String']>
   /** All values not containing the given string. */
-  excerpt_not_contains?: InputMaybe<Scalars['String']>
+  description_not_contains?: InputMaybe<Scalars['String']>
   /** All values not ending with the given string */
-  excerpt_not_ends_with?: InputMaybe<Scalars['String']>
+  description_not_ends_with?: InputMaybe<Scalars['String']>
   /** All values that are not contained in given list. */
-  excerpt_not_in?: InputMaybe<Array<Scalars['String']>>
+  description_not_in?: InputMaybe<Array<Scalars['String']>>
   /** All values not starting with the given string. */
-  excerpt_not_starts_with?: InputMaybe<Scalars['String']>
+  description_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
-  excerpt_starts_with?: InputMaybe<Scalars['String']>
+  description_starts_with?: InputMaybe<Scalars['String']>
   id?: InputMaybe<Scalars['ID']>
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>
@@ -3177,6 +3212,17 @@ export type PostWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  keywords?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array contains *all* items provided to the filter */
+  keywords_contains_all?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  keywords_contains_none?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array contains at least one item provided to the filter */
+  keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  keywords_not?: InputMaybe<Array<Scalars['String']>>
+  ogp?: InputMaybe<AssetWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -3196,7 +3242,6 @@ export type PostWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seo?: InputMaybe<SeoWhereInput>
   slug?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']>
@@ -4893,16 +4938,14 @@ export enum SeoOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC'
 }
 
-export type SeoParent = Page | Post
+export type SeoParent = Page
 
 export type SeoParentConnectInput = {
   Page?: InputMaybe<PageConnectInput>
-  Post?: InputMaybe<PostConnectInput>
 }
 
 export type SeoParentCreateInput = {
   Page?: InputMaybe<PageCreateInput>
-  Post?: InputMaybe<PostCreateInput>
 }
 
 export type SeoParentCreateManyInlineInput = {
@@ -4921,7 +4964,6 @@ export type SeoParentCreateOneInlineInput = {
 
 export type SeoParentUpdateInput = {
   Page?: InputMaybe<PageUpdateInput>
-  Post?: InputMaybe<PostUpdateInput>
 }
 
 export type SeoParentUpdateManyInlineInput = {
@@ -4943,7 +4985,6 @@ export type SeoParentUpdateManyInlineInput = {
 
 export type SeoParentUpdateManyWithNestedWhereInput = {
   Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>
-  Post?: InputMaybe<PostUpdateManyWithNestedWhereInput>
 }
 
 export type SeoParentUpdateOneInlineInput = {
@@ -4963,22 +5004,18 @@ export type SeoParentUpdateOneInlineInput = {
 
 export type SeoParentUpdateWithNestedWhereUniqueInput = {
   Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>
-  Post?: InputMaybe<PostUpdateWithNestedWhereUniqueInput>
 }
 
 export type SeoParentUpsertWithNestedWhereUniqueInput = {
   Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>
-  Post?: InputMaybe<PostUpsertWithNestedWhereUniqueInput>
 }
 
 export type SeoParentWhereInput = {
   Page?: InputMaybe<PageWhereInput>
-  Post?: InputMaybe<PostWhereInput>
 }
 
 export type SeoParentWhereUniqueInput = {
   Page?: InputMaybe<PageWhereUniqueInput>
-  Post?: InputMaybe<PostWhereUniqueInput>
 }
 
 export type SeoUpdateInput = {
@@ -5695,18 +5732,11 @@ export type GetPostQuery = {
         title: string
         tags: Array<string>
         slug: string
-        updatedAt: any
         date: any
+        updatedAt: any
+        description?: string | null | undefined
+        keywords: Array<string>
         content: { __typename?: 'RichText'; html: string }
-        seo?:
-          | {
-              __typename?: 'Seo'
-              title?: string | null | undefined
-              description?: string | null | undefined
-              keywords: Array<string>
-            }
-          | null
-          | undefined
       }
     | null
     | undefined
@@ -5720,6 +5750,7 @@ export const GetPostsDocument = gql`
       date
       tags
       updatedAt
+      slug
     }
   }
 `
@@ -5776,14 +5807,12 @@ export const GetPostDocument = gql`
       tags
       slug
       content {
-        markdown
+        html
       }
+      date
       updatedAt
-      seo {
-        title
-        description
-        keywords
-      }
+      description
+      keywords
     }
   }
 `

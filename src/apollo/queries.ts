@@ -24,11 +24,8 @@ export const GET_POST = gql`
       }
       date
       updatedAt
-      seo {
-        title
-        description
-        keywords
-      }
+      description
+      keywords
     }
   }
 `
