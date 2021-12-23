@@ -10,7 +10,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html style={{ scrollBehavior: 'smooth' }}>
         <Head />
         <body className="bg-bg01 dark:bg-darkBg01">
           <Main />
