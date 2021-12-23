@@ -22,6 +22,7 @@ export const GET_POST = gql`
       content {
         html
       }
+      date
       updatedAt
       seo {
         title

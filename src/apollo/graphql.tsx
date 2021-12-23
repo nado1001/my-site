@@ -5696,6 +5696,7 @@ export type GetPostQuery = {
         tags: Array<string>
         slug: string
         updatedAt: any
+        date: any
         content: { __typename?: 'RichText'; html: string }
         seo?:
           | {
