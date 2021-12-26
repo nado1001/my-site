@@ -19,13 +19,12 @@ export const GET_POST = gql`
       title
       tags
       slug
-      content {
-        html
-      }
+      content
       date
       updatedAt
       description
       keywords
+      tableofcontent
     }
   }
 `

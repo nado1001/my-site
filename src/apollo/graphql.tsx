@@ -2710,8 +2710,7 @@ export type Post = Node & {
   __typename?: 'Post'
   /** Who should be credited with writing this post? */
   author?: Maybe<Author>
-  /** Write your blog post! */
-  content: RichText
+  content?: Maybe<Scalars['String']>
   /** Upload or select a cover image to set as your Featured Image */
   coverImage?: Maybe<Asset>
   /** The time the document was created */
@@ -2738,6 +2737,7 @@ export type Post = Node & {
   slug: Scalars['String']
   /** System stage field */
   stage: Stage
+  tableofcontent?: Maybe<Scalars['Json']>
   /** Add any relevant tags to this blog post */
   tags: Array<Scalars['String']>
   /** Name your blog post! */
@@ -2813,7 +2813,7 @@ export type PostConnection = {
 
 export type PostCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>
-  content: Scalars['RichTextAST']
+  content?: InputMaybe<Scalars['String']>
   coverImage?: InputMaybe<AssetCreateOneInlineInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   date: Scalars['Date']
@@ -2821,6 +2821,7 @@ export type PostCreateInput = {
   keywords?: InputMaybe<Array<Scalars['String']>>
   ogp?: InputMaybe<AssetCreateOneInlineInput>
   slug: Scalars['String']
+  tableofcontent?: InputMaybe<Scalars['Json']>
   tags?: InputMaybe<Array<Scalars['String']>>
   title: Scalars['String']
   updatedAt?: InputMaybe<Scalars['DateTime']>
@@ -2860,6 +2861,25 @@ export type PostManyWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>
   author?: InputMaybe<AuthorWhereInput>
+  content?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  content_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  content_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  content_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  content_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  content_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  content_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  content_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  content_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  content_starts_with?: InputMaybe<Scalars['String']>
   coverImage?: InputMaybe<AssetWhereInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
@@ -3027,6 +3047,8 @@ export type PostManyWhereInput = {
 }
 
 export enum PostOrderByInput {
+  ContentAsc = 'content_ASC',
+  ContentDesc = 'content_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   DateAsc = 'date_ASC',
@@ -3051,13 +3073,14 @@ export enum PostOrderByInput {
 
 export type PostUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>
-  content?: InputMaybe<Scalars['RichTextAST']>
+  content?: InputMaybe<Scalars['String']>
   coverImage?: InputMaybe<AssetUpdateOneInlineInput>
   date?: InputMaybe<Scalars['Date']>
   description?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
   ogp?: InputMaybe<AssetUpdateOneInlineInput>
   slug?: InputMaybe<Scalars['String']>
+  tableofcontent?: InputMaybe<Scalars['Json']>
   tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
@@ -3080,10 +3103,11 @@ export type PostUpdateManyInlineInput = {
 }
 
 export type PostUpdateManyInput = {
-  content?: InputMaybe<Scalars['RichTextAST']>
+  content?: InputMaybe<Scalars['String']>
   date?: InputMaybe<Scalars['Date']>
   description?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
+  tableofcontent?: InputMaybe<Scalars['Json']>
   tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
@@ -3142,6 +3166,25 @@ export type PostWhereInput = {
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars['String']>
   author?: InputMaybe<AuthorWhereInput>
+  content?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  content_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  content_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  content_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  content_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  content_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  content_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  content_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  content_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  content_starts_with?: InputMaybe<Scalars['String']>
   coverImage?: InputMaybe<AssetWhereInput>
   createdAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
@@ -5732,11 +5775,12 @@ export type GetPostQuery = {
         title: string
         tags: Array<string>
         slug: string
+        content?: string | null | undefined
         date: any
         updatedAt: any
         description?: string | null | undefined
         keywords: Array<string>
-        content: { __typename?: 'RichText'; html: string }
+        tableofcontent?: any | null | undefined
       }
     | null
     | undefined
@@ -5806,13 +5850,12 @@ export const GetPostDocument = gql`
       title
       tags
       slug
-      content {
-        html
-      }
+      content
       date
       updatedAt
       description
       keywords
+      tableofcontent
     }
   }
 `
