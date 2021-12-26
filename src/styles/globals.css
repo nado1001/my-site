@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.post h2 {
+  @apply font-bold text-[25px] mt-[50px];
+}
+
+.post h3 {
+  @apply font-bold text-xl mt-10;
+}
+
+.post p {
+  @apply text-base leading-8 mt-5;
+}
+
+.post a {
+  @apply text-blue-500;
+}
+
+.post pre {
+  @apply mt-5;
+}
+
+.post code {
+  @apply rounded-md;
+}
