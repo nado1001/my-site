@@ -1,20 +1,21 @@
+import { HomeIcon } from '@heroicons/react/solid'
+import { TagIcon } from '@heroicons/react/solid'
 import cc from 'classcat'
-import Image from 'next/image'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
 import type { VFC } from 'react'
+import { createElement } from 'react'
 
 const menuList = [
   {
     id: 1,
     link: '/',
-    image: 'home',
+    icon: HomeIcon,
     text: 'ホーム'
   },
   {
     id: 2,
     link: '/tag',
-    image: 'tag',
+    icon: TagIcon,
     text: 'タグ'
   }
 ]
@@ -23,8 +24,6 @@ const menuList = [
  * @package
  */
 export const Menu: VFC = () => {
-  const { theme } = useTheme()
-
   return (
     <nav className="md:hidden md:dark:bg-darkBg02 sm:dark:bg-darkBg01 sm:bg-white sm:border-t dark:border-darkBorder01 fixed border-border01 sm:bottom-0 sm:flex sm:items-center sm:w-screen sm:py-[14px] z-50">
       {menuList.map((item, index) => {
@@ -35,16 +34,7 @@ export const Menu: VFC = () => {
           >
             <Link href={item.link}>
               <a className="flex flex-col items-center">
-                <Image
-                  src={
-                    theme === 'dark'
-                      ? `/image/${item.image}_dark.svg`
-                      : `/image/${item.image}.svg`
-                  }
-                  alt={item.image}
-                  width={24}
-                  height={24}
-                />
+                {createElement(item.icon, { className: 'h-6 w-6' })}
                 <span className="text-[12px]">{item.text}</span>
               </a>
             </Link>
