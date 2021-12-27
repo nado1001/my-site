@@ -40,11 +40,11 @@ export const Article: VFC<Props> = (props) => {
               height="41"
             />
           </div>
-          <div className="sm:p-[9px] md:px-2 md:py-7 text-[15px] rounded-b-[6px]">
+          <div className="sm:p-[9px] md:px-4 md:py-7 text-[15px] rounded-b-[6px]">
             <span className="block text-right text-xs">
               {format(new Date(props.date), 'yyyy.MM.dd')}
             </span>
-            <h2 className="mt-2">{props.title}</h2>
+            <h2 className="mt-2 font-semibold">{props.title}</h2>
           </div>
         </a>
       </Link>
