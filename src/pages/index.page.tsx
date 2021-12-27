@@ -32,7 +32,7 @@ const Home: VFC<Props> = (props) => {
     <>
       <Seo path="/" title="Home" description="Homeです" />
       <Layout>
-        <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-28 md:flex">
+        <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-12 md:flex">
           <div className="md:max-w-[724px] md:w-full md:col-start-1 md:col-end-2 sm:mx-4 sm:mb-32">
             <h1 className="font-bold text-4xl sm:py-8 md:pb-7">Articles</h1>
             <div
