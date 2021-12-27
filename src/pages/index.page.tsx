@@ -30,7 +30,12 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: VFC<Props> = (props) => {
   return (
     <>
-      <Seo path="/" title="Home" description="Homeです" />
+      <Seo
+        path="/"
+        noTitleTemplate={true}
+        title="nado"
+        description="ナドの個人ブログ"
+      />
       <Layout>
         <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-12 md:flex">
           <div className="md:max-w-[724px] md:w-full md:col-start-1 md:col-end-2 sm:mx-4 sm:mb-32">
