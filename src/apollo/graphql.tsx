@@ -72,7 +72,6 @@ export type Asset = Node & {
   /** User that last published this document */
   publishedBy?: Maybe<User>
   scheduledIn: Array<ScheduledOperation>
-  seoImage: Array<Seo>
   /** The file size */
   size?: Maybe<Scalars['Float']>
   /** System stage field */
@@ -175,18 +174,6 @@ export type AssetScheduledInArgs = {
 }
 
 /** Asset system model */
-export type AssetSeoImageArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  locales?: InputMaybe<Array<Locale>>
-  orderBy?: InputMaybe<SeoOrderByInput>
-  skip?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<SeoWhereInput>
-}
-
-/** Asset system model */
 export type AssetUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation
 }
@@ -229,7 +216,6 @@ export type AssetCreateInput = {
   localizations?: InputMaybe<AssetCreateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
   ogpPost?: InputMaybe<PostCreateManyInlineInput>
-  seoImage?: InputMaybe<SeoCreateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   updatedAt?: InputMaybe<Scalars['DateTime']>
   width?: InputMaybe<Scalars['Float']>
@@ -353,9 +339,6 @@ export type AssetManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seoImage_every?: InputMaybe<SeoWhereInput>
-  seoImage_none?: InputMaybe<SeoWhereInput>
-  seoImage_some?: InputMaybe<SeoWhereInput>
   updatedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -415,7 +398,6 @@ export type AssetUpdateInput = {
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
   ogpPost?: InputMaybe<PostUpdateManyInlineInput>
-  seoImage?: InputMaybe<SeoUpdateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   width?: InputMaybe<Scalars['Float']>
 }
@@ -683,9 +665,6 @@ export type AssetWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seoImage_every?: InputMaybe<SeoWhereInput>
-  seoImage_none?: InputMaybe<SeoWhereInput>
-  seoImage_some?: InputMaybe<SeoWhereInput>
   size?: InputMaybe<Scalars['Float']>
   /** All values greater than the given value. */
   size_gt?: InputMaybe<Scalars['Float']>
@@ -1416,8 +1395,8 @@ export type Mutation = {
   createPost?: Maybe<Post>
   /** Create one scheduledRelease */
   createScheduledRelease?: Maybe<ScheduledRelease>
-  /** Create one seo */
-  createSeo?: Maybe<Seo>
+  /** Create one tag */
+  createTag?: Maybe<Tag>
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>
   /** Delete one author from _all_ existing stages. Returns deleted document. */
@@ -1451,12 +1430,12 @@ export type Mutation = {
   /** Delete many Post documents, return deleted documents */
   deleteManyPostsConnection: PostConnection
   /**
-   * Delete many Seo documents
-   * @deprecated Please use the new paginated many mutation (deleteManySeosConnection)
+   * Delete many Tag documents
+   * @deprecated Please use the new paginated many mutation (deleteManyTagsConnection)
    */
-  deleteManySeos: BatchPayload
-  /** Delete many Seo documents, return deleted documents */
-  deleteManySeosConnection: SeoConnection
+  deleteManyTags: BatchPayload
+  /** Delete many Tag documents, return deleted documents */
+  deleteManyTagsConnection: TagConnection
   /** Delete one page from _all_ existing stages. Returns deleted document. */
   deletePage?: Maybe<Page>
   /** Delete one post from _all_ existing stages. Returns deleted document. */
@@ -1465,8 +1444,8 @@ export type Mutation = {
   deleteScheduledOperation?: Maybe<ScheduledOperation>
   /** Delete one scheduledRelease from _all_ existing stages. Returns deleted document. */
   deleteScheduledRelease?: Maybe<ScheduledRelease>
-  /** Delete one seo from _all_ existing stages. Returns deleted document. */
-  deleteSeo?: Maybe<Seo>
+  /** Delete one tag from _all_ existing stages. Returns deleted document. */
+  deleteTag?: Maybe<Tag>
   /** Publish one asset */
   publishAsset?: Maybe<Asset>
   /** Publish one author */
@@ -1500,18 +1479,18 @@ export type Mutation = {
   /** Publish many Post documents */
   publishManyPostsConnection: PostConnection
   /**
-   * Publish many Seo documents
-   * @deprecated Please use the new paginated many mutation (publishManySeosConnection)
+   * Publish many Tag documents
+   * @deprecated Please use the new paginated many mutation (publishManyTagsConnection)
    */
-  publishManySeos: BatchPayload
-  /** Publish many Seo documents */
-  publishManySeosConnection: SeoConnection
+  publishManyTags: BatchPayload
+  /** Publish many Tag documents */
+  publishManyTagsConnection: TagConnection
   /** Publish one page */
   publishPage?: Maybe<Page>
   /** Publish one post */
   publishPost?: Maybe<Post>
-  /** Publish one seo */
-  publishSeo?: Maybe<Seo>
+  /** Publish one tag */
+  publishTag?: Maybe<Tag>
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>
   /** Schedule to publish one author */
@@ -1520,8 +1499,8 @@ export type Mutation = {
   schedulePublishPage?: Maybe<Page>
   /** Schedule to publish one post */
   schedulePublishPost?: Maybe<Post>
-  /** Schedule to publish one seo */
-  schedulePublishSeo?: Maybe<Seo>
+  /** Schedule to publish one tag */
+  schedulePublishTag?: Maybe<Tag>
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1530,8 +1509,8 @@ export type Mutation = {
   scheduleUnpublishPage?: Maybe<Page>
   /** Unpublish one post from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishPost?: Maybe<Post>
-  /** Unpublish one seo from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  scheduleUnpublishSeo?: Maybe<Seo>
+  /** Unpublish one tag from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishTag?: Maybe<Tag>
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -1565,18 +1544,18 @@ export type Mutation = {
   /** Find many Post documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyPostsConnection: PostConnection
   /**
-   * Unpublish many Seo documents
-   * @deprecated Please use the new paginated many mutation (unpublishManySeosConnection)
+   * Unpublish many Tag documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyTagsConnection)
    */
-  unpublishManySeos: BatchPayload
-  /** Find many Seo documents that match criteria in specified stage and unpublish from target stages */
-  unpublishManySeosConnection: SeoConnection
+  unpublishManyTags: BatchPayload
+  /** Find many Tag documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyTagsConnection: TagConnection
   /** Unpublish one page from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPage?: Maybe<Page>
   /** Unpublish one post from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPost?: Maybe<Post>
-  /** Unpublish one seo from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  unpublishSeo?: Maybe<Seo>
+  /** Unpublish one tag from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishTag?: Maybe<Tag>
   /** Update one asset */
   updateAsset?: Maybe<Asset>
   /** Update one author */
@@ -1610,20 +1589,20 @@ export type Mutation = {
   /** Update many Post documents */
   updateManyPostsConnection: PostConnection
   /**
-   * Update many seos
-   * @deprecated Please use the new paginated many mutation (updateManySeosConnection)
+   * Update many tags
+   * @deprecated Please use the new paginated many mutation (updateManyTagsConnection)
    */
-  updateManySeos: BatchPayload
-  /** Update many Seo documents */
-  updateManySeosConnection: SeoConnection
+  updateManyTags: BatchPayload
+  /** Update many Tag documents */
+  updateManyTagsConnection: TagConnection
   /** Update one page */
   updatePage?: Maybe<Page>
   /** Update one post */
   updatePost?: Maybe<Post>
   /** Update one scheduledRelease */
   updateScheduledRelease?: Maybe<ScheduledRelease>
-  /** Update one seo */
-  updateSeo?: Maybe<Seo>
+  /** Update one tag */
+  updateTag?: Maybe<Tag>
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>
   /** Upsert one author */
@@ -1632,8 +1611,8 @@ export type Mutation = {
   upsertPage?: Maybe<Page>
   /** Upsert one post */
   upsertPost?: Maybe<Post>
-  /** Upsert one seo */
-  upsertSeo?: Maybe<Seo>
+  /** Upsert one tag */
+  upsertTag?: Maybe<Tag>
 }
 
 export type MutationCreateAssetArgs = {
@@ -1656,8 +1635,8 @@ export type MutationCreateScheduledReleaseArgs = {
   data: ScheduledReleaseCreateInput
 }
 
-export type MutationCreateSeoArgs = {
-  data: SeoCreateInput
+export type MutationCreateTagArgs = {
+  data: TagCreateInput
 }
 
 export type MutationDeleteAssetArgs = {
@@ -1720,17 +1699,17 @@ export type MutationDeleteManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>
 }
 
-export type MutationDeleteManySeosArgs = {
-  where?: InputMaybe<SeoManyWhereInput>
+export type MutationDeleteManyTagsArgs = {
+  where?: InputMaybe<TagManyWhereInput>
 }
 
-export type MutationDeleteManySeosConnectionArgs = {
+export type MutationDeleteManyTagsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>
   before?: InputMaybe<Scalars['ID']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   skip?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
 export type MutationDeletePageArgs = {
@@ -1749,8 +1728,8 @@ export type MutationDeleteScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput
 }
 
-export type MutationDeleteSeoArgs = {
-  where: SeoWhereUniqueInput
+export type MutationDeleteTagArgs = {
+  where: TagWhereUniqueInput
 }
 
 export type MutationPublishAssetArgs = {
@@ -1836,12 +1815,12 @@ export type MutationPublishManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>
 }
 
-export type MutationPublishManySeosArgs = {
+export type MutationPublishManyTagsArgs = {
   to?: Array<Stage>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
-export type MutationPublishManySeosConnectionArgs = {
+export type MutationPublishManyTagsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>
   before?: InputMaybe<Scalars['ID']>
   first?: InputMaybe<Scalars['Int']>
@@ -1849,7 +1828,7 @@ export type MutationPublishManySeosConnectionArgs = {
   last?: InputMaybe<Scalars['Int']>
   skip?: InputMaybe<Scalars['Int']>
   to?: Array<Stage>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
 export type MutationPublishPageArgs = {
@@ -1862,9 +1841,9 @@ export type MutationPublishPostArgs = {
   where: PostWhereUniqueInput
 }
 
-export type MutationPublishSeoArgs = {
+export type MutationPublishTagArgs = {
   to?: Array<Stage>
-  where: SeoWhereUniqueInput
+  where: TagWhereUniqueInput
 }
 
 export type MutationSchedulePublishAssetArgs = {
@@ -1898,11 +1877,11 @@ export type MutationSchedulePublishPostArgs = {
   where: PostWhereUniqueInput
 }
 
-export type MutationSchedulePublishSeoArgs = {
+export type MutationSchedulePublishTagArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>
   releaseId?: InputMaybe<Scalars['String']>
   to?: Array<Stage>
-  where: SeoWhereUniqueInput
+  where: TagWhereUniqueInput
 }
 
 export type MutationScheduleUnpublishAssetArgs = {
@@ -1935,11 +1914,11 @@ export type MutationScheduleUnpublishPostArgs = {
   where: PostWhereUniqueInput
 }
 
-export type MutationScheduleUnpublishSeoArgs = {
+export type MutationScheduleUnpublishTagArgs = {
   from?: Array<Stage>
   releaseAt?: InputMaybe<Scalars['DateTime']>
   releaseId?: InputMaybe<Scalars['String']>
-  where: SeoWhereUniqueInput
+  where: TagWhereUniqueInput
 }
 
 export type MutationUnpublishAssetArgs = {
@@ -2022,12 +2001,12 @@ export type MutationUnpublishManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>
 }
 
-export type MutationUnpublishManySeosArgs = {
+export type MutationUnpublishManyTagsArgs = {
   from?: Array<Stage>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
-export type MutationUnpublishManySeosConnectionArgs = {
+export type MutationUnpublishManyTagsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>
   before?: InputMaybe<Scalars['ID']>
   first?: InputMaybe<Scalars['Int']>
@@ -2035,7 +2014,7 @@ export type MutationUnpublishManySeosConnectionArgs = {
   last?: InputMaybe<Scalars['Int']>
   skip?: InputMaybe<Scalars['Int']>
   stage?: InputMaybe<Stage>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
 export type MutationUnpublishPageArgs = {
@@ -2048,9 +2027,9 @@ export type MutationUnpublishPostArgs = {
   where: PostWhereUniqueInput
 }
 
-export type MutationUnpublishSeoArgs = {
+export type MutationUnpublishTagArgs = {
   from?: Array<Stage>
-  where: SeoWhereUniqueInput
+  where: TagWhereUniqueInput
 }
 
 export type MutationUpdateAssetArgs = {
@@ -2123,19 +2102,19 @@ export type MutationUpdateManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>
 }
 
-export type MutationUpdateManySeosArgs = {
-  data: SeoUpdateManyInput
-  where?: InputMaybe<SeoManyWhereInput>
+export type MutationUpdateManyTagsArgs = {
+  data: TagUpdateManyInput
+  where?: InputMaybe<TagManyWhereInput>
 }
 
-export type MutationUpdateManySeosConnectionArgs = {
+export type MutationUpdateManyTagsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>
   before?: InputMaybe<Scalars['ID']>
-  data: SeoUpdateManyInput
+  data: TagUpdateManyInput
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   skip?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<SeoManyWhereInput>
+  where?: InputMaybe<TagManyWhereInput>
 }
 
 export type MutationUpdatePageArgs = {
@@ -2153,9 +2132,9 @@ export type MutationUpdateScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput
 }
 
-export type MutationUpdateSeoArgs = {
-  data: SeoUpdateInput
-  where: SeoWhereUniqueInput
+export type MutationUpdateTagArgs = {
+  data: TagUpdateInput
+  where: TagWhereUniqueInput
 }
 
 export type MutationUpsertAssetArgs = {
@@ -2178,9 +2157,9 @@ export type MutationUpsertPostArgs = {
   where: PostWhereUniqueInput
 }
 
-export type MutationUpsertSeoArgs = {
-  upsert: SeoUpsertInput
-  where: SeoWhereUniqueInput
+export type MutationUpsertTagArgs = {
+  upsert: TagUpsertInput
+  where: TagWhereUniqueInput
 }
 
 /** An object with an ID */
@@ -2210,8 +2189,6 @@ export type Page = Node & {
   /** User that last published this document */
   publishedBy?: Maybe<User>
   scheduledIn: Array<ScheduledOperation>
-  /** Relate an SEO model to this page */
-  seo?: Maybe<Seo>
   /** Enter the slug for this page, such as about, blog, or contact */
   slug: Scalars['String']
   /** System stage field */
@@ -2256,10 +2233,6 @@ export type PageScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>
 }
 
-export type PageSeoArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
 export type PageUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>
 }
@@ -2284,7 +2257,6 @@ export type PageConnection = {
 export type PageCreateInput = {
   content: Scalars['RichTextAST']
   createdAt?: InputMaybe<Scalars['DateTime']>
-  seo?: InputMaybe<SeoCreateOneInlineInput>
   slug: Scalars['String']
   subtitle?: InputMaybe<Scalars['String']>
   title: Scalars['String']
@@ -2393,7 +2365,6 @@ export type PageManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seo?: InputMaybe<SeoWhereInput>
   slug?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']>
@@ -2488,7 +2459,6 @@ export enum PageOrderByInput {
 
 export type PageUpdateInput = {
   content?: InputMaybe<Scalars['RichTextAST']>
-  seo?: InputMaybe<SeoUpdateOneInlineInput>
   slug?: InputMaybe<Scalars['String']>
   subtitle?: InputMaybe<Scalars['String']>
   title?: InputMaybe<Scalars['String']>
@@ -2624,7 +2594,6 @@ export type PageWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  seo?: InputMaybe<SeoWhereInput>
   slug?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   slug_contains?: InputMaybe<Scalars['String']>
@@ -2738,6 +2707,7 @@ export type Post = Node & {
   /** System stage field */
   stage: Stage
   tableofcontent?: Maybe<Scalars['Json']>
+  tag: Array<Tag>
   /** Add any relevant tags to this blog post */
   tags: Array<Scalars['String']>
   /** Name your blog post! */
@@ -2790,6 +2760,17 @@ export type PostScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>
 }
 
+export type PostTagArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  locales?: InputMaybe<Array<Locale>>
+  orderBy?: InputMaybe<TagOrderByInput>
+  skip?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<TagWhereInput>
+}
+
 export type PostUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>
 }
@@ -2822,6 +2803,7 @@ export type PostCreateInput = {
   ogp?: InputMaybe<AssetCreateOneInlineInput>
   slug: Scalars['String']
   tableofcontent?: InputMaybe<Scalars['Json']>
+  tag?: InputMaybe<TagCreateManyInlineInput>
   tags?: InputMaybe<Array<Scalars['String']>>
   title: Scalars['String']
   updatedAt?: InputMaybe<Scalars['DateTime']>
@@ -2999,6 +2981,9 @@ export type PostManyWhereInput = {
   slug_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   slug_starts_with?: InputMaybe<Scalars['String']>
+  tag_every?: InputMaybe<TagWhereInput>
+  tag_none?: InputMaybe<TagWhereInput>
+  tag_some?: InputMaybe<TagWhereInput>
   /** Matches if the field array contains *all* items provided to the filter and order does match */
   tags?: InputMaybe<Array<Scalars['String']>>
   /** Matches if the field array contains *all* items provided to the filter */
@@ -3081,6 +3066,7 @@ export type PostUpdateInput = {
   ogp?: InputMaybe<AssetUpdateOneInlineInput>
   slug?: InputMaybe<Scalars['String']>
   tableofcontent?: InputMaybe<Scalars['Json']>
+  tag?: InputMaybe<TagUpdateManyInlineInput>
   tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
@@ -3304,6 +3290,9 @@ export type PostWhereInput = {
   slug_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   slug_starts_with?: InputMaybe<Scalars['String']>
+  tag_every?: InputMaybe<TagWhereInput>
+  tag_none?: InputMaybe<TagWhereInput>
+  tag_some?: InputMaybe<TagWhereInput>
   /** Matches if the field array contains *all* items provided to the filter and order does match */
   tags?: InputMaybe<Array<Scalars['String']>>
   /** Matches if the field array contains *all* items provided to the filter */
@@ -3412,14 +3401,14 @@ export type Query = {
   scheduledReleases: Array<ScheduledRelease>
   /** Retrieve multiple scheduledReleases using the Relay connection interface */
   scheduledReleasesConnection: ScheduledReleaseConnection
-  /** Retrieve a single seo */
-  seo?: Maybe<Seo>
+  /** Retrieve a single tag */
+  tag?: Maybe<Tag>
   /** Retrieve document version */
-  seoVersion?: Maybe<DocumentVersion>
-  /** Retrieve multiple seos */
-  seos: Array<Seo>
-  /** Retrieve multiple seos using the Relay connection interface */
-  seosConnection: SeoConnection
+  tagVersion?: Maybe<DocumentVersion>
+  /** Retrieve multiple tags */
+  tags: Array<Tag>
+  /** Retrieve multiple tags using the Relay connection interface */
+  tagsConnection: TagConnection
   /** Retrieve a single user */
   user?: Maybe<User>
   /** Retrieve multiple users */
@@ -3630,38 +3619,38 @@ export type QueryScheduledReleasesConnectionArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>
 }
 
-export type QuerySeoArgs = {
+export type QueryTagArgs = {
   locales?: Array<Locale>
   stage?: Stage
-  where: SeoWhereUniqueInput
+  where: TagWhereUniqueInput
 }
 
-export type QuerySeoVersionArgs = {
+export type QueryTagVersionArgs = {
   where: VersionWhereInput
 }
 
-export type QuerySeosArgs = {
+export type QueryTagsArgs = {
   after?: InputMaybe<Scalars['String']>
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   locales?: Array<Locale>
-  orderBy?: InputMaybe<SeoOrderByInput>
+  orderBy?: InputMaybe<TagOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
   stage?: Stage
-  where?: InputMaybe<SeoWhereInput>
+  where?: InputMaybe<TagWhereInput>
 }
 
-export type QuerySeosConnectionArgs = {
+export type QueryTagsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   locales?: Array<Locale>
-  orderBy?: InputMaybe<SeoOrderByInput>
+  orderBy?: InputMaybe<TagOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
   stage?: Stage
-  where?: InputMaybe<SeoWhereInput>
+  where?: InputMaybe<TagWhereInput>
 }
 
 export type QueryUserArgs = {
@@ -3800,7 +3789,7 @@ export type ScheduledOperationAffectedDocument =
   | Author
   | Page
   | Post
-  | Seo
+  | Tag
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -4706,571 +4695,6 @@ export type ScheduledReleaseWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>
 }
 
-export type Seo = Node & {
-  __typename?: 'Seo'
-  /** The time the document was created */
-  createdAt: Scalars['DateTime']
-  /** User that created this document */
-  createdBy?: Maybe<User>
-  /** Create a custom meta description */
-  description?: Maybe<Scalars['String']>
-  /** Get the document in other stages */
-  documentInStages: Array<Seo>
-  /** List of Seo versions */
-  history: Array<Version>
-  /** The unique identifier */
-  id: Scalars['ID']
-  /** Select a custom OG image (the most common size is usually 1280x720) */
-  image?: Maybe<Asset>
-  /** Select your focus keywords */
-  keywords: Array<Scalars['String']>
-  /** What pages and blog posts would this SEO apply to? */
-  parent?: Maybe<SeoParent>
-  /** The time the document was published. Null on documents in draft stage. */
-  publishedAt?: Maybe<Scalars['DateTime']>
-  /** User that last published this document */
-  publishedBy?: Maybe<User>
-  scheduledIn: Array<ScheduledOperation>
-  /** System stage field */
-  stage: Stage
-  /** Create a custom meta title */
-  title?: Maybe<Scalars['String']>
-  /** The time the document was updated */
-  updatedAt: Scalars['DateTime']
-  /** User that last updated this document */
-  updatedBy?: Maybe<User>
-}
-
-export type SeoCreatedByArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
-export type SeoDocumentInStagesArgs = {
-  includeCurrent?: Scalars['Boolean']
-  inheritLocale?: Scalars['Boolean']
-  stages?: Array<Stage>
-}
-
-export type SeoHistoryArgs = {
-  limit?: Scalars['Int']
-  skip?: Scalars['Int']
-  stageOverride?: InputMaybe<Stage>
-}
-
-export type SeoImageArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
-export type SeoParentArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
-export type SeoPublishedByArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
-export type SeoScheduledInArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  locales?: InputMaybe<Array<Locale>>
-  skip?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<ScheduledOperationWhereInput>
-}
-
-export type SeoUpdatedByArgs = {
-  locales?: InputMaybe<Array<Locale>>
-}
-
-export type SeoConnectInput = {
-  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
-  position?: InputMaybe<ConnectPositionInput>
-  /** Document to connect */
-  where: SeoWhereUniqueInput
-}
-
-/** A connection to a list of items. */
-export type SeoConnection = {
-  __typename?: 'SeoConnection'
-  aggregate: Aggregate
-  /** A list of edges. */
-  edges: Array<SeoEdge>
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo
-}
-
-export type SeoCreateInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>
-  description?: InputMaybe<Scalars['String']>
-  image?: InputMaybe<AssetCreateOneInlineInput>
-  keywords?: InputMaybe<Array<Scalars['String']>>
-  parent?: InputMaybe<SeoParentCreateOneInlineInput>
-  title?: InputMaybe<Scalars['String']>
-  updatedAt?: InputMaybe<Scalars['DateTime']>
-}
-
-export type SeoCreateManyInlineInput = {
-  /** Connect multiple existing Seo documents */
-  connect?: InputMaybe<Array<SeoWhereUniqueInput>>
-  /** Create and connect multiple existing Seo documents */
-  create?: InputMaybe<Array<SeoCreateInput>>
-}
-
-export type SeoCreateOneInlineInput = {
-  /** Connect one existing Seo document */
-  connect?: InputMaybe<SeoWhereUniqueInput>
-  /** Create and connect one Seo document */
-  create?: InputMaybe<SeoCreateInput>
-}
-
-/** An edge in a connection. */
-export type SeoEdge = {
-  __typename?: 'SeoEdge'
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String']
-  /** The item at the end of the edge. */
-  node: Seo
-}
-
-/** Identifies documents */
-export type SeoManyWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<SeoWhereInput>>
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<SeoWhereInput>>
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<SeoWhereInput>>
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']>
-  createdAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  createdAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  createdAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  createdAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  createdAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  createdAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  createdBy?: InputMaybe<UserWhereInput>
-  description?: InputMaybe<Scalars['String']>
-  /** All values containing the given string. */
-  description_contains?: InputMaybe<Scalars['String']>
-  /** All values ending with the given string. */
-  description_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are contained in given list. */
-  description_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values that are not equal to given value. */
-  description_not?: InputMaybe<Scalars['String']>
-  /** All values not containing the given string. */
-  description_not_contains?: InputMaybe<Scalars['String']>
-  /** All values not ending with the given string */
-  description_not_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are not contained in given list. */
-  description_not_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values not starting with the given string. */
-  description_not_starts_with?: InputMaybe<Scalars['String']>
-  /** All values starting with the given string. */
-  description_starts_with?: InputMaybe<Scalars['String']>
-  id?: InputMaybe<Scalars['ID']>
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']>
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']>
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<Scalars['ID']>>
-  /** All values that are not equal to given value. */
-  id_not?: InputMaybe<Scalars['ID']>
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']>
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']>
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<Scalars['ID']>>
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']>
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']>
-  image?: InputMaybe<AssetWhereInput>
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  keywords?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains *all* items provided to the filter */
-  keywords_contains_all?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  keywords_contains_none?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains at least one item provided to the filter */
-  keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  keywords_not?: InputMaybe<Array<Scalars['String']>>
-  publishedAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  publishedAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  publishedAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  publishedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  publishedAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  publishedAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  publishedAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  publishedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  publishedBy?: InputMaybe<UserWhereInput>
-  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
-  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
-  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  title?: InputMaybe<Scalars['String']>
-  /** All values containing the given string. */
-  title_contains?: InputMaybe<Scalars['String']>
-  /** All values ending with the given string. */
-  title_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are contained in given list. */
-  title_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values that are not equal to given value. */
-  title_not?: InputMaybe<Scalars['String']>
-  /** All values not containing the given string. */
-  title_not_contains?: InputMaybe<Scalars['String']>
-  /** All values not ending with the given string */
-  title_not_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are not contained in given list. */
-  title_not_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values not starting with the given string. */
-  title_not_starts_with?: InputMaybe<Scalars['String']>
-  /** All values starting with the given string. */
-  title_starts_with?: InputMaybe<Scalars['String']>
-  updatedAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  updatedAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  updatedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  updatedAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  updatedAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  updatedBy?: InputMaybe<UserWhereInput>
-}
-
-export enum SeoOrderByInput {
-  CreatedAtAsc = 'createdAt_ASC',
-  CreatedAtDesc = 'createdAt_DESC',
-  DescriptionAsc = 'description_ASC',
-  DescriptionDesc = 'description_DESC',
-  IdAsc = 'id_ASC',
-  IdDesc = 'id_DESC',
-  KeywordsAsc = 'keywords_ASC',
-  KeywordsDesc = 'keywords_DESC',
-  PublishedAtAsc = 'publishedAt_ASC',
-  PublishedAtDesc = 'publishedAt_DESC',
-  TitleAsc = 'title_ASC',
-  TitleDesc = 'title_DESC',
-  UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
-}
-
-export type SeoParent = Page
-
-export type SeoParentConnectInput = {
-  Page?: InputMaybe<PageConnectInput>
-}
-
-export type SeoParentCreateInput = {
-  Page?: InputMaybe<PageCreateInput>
-}
-
-export type SeoParentCreateManyInlineInput = {
-  /** Connect multiple existing SeoParent documents */
-  connect?: InputMaybe<Array<SeoParentWhereUniqueInput>>
-  /** Create and connect multiple existing SeoParent documents */
-  create?: InputMaybe<Array<SeoParentCreateInput>>
-}
-
-export type SeoParentCreateOneInlineInput = {
-  /** Connect one existing SeoParent document */
-  connect?: InputMaybe<SeoParentWhereUniqueInput>
-  /** Create and connect one SeoParent document */
-  create?: InputMaybe<SeoParentCreateInput>
-}
-
-export type SeoParentUpdateInput = {
-  Page?: InputMaybe<PageUpdateInput>
-}
-
-export type SeoParentUpdateManyInlineInput = {
-  /** Connect multiple existing SeoParent documents */
-  connect?: InputMaybe<Array<SeoParentConnectInput>>
-  /** Create and connect multiple SeoParent documents */
-  create?: InputMaybe<Array<SeoParentCreateInput>>
-  /** Delete multiple SeoParent documents */
-  delete?: InputMaybe<Array<SeoParentWhereUniqueInput>>
-  /** Disconnect multiple SeoParent documents */
-  disconnect?: InputMaybe<Array<SeoParentWhereUniqueInput>>
-  /** Override currently-connected documents with multiple existing SeoParent documents */
-  set?: InputMaybe<Array<SeoParentWhereUniqueInput>>
-  /** Update multiple SeoParent documents */
-  update?: InputMaybe<Array<SeoParentUpdateWithNestedWhereUniqueInput>>
-  /** Upsert multiple SeoParent documents */
-  upsert?: InputMaybe<Array<SeoParentUpsertWithNestedWhereUniqueInput>>
-}
-
-export type SeoParentUpdateManyWithNestedWhereInput = {
-  Page?: InputMaybe<PageUpdateManyWithNestedWhereInput>
-}
-
-export type SeoParentUpdateOneInlineInput = {
-  /** Connect existing SeoParent document */
-  connect?: InputMaybe<SeoParentWhereUniqueInput>
-  /** Create and connect one SeoParent document */
-  create?: InputMaybe<SeoParentCreateInput>
-  /** Delete currently connected SeoParent document */
-  delete?: InputMaybe<Scalars['Boolean']>
-  /** Disconnect currently connected SeoParent document */
-  disconnect?: InputMaybe<Scalars['Boolean']>
-  /** Update single SeoParent document */
-  update?: InputMaybe<SeoParentUpdateWithNestedWhereUniqueInput>
-  /** Upsert single SeoParent document */
-  upsert?: InputMaybe<SeoParentUpsertWithNestedWhereUniqueInput>
-}
-
-export type SeoParentUpdateWithNestedWhereUniqueInput = {
-  Page?: InputMaybe<PageUpdateWithNestedWhereUniqueInput>
-}
-
-export type SeoParentUpsertWithNestedWhereUniqueInput = {
-  Page?: InputMaybe<PageUpsertWithNestedWhereUniqueInput>
-}
-
-export type SeoParentWhereInput = {
-  Page?: InputMaybe<PageWhereInput>
-}
-
-export type SeoParentWhereUniqueInput = {
-  Page?: InputMaybe<PageWhereUniqueInput>
-}
-
-export type SeoUpdateInput = {
-  description?: InputMaybe<Scalars['String']>
-  image?: InputMaybe<AssetUpdateOneInlineInput>
-  keywords?: InputMaybe<Array<Scalars['String']>>
-  parent?: InputMaybe<SeoParentUpdateOneInlineInput>
-  title?: InputMaybe<Scalars['String']>
-}
-
-export type SeoUpdateManyInlineInput = {
-  /** Connect multiple existing Seo documents */
-  connect?: InputMaybe<Array<SeoConnectInput>>
-  /** Create and connect multiple Seo documents */
-  create?: InputMaybe<Array<SeoCreateInput>>
-  /** Delete multiple Seo documents */
-  delete?: InputMaybe<Array<SeoWhereUniqueInput>>
-  /** Disconnect multiple Seo documents */
-  disconnect?: InputMaybe<Array<SeoWhereUniqueInput>>
-  /** Override currently-connected documents with multiple existing Seo documents */
-  set?: InputMaybe<Array<SeoWhereUniqueInput>>
-  /** Update multiple Seo documents */
-  update?: InputMaybe<Array<SeoUpdateWithNestedWhereUniqueInput>>
-  /** Upsert multiple Seo documents */
-  upsert?: InputMaybe<Array<SeoUpsertWithNestedWhereUniqueInput>>
-}
-
-export type SeoUpdateManyInput = {
-  description?: InputMaybe<Scalars['String']>
-  keywords?: InputMaybe<Array<Scalars['String']>>
-  title?: InputMaybe<Scalars['String']>
-}
-
-export type SeoUpdateManyWithNestedWhereInput = {
-  /** Update many input */
-  data: SeoUpdateManyInput
-  /** Document search */
-  where: SeoWhereInput
-}
-
-export type SeoUpdateOneInlineInput = {
-  /** Connect existing Seo document */
-  connect?: InputMaybe<SeoWhereUniqueInput>
-  /** Create and connect one Seo document */
-  create?: InputMaybe<SeoCreateInput>
-  /** Delete currently connected Seo document */
-  delete?: InputMaybe<Scalars['Boolean']>
-  /** Disconnect currently connected Seo document */
-  disconnect?: InputMaybe<Scalars['Boolean']>
-  /** Update single Seo document */
-  update?: InputMaybe<SeoUpdateWithNestedWhereUniqueInput>
-  /** Upsert single Seo document */
-  upsert?: InputMaybe<SeoUpsertWithNestedWhereUniqueInput>
-}
-
-export type SeoUpdateWithNestedWhereUniqueInput = {
-  /** Document to update */
-  data: SeoUpdateInput
-  /** Unique document search */
-  where: SeoWhereUniqueInput
-}
-
-export type SeoUpsertInput = {
-  /** Create document if it didn't exist */
-  create: SeoCreateInput
-  /** Update document if it exists */
-  update: SeoUpdateInput
-}
-
-export type SeoUpsertWithNestedWhereUniqueInput = {
-  /** Upsert data */
-  data: SeoUpsertInput
-  /** Unique document search */
-  where: SeoWhereUniqueInput
-}
-
-/** Identifies documents */
-export type SeoWhereInput = {
-  /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<SeoWhereInput>>
-  /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<SeoWhereInput>>
-  /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<SeoWhereInput>>
-  /** Contains search across all appropriate fields. */
-  _search?: InputMaybe<Scalars['String']>
-  createdAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  createdAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  createdAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  createdAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  createdAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  createdAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  createdAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  createdBy?: InputMaybe<UserWhereInput>
-  description?: InputMaybe<Scalars['String']>
-  /** All values containing the given string. */
-  description_contains?: InputMaybe<Scalars['String']>
-  /** All values ending with the given string. */
-  description_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are contained in given list. */
-  description_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values that are not equal to given value. */
-  description_not?: InputMaybe<Scalars['String']>
-  /** All values not containing the given string. */
-  description_not_contains?: InputMaybe<Scalars['String']>
-  /** All values not ending with the given string */
-  description_not_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are not contained in given list. */
-  description_not_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values not starting with the given string. */
-  description_not_starts_with?: InputMaybe<Scalars['String']>
-  /** All values starting with the given string. */
-  description_starts_with?: InputMaybe<Scalars['String']>
-  id?: InputMaybe<Scalars['ID']>
-  /** All values containing the given string. */
-  id_contains?: InputMaybe<Scalars['ID']>
-  /** All values ending with the given string. */
-  id_ends_with?: InputMaybe<Scalars['ID']>
-  /** All values that are contained in given list. */
-  id_in?: InputMaybe<Array<Scalars['ID']>>
-  /** All values that are not equal to given value. */
-  id_not?: InputMaybe<Scalars['ID']>
-  /** All values not containing the given string. */
-  id_not_contains?: InputMaybe<Scalars['ID']>
-  /** All values not ending with the given string */
-  id_not_ends_with?: InputMaybe<Scalars['ID']>
-  /** All values that are not contained in given list. */
-  id_not_in?: InputMaybe<Array<Scalars['ID']>>
-  /** All values not starting with the given string. */
-  id_not_starts_with?: InputMaybe<Scalars['ID']>
-  /** All values starting with the given string. */
-  id_starts_with?: InputMaybe<Scalars['ID']>
-  image?: InputMaybe<AssetWhereInput>
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  keywords?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains *all* items provided to the filter */
-  keywords_contains_all?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  keywords_contains_none?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains at least one item provided to the filter */
-  keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  keywords_not?: InputMaybe<Array<Scalars['String']>>
-  publishedAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  publishedAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  publishedAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  publishedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  publishedAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  publishedAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  publishedAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  publishedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  publishedBy?: InputMaybe<UserWhereInput>
-  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
-  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
-  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
-  title?: InputMaybe<Scalars['String']>
-  /** All values containing the given string. */
-  title_contains?: InputMaybe<Scalars['String']>
-  /** All values ending with the given string. */
-  title_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are contained in given list. */
-  title_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values that are not equal to given value. */
-  title_not?: InputMaybe<Scalars['String']>
-  /** All values not containing the given string. */
-  title_not_contains?: InputMaybe<Scalars['String']>
-  /** All values not ending with the given string */
-  title_not_ends_with?: InputMaybe<Scalars['String']>
-  /** All values that are not contained in given list. */
-  title_not_in?: InputMaybe<Array<Scalars['String']>>
-  /** All values not starting with the given string. */
-  title_not_starts_with?: InputMaybe<Scalars['String']>
-  /** All values starting with the given string. */
-  title_starts_with?: InputMaybe<Scalars['String']>
-  updatedAt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than the given value. */
-  updatedAt_gt?: InputMaybe<Scalars['DateTime']>
-  /** All values greater than or equal the given value. */
-  updatedAt_gte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are contained in given list. */
-  updatedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
-  /** All values less than the given value. */
-  updatedAt_lt?: InputMaybe<Scalars['DateTime']>
-  /** All values less than or equal the given value. */
-  updatedAt_lte?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not equal to given value. */
-  updatedAt_not?: InputMaybe<Scalars['DateTime']>
-  /** All values that are not contained in given list. */
-  updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
-  updatedBy?: InputMaybe<UserWhereInput>
-}
-
-/** References Seo record uniquely */
-export type SeoWhereUniqueInput = {
-  id?: InputMaybe<Scalars['ID']>
-}
-
 /** Stage system enumeration */
 export enum Stage {
   /** The Draft is the default stage for all your content. */
@@ -5283,6 +4707,446 @@ export enum SystemDateTimeFieldVariation {
   Base = 'BASE',
   Combined = 'COMBINED',
   Localization = 'LOCALIZATION'
+}
+
+export type Tag = Node & {
+  __typename?: 'Tag'
+  /** The time the document was created */
+  createdAt: Scalars['DateTime']
+  /** User that created this document */
+  createdBy?: Maybe<User>
+  /** Get the document in other stages */
+  documentInStages: Array<Tag>
+  /** List of Tag versions */
+  history: Array<Version>
+  /** The unique identifier */
+  id: Scalars['ID']
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']>
+  /** User that last published this document */
+  publishedBy?: Maybe<User>
+  scheduledIn: Array<ScheduledOperation>
+  /** System stage field */
+  stage: Stage
+  tagName?: Maybe<Scalars['String']>
+  tagSlug?: Maybe<Scalars['String']>
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime']
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>
+}
+
+export type TagCreatedByArgs = {
+  locales?: InputMaybe<Array<Locale>>
+}
+
+export type TagDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean']
+  inheritLocale?: Scalars['Boolean']
+  stages?: Array<Stage>
+}
+
+export type TagHistoryArgs = {
+  limit?: Scalars['Int']
+  skip?: Scalars['Int']
+  stageOverride?: InputMaybe<Stage>
+}
+
+export type TagPublishedByArgs = {
+  locales?: InputMaybe<Array<Locale>>
+}
+
+export type TagScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  locales?: InputMaybe<Array<Locale>>
+  skip?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<ScheduledOperationWhereInput>
+}
+
+export type TagUpdatedByArgs = {
+  locales?: InputMaybe<Array<Locale>>
+}
+
+export type TagConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>
+  /** Document to connect */
+  where: TagWhereUniqueInput
+}
+
+/** A connection to a list of items. */
+export type TagConnection = {
+  __typename?: 'TagConnection'
+  aggregate: Aggregate
+  /** A list of edges. */
+  edges: Array<TagEdge>
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo
+}
+
+export type TagCreateInput = {
+  ckxo59yxt5gx901z08oka7v02?: InputMaybe<PostCreateManyInlineInput>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  tagName?: InputMaybe<Scalars['String']>
+  tagSlug?: InputMaybe<Scalars['String']>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+}
+
+export type TagCreateManyInlineInput = {
+  /** Connect multiple existing Tag documents */
+  connect?: InputMaybe<Array<TagWhereUniqueInput>>
+  /** Create and connect multiple existing Tag documents */
+  create?: InputMaybe<Array<TagCreateInput>>
+}
+
+export type TagCreateOneInlineInput = {
+  /** Connect one existing Tag document */
+  connect?: InputMaybe<TagWhereUniqueInput>
+  /** Create and connect one Tag document */
+  create?: InputMaybe<TagCreateInput>
+}
+
+/** An edge in a connection. */
+export type TagEdge = {
+  __typename?: 'TagEdge'
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String']
+  /** The item at the end of the edge. */
+  node: Tag
+}
+
+/** Identifies documents */
+export type TagManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TagWhereInput>>
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TagWhereInput>>
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TagWhereInput>>
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  createdBy?: InputMaybe<UserWhereInput>
+  id?: InputMaybe<Scalars['ID']>
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<Scalars['ID']>>
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<Scalars['ID']>>
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>
+  publishedAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  publishedBy?: InputMaybe<UserWhereInput>
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
+  tagName?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  tagName_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  tagName_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  tagName_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  tagName_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  tagName_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  tagName_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  tagName_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  tagName_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  tagName_starts_with?: InputMaybe<Scalars['String']>
+  tagSlug?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  tagSlug_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  tagSlug_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  tagSlug_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  tagSlug_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  tagSlug_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  tagSlug_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  tagSlug_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  tagSlug_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  tagSlug_starts_with?: InputMaybe<Scalars['String']>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  updatedBy?: InputMaybe<UserWhereInput>
+}
+
+export enum TagOrderByInput {
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  TagNameAsc = 'tagName_ASC',
+  TagNameDesc = 'tagName_DESC',
+  TagSlugAsc = 'tagSlug_ASC',
+  TagSlugDesc = 'tagSlug_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC'
+}
+
+export type TagUpdateInput = {
+  ckxo59yxt5gx901z08oka7v02?: InputMaybe<PostUpdateManyInlineInput>
+  tagName?: InputMaybe<Scalars['String']>
+  tagSlug?: InputMaybe<Scalars['String']>
+}
+
+export type TagUpdateManyInlineInput = {
+  /** Connect multiple existing Tag documents */
+  connect?: InputMaybe<Array<TagConnectInput>>
+  /** Create and connect multiple Tag documents */
+  create?: InputMaybe<Array<TagCreateInput>>
+  /** Delete multiple Tag documents */
+  delete?: InputMaybe<Array<TagWhereUniqueInput>>
+  /** Disconnect multiple Tag documents */
+  disconnect?: InputMaybe<Array<TagWhereUniqueInput>>
+  /** Override currently-connected documents with multiple existing Tag documents */
+  set?: InputMaybe<Array<TagWhereUniqueInput>>
+  /** Update multiple Tag documents */
+  update?: InputMaybe<Array<TagUpdateWithNestedWhereUniqueInput>>
+  /** Upsert multiple Tag documents */
+  upsert?: InputMaybe<Array<TagUpsertWithNestedWhereUniqueInput>>
+}
+
+export type TagUpdateManyInput = {
+  tagName?: InputMaybe<Scalars['String']>
+  tagSlug?: InputMaybe<Scalars['String']>
+}
+
+export type TagUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: TagUpdateManyInput
+  /** Document search */
+  where: TagWhereInput
+}
+
+export type TagUpdateOneInlineInput = {
+  /** Connect existing Tag document */
+  connect?: InputMaybe<TagWhereUniqueInput>
+  /** Create and connect one Tag document */
+  create?: InputMaybe<TagCreateInput>
+  /** Delete currently connected Tag document */
+  delete?: InputMaybe<Scalars['Boolean']>
+  /** Disconnect currently connected Tag document */
+  disconnect?: InputMaybe<Scalars['Boolean']>
+  /** Update single Tag document */
+  update?: InputMaybe<TagUpdateWithNestedWhereUniqueInput>
+  /** Upsert single Tag document */
+  upsert?: InputMaybe<TagUpsertWithNestedWhereUniqueInput>
+}
+
+export type TagUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: TagUpdateInput
+  /** Unique document search */
+  where: TagWhereUniqueInput
+}
+
+export type TagUpsertInput = {
+  /** Create document if it didn't exist */
+  create: TagCreateInput
+  /** Update document if it exists */
+  update: TagUpdateInput
+}
+
+export type TagUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: TagUpsertInput
+  /** Unique document search */
+  where: TagWhereUniqueInput
+}
+
+/** Identifies documents */
+export type TagWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TagWhereInput>>
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TagWhereInput>>
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TagWhereInput>>
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>
+  createdAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  createdBy?: InputMaybe<UserWhereInput>
+  id?: InputMaybe<Scalars['ID']>
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<Scalars['ID']>>
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<Scalars['ID']>>
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>
+  publishedAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  publishedBy?: InputMaybe<UserWhereInput>
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>
+  tagName?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  tagName_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  tagName_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  tagName_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  tagName_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  tagName_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  tagName_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  tagName_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  tagName_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  tagName_starts_with?: InputMaybe<Scalars['String']>
+  tagSlug?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  tagSlug_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  tagSlug_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  tagSlug_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  tagSlug_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  tagSlug_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  tagSlug_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  tagSlug_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  tagSlug_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  tagSlug_starts_with?: InputMaybe<Scalars['String']>
+  updatedAt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<Scalars['DateTime']>>
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>
+  updatedBy?: InputMaybe<UserWhereInput>
+}
+
+/** References Tag record uniquely */
+export type TagWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>
 }
 
 export type UnpublishLocaleInput = {
@@ -5756,9 +5620,13 @@ export type GetPostsQuery = {
     id: string
     title: string
     date: any
-    tags: Array<string>
     updatedAt: any
     slug: string
+    tag: Array<{
+      __typename?: 'Tag'
+      tagName?: string | null | undefined
+      tagSlug?: string | null | undefined
+    }>
   }>
 }
 
@@ -5773,7 +5641,6 @@ export type GetPostQuery = {
         __typename?: 'Post'
         id: string
         title: string
-        tags: Array<string>
         slug: string
         content?: string | null | undefined
         date: any
@@ -5781,9 +5648,47 @@ export type GetPostQuery = {
         description?: string | null | undefined
         keywords: Array<string>
         tableofcontent?: any | null | undefined
+        tag: Array<{
+          __typename?: 'Tag'
+          tagName?: string | null | undefined
+          tagSlug?: string | null | undefined
+        }>
       }
     | null
     | undefined
+}
+
+export type GetTagsQueryVariables = Exact<{ [key: string]: never }>
+
+export type GetTagsQuery = {
+  __typename?: 'Query'
+  tags: Array<{
+    __typename?: 'Tag'
+    tagName?: string | null | undefined
+    tagSlug?: string | null | undefined
+  }>
+}
+
+export type GetPostsByTagNameQueryVariables = Exact<{
+  tag: Scalars['String']
+}>
+
+export type GetPostsByTagNameQuery = {
+  __typename?: 'Query'
+  posts: Array<{
+    __typename?: 'Post'
+    content?: string | null | undefined
+    id: string
+    title: string
+    date: any
+    updatedAt: any
+    slug: string
+    tag: Array<{
+      __typename?: 'Tag'
+      tagName?: string | null | undefined
+      tagSlug?: string | null | undefined
+    }>
+  }>
 }
 
 export const GetPostsDocument = gql`
@@ -5792,7 +5697,10 @@ export const GetPostsDocument = gql`
       id
       title
       date
-      tags
+      tag {
+        tagName
+        tagSlug
+      }
       updatedAt
       slug
     }
@@ -5848,7 +5756,10 @@ export const GetPostDocument = gql`
     post(where: { slug: $slug }) {
       id
       title
-      tags
+      tag {
+        tagName
+        tagSlug
+      }
       slug
       content
       date
@@ -5899,4 +5810,119 @@ export type GetPostLazyQueryHookResult = ReturnType<typeof useGetPostLazyQuery>
 export type GetPostQueryResult = Apollo.QueryResult<
   GetPostQuery,
   GetPostQueryVariables
+>
+export const GetTagsDocument = gql`
+  query getTags {
+    tags {
+      tagName
+      tagSlug
+    }
+  }
+`
+
+/**
+ * __useGetTagsQuery__
+ *
+ * To run a query within a React component, call `useGetTagsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetTagsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetTagsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetTagsQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetTagsQuery, GetTagsQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<GetTagsQuery, GetTagsQueryVariables>(
+    GetTagsDocument,
+    options
+  )
+}
+export function useGetTagsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetTagsQuery, GetTagsQueryVariables>
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<GetTagsQuery, GetTagsQueryVariables>(
+    GetTagsDocument,
+    options
+  )
+}
+export type GetTagsQueryHookResult = ReturnType<typeof useGetTagsQuery>
+export type GetTagsLazyQueryHookResult = ReturnType<typeof useGetTagsLazyQuery>
+export type GetTagsQueryResult = Apollo.QueryResult<
+  GetTagsQuery,
+  GetTagsQueryVariables
+>
+export const GetPostsByTagNameDocument = gql`
+  query getPostsByTagName($tag: String!) {
+    posts(where: { tag_some: { AND: { tagSlug: $tag } } }) {
+      content
+      id
+      title
+      date
+      tag {
+        tagName
+        tagSlug
+      }
+      updatedAt
+      slug
+    }
+  }
+`
+
+/**
+ * __useGetPostsByTagNameQuery__
+ *
+ * To run a query within a React component, call `useGetPostsByTagNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostsByTagNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostsByTagNameQuery({
+ *   variables: {
+ *      tag: // value for 'tag'
+ *   },
+ * });
+ */
+export function useGetPostsByTagNameQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetPostsByTagNameQuery,
+    GetPostsByTagNameQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useQuery<
+    GetPostsByTagNameQuery,
+    GetPostsByTagNameQueryVariables
+  >(GetPostsByTagNameDocument, options)
+}
+export function useGetPostsByTagNameLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetPostsByTagNameQuery,
+    GetPostsByTagNameQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions }
+  return Apollo.useLazyQuery<
+    GetPostsByTagNameQuery,
+    GetPostsByTagNameQueryVariables
+  >(GetPostsByTagNameDocument, options)
+}
+export type GetPostsByTagNameQueryHookResult = ReturnType<
+  typeof useGetPostsByTagNameQuery
+>
+export type GetPostsByTagNameLazyQueryHookResult = ReturnType<
+  typeof useGetPostsByTagNameLazyQuery
+>
+export type GetPostsByTagNameQueryResult = Apollo.QueryResult<
+  GetPostsByTagNameQuery,
+  GetPostsByTagNameQueryVariables
 >

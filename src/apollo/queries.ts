@@ -6,18 +6,25 @@ export const GET_POSTS = gql`
       id
       title
       date
-      tags
+      tag {
+        tagName
+        tagSlug
+      }
       updatedAt
       slug
     }
   }
 `
+
 export const GET_POST = gql`
   query getPost($slug: String!) {
     post(where: { slug: $slug }) {
       id
       title
-      tags
+      tag {
+        tagName
+        tagSlug
+      }
       slug
       content
       date
@@ -25,6 +32,32 @@ export const GET_POST = gql`
       description
       keywords
       tableofcontent
+    }
+  }
+`
+
+export const GET_TAGS = gql`
+  query getTags {
+    tags {
+      tagName
+      tagSlug
+    }
+  }
+`
+
+export const GET_POSTS_BY_TAG_NAME = gql`
+  query getPostsByTagName($tag: String!) {
+    posts(where: { tag_some: { AND: { tagSlug: $tag } } }) {
+      content
+      id
+      title
+      date
+      tag {
+        tagName
+        tagSlug
+      }
+      updatedAt
+      slug
     }
   }
 `
