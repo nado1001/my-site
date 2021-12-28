@@ -15,7 +15,7 @@
 }
 
 .post a {
-  @apply text-blue-500;
+  @apply text-blue-500 hover:underline;
 }
 
 .post pre {
