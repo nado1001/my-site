@@ -7,7 +7,7 @@ import type { VFC } from 'react'
 
 type Props = {
   id: string
-  tags: Array<string>
+  // tag: Array<{ tagName: string; tagSlug: string }>
   title: string
   date: string
   slug: string

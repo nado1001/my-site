@@ -14,7 +14,7 @@ const menuList = [
   },
   {
     id: 2,
-    link: '/tag',
+    link: '/tags',
     icon: TagIcon,
     text: 'タグ'
   }
