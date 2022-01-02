@@ -15,7 +15,7 @@ import { Author } from '../../component/Author'
 import { MarkdownToHtml } from '../../component/MarkdownToHtml'
 import { Seo } from '../../component/Seo'
 import { TableOfContent } from '../../component/TableOfContent'
-import { Layout } from '../../layout'
+import { ArticleLayout } from '../../layout'
 
 type Props = {
   data: GetPostQuery
@@ -63,7 +63,7 @@ const Articles: VFC<Props> = (props) => {
         title={post?.title}
         description={post?.description!}
       />
-      <Layout>
+      <ArticleLayout>
         <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-24 md:flex md:justify-between">
           <div className="md:hidden sticky top-0">
             <>
@@ -143,7 +143,7 @@ const Articles: VFC<Props> = (props) => {
             </div>
           </aside>
         </div>
-      </Layout>
+      </ArticleLayout>
     </>
   )
 }
