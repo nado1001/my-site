@@ -6,10 +6,6 @@ export const GET_POSTS = gql`
       id
       title
       date
-      tag {
-        tagName
-        tagSlug
-      }
       updatedAt
       slug
     }
@@ -51,15 +47,12 @@ export const GET_POSTS_BY_TAG_NAME = gql`
       id
       title
       date
-      tag {
-        tagName
-        tagSlug
-      }
       updatedAt
       slug
     }
     tags(where: { AND: { tagSlug: $tag } }) {
       tagName
+      tagSlug
     }
   }
 `

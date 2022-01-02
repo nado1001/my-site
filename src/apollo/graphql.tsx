@@ -5595,11 +5595,6 @@ export type GetPostsQuery = {
     date: any
     updatedAt: any
     slug: string
-    tag: Array<{
-      __typename?: 'Tag'
-      tagName?: string | null | undefined
-      tagSlug?: string | null | undefined
-    }>
   }>
 }
 
@@ -5655,13 +5650,12 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
-    tag: Array<{
-      __typename?: 'Tag'
-      tagName?: string | null | undefined
-      tagSlug?: string | null | undefined
-    }>
   }>
-  tags: Array<{ __typename?: 'Tag'; tagName?: string | null | undefined }>
+  tags: Array<{
+    __typename?: 'Tag'
+    tagName?: string | null | undefined
+    tagSlug?: string | null | undefined
+  }>
 }
 
 export const GetPostsDocument = gql`
@@ -5670,10 +5664,6 @@ export const GetPostsDocument = gql`
       id
       title
       date
-      tag {
-        tagName
-        tagSlug
-      }
       updatedAt
       slug
     }
@@ -5838,15 +5828,12 @@ export const GetPostsByTagNameDocument = gql`
       id
       title
       date
-      tag {
-        tagName
-        tagSlug
-      }
       updatedAt
       slug
     }
     tags(where: { AND: { tagSlug: $tag } }) {
       tagName
+      tagSlug
     }
   }
 `
