@@ -48,7 +48,6 @@ export const GET_TAGS = gql`
 export const GET_POSTS_BY_TAG_NAME = gql`
   query getPostsByTagName($tag: String!) {
     posts(where: { tag_some: { AND: { tagSlug: $tag } } }) {
-      content
       id
       title
       date
@@ -58,6 +57,9 @@ export const GET_POSTS_BY_TAG_NAME = gql`
       }
       updatedAt
       slug
+    }
+    tags(where: { AND: { tagSlug: $tag } }) {
+      tagName
     }
   }
 `

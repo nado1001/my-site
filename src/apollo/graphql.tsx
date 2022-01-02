@@ -2708,8 +2708,6 @@ export type Post = Node & {
   stage: Stage
   tableofcontent?: Maybe<Scalars['Json']>
   tag: Array<Tag>
-  /** Add any relevant tags to this blog post */
-  tags: Array<Scalars['String']>
   /** Name your blog post! */
   title: Scalars['String']
   /** The time the document was updated */
@@ -2804,7 +2802,6 @@ export type PostCreateInput = {
   slug: Scalars['String']
   tableofcontent?: InputMaybe<Scalars['Json']>
   tag?: InputMaybe<TagCreateManyInlineInput>
-  tags?: InputMaybe<Array<Scalars['String']>>
   title: Scalars['String']
   updatedAt?: InputMaybe<Scalars['DateTime']>
 }
@@ -2984,16 +2981,6 @@ export type PostManyWhereInput = {
   tag_every?: InputMaybe<TagWhereInput>
   tag_none?: InputMaybe<TagWhereInput>
   tag_some?: InputMaybe<TagWhereInput>
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  tags?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains *all* items provided to the filter */
-  tags_contains_all?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  tags_contains_none?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains at least one item provided to the filter */
-  tags_contains_some?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  tags_not?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>
@@ -3048,8 +3035,6 @@ export enum PostOrderByInput {
   PublishedAtDesc = 'publishedAt_DESC',
   SlugAsc = 'slug_ASC',
   SlugDesc = 'slug_DESC',
-  TagsAsc = 'tags_ASC',
-  TagsDesc = 'tags_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
@@ -3067,7 +3052,6 @@ export type PostUpdateInput = {
   slug?: InputMaybe<Scalars['String']>
   tableofcontent?: InputMaybe<Scalars['Json']>
   tag?: InputMaybe<TagUpdateManyInlineInput>
-  tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
 
@@ -3094,7 +3078,6 @@ export type PostUpdateManyInput = {
   description?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
   tableofcontent?: InputMaybe<Scalars['Json']>
-  tags?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
 }
 
@@ -3293,16 +3276,6 @@ export type PostWhereInput = {
   tag_every?: InputMaybe<TagWhereInput>
   tag_none?: InputMaybe<TagWhereInput>
   tag_some?: InputMaybe<TagWhereInput>
-  /** Matches if the field array contains *all* items provided to the filter and order does match */
-  tags?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains *all* items provided to the filter */
-  tags_contains_all?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contain any of the items provided to the filter */
-  tags_contains_none?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array contains at least one item provided to the filter */
-  tags_contains_some?: InputMaybe<Array<Scalars['String']>>
-  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
-  tags_not?: InputMaybe<Array<Scalars['String']>>
   title?: InputMaybe<Scalars['String']>
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>
@@ -5677,7 +5650,6 @@ export type GetPostsByTagNameQuery = {
   __typename?: 'Query'
   posts: Array<{
     __typename?: 'Post'
-    content?: string | null | undefined
     id: string
     title: string
     date: any
@@ -5689,6 +5661,7 @@ export type GetPostsByTagNameQuery = {
       tagSlug?: string | null | undefined
     }>
   }>
+  tags: Array<{ __typename?: 'Tag'; tagName?: string | null | undefined }>
 }
 
 export const GetPostsDocument = gql`
@@ -5862,7 +5835,6 @@ export type GetTagsQueryResult = Apollo.QueryResult<
 export const GetPostsByTagNameDocument = gql`
   query getPostsByTagName($tag: String!) {
     posts(where: { tag_some: { AND: { tagSlug: $tag } } }) {
-      content
       id
       title
       date
@@ -5872,6 +5844,9 @@ export const GetPostsByTagNameDocument = gql`
       }
       updatedAt
       slug
+    }
+    tags(where: { AND: { tagSlug: $tag } }) {
+      tagName
     }
   }
 `
