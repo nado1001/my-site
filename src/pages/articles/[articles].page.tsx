@@ -1,6 +1,6 @@
 import 'highlight.js/styles/github-dark.css'
 
-import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { ChevronRightIcon } from '@heroicons/react/outline'
 import cc from 'classcat'
 import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
@@ -74,7 +74,12 @@ const Articles: VFC<Props> = (props) => {
                 <div className="flex items-center w-full">
                   <div>目次</div>
                   <div className="w-5 ml-1">
-                    {open ? <ChevronDownIcon /> : <ChevronRightIcon />}
+                    <ChevronRightIcon
+                      className={cc([
+                        'transform transition-all',
+                        { 'rotate-90': open }
+                      ])}
+                    />
                   </div>
                 </div>
               </button>
