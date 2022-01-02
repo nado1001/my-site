@@ -44,14 +44,7 @@ const Home: VFC<Props> = (props) => {
               className={cc(['grid grid-cols-article md:gap-[30px] sm:gap-4'])}
             >
               {props.data.posts.map((post) => {
-                return (
-                  <Article
-                    key={post.id}
-                    {...post}
-                    // TODO: 1記事以上になったら削除
-                    length={props.data.posts.length}
-                  />
-                )
+                return <Article key={post.id} {...post} />
               })}
             </div>
           </div>

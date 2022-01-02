@@ -11,7 +11,6 @@ type Props = {
   title: string
   date: string
   slug: string
-  length: number
 }
 
 /**
@@ -23,9 +22,7 @@ export const Article: VFC<Props> = (props) => {
   return (
     <article
       className={cc([
-        'bg-white dark:bg-darkBg03 dark:hover:bg-darkHoverBg01 hover:shadow-lg border dark:border-darkBorder01 border-border01 border-solid rounded-lg shadow-md md:min-h-[250px] sm:min-h-[186px]',
-        // TODO: 1記事以上になったら削除
-        { 'md:max-w-[308px]': props.length === 1 }
+        'bg-white dark:bg-darkBg03 dark:hover:bg-darkHoverBg01 hover:shadow-lg border dark:border-darkBorder01 border-border01 border-solid rounded-lg shadow-md md:min-h-[250px] sm:min-h-[186px]'
       ])}
     >
       <Link href={`/articles/${props.slug}`}>
