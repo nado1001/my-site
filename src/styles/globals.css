@@ -25,3 +25,7 @@
 .post code {
   @apply rounded-md;
 }
+
+.post hr {
+  @apply my-8 border-t-2 border-border01 dark:border-darkBorder01 border-dashed;
+}
