@@ -2,8 +2,9 @@ import cc from 'classcat'
 import type { VFC } from 'react'
 
 type TableOfContentList = {
-  item: string
   tag: string
+  slug: string
+  name: string
 }
 
 type Props = {
@@ -27,7 +28,7 @@ export const TableOfContent: VFC<Props> = (props) => {
             (content: TableOfContentList, index: number) => {
               return (
                 <li
-                  key={content.item}
+                  key={content.name}
                   className={cc([
                     '-indent-6 pl-6',
                     content.tag === 'h2'
@@ -36,7 +37,7 @@ export const TableOfContent: VFC<Props> = (props) => {
                     { 'mt-2': index !== 0 }
                   ])}
                 >
-                  <a href={`#${content.item}`}>{content.item}</a>
+                  <a href={`#${content.slug}`}>{content.name}</a>
                 </li>
               )
             }
