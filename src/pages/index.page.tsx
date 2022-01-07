@@ -32,7 +32,7 @@ const Home: VFC<Props> = (props) => {
       <Seo
         path="/"
         noTitleTemplate={true}
-        title="Nado"
+        title="nado"
         description="ナドの個人ブログ"
       />
       <Layout>
