@@ -114,7 +114,7 @@ const Articles: VFC<Props> = (props) => {
                     <Link href={`/tags/${tag.tagSlug}`} key={index}>
                       <a
                         className={cc([
-                          'dark:bg-[#464646] bg-[#ededed] dark:border-darkBorder01 border rounded-[2.5rem] text-sm px-6 py-[4px]',
+                          'dark:bg-[#464646] dark:hover:bg-darkHoverBg01 bg-[#ededed] dark:border-darkBorder01 border rounded-[2.5rem] text-sm px-6 py-[4px]',
                           { 'ml-3': index !== 0 }
                         ])}
                       >
