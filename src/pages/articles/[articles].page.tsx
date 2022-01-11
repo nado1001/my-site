@@ -59,7 +59,7 @@ const Articles: VFC<Props> = (props) => {
   return (
     <>
       <Seo
-        path={post?.slug!}
+        path={`/${post?.slug!}`}
         title={post?.title}
         description={post?.description!}
       />
