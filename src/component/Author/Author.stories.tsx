@@ -6,15 +6,8 @@ import { Author } from './Author'
 export default {
   title: 'Component/Author',
   component: Author
-  // argTypes: {
-  //   backgroundColor: { control: 'color' }
-  // }
 } as Meta
 
 const Template: Story = () => <Author />
 
-export const Primary = Template.bind({})
-// Primary.args = {
-//   primary: true,
-//   label: 'Button'
-// }
+export const Default = Template.bind({})
