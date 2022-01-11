@@ -11,13 +11,13 @@ export type SeoProps = {
 }
 
 const isProd = process.env.NODE_ENV == 'production'
-const url = isProd ? 'https://nado.dev/' : ''
+const url = isProd ? 'https://nado.dev/' : 'http://localhost:3000'
 
 export const Seo: VFC<SeoProps> = (props) => {
   const {
     path,
     title,
-    description = 'Default description',
+    description = 'nadoの個人ブログ',
     ogImagePath = '/default-og.png',
     noindex,
     noTitleTemplate
