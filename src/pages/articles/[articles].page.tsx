@@ -62,6 +62,9 @@ const Articles: VFC<Props> = (props) => {
         path={`/${post?.slug!}`}
         title={post?.title}
         description={post?.description!}
+        ogImage={`https://res.cloudinary.com/nado2022112/image/upload/l_text:Sawarabi%20Gothic_80_bold:${encodeURI(
+          post?.title!
+        )},co_rgb:333,w_1000,c_fit/v1641924252/article-ogp_keuplf.png`}
       />
       <ArticleLayout>
         <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-24 md:flex md:justify-between">

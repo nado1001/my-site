@@ -5,7 +5,7 @@ export type SeoProps = {
   path: string
   title?: string
   description?: string
-  ogImagePath?: string
+  ogImage?: string
   noindex?: boolean
   noTitleTemplate?: boolean
 }
@@ -18,7 +18,7 @@ export const Seo: VFC<SeoProps> = (props) => {
     path,
     title,
     description = 'nadoの個人ブログ',
-    ogImagePath = '/default-og.png',
+    ogImage,
     noindex,
     noTitleTemplate
   } = props
@@ -27,7 +27,7 @@ export const Seo: VFC<SeoProps> = (props) => {
   // Absolute page url
   const pageUrl = APP_ROOT_URL + path
   // Absolute og image url
-  const ogImageUrl = APP_ROOT_URL + ogImagePath
+  const ogImageUrl = ogImage ? ogImage : APP_ROOT_URL + '/default-og.png'
 
   return (
     <NextHeadSeo
