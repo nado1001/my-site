@@ -14,7 +14,9 @@ class MyDocument extends Document {
         style={{ scrollBehavior: 'smooth' }}
         className="sm:scroll-pt-[50px]"
       >
-        <Head />
+        <Head>
+          <link href="/favicon.png" rel="icon" />
+        </Head>
         <body className="bg-bg01 dark:bg-darkBg01">
           <Main />
           <NextScript />
