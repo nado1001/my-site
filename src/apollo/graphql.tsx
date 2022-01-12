@@ -66,7 +66,6 @@ export type Asset = Node & {
   localizations: Array<Asset>
   /** The mime type of the file */
   mimeType?: Maybe<Scalars['String']>
-  ogpPost: Array<Post>
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>
   /** User that last published this document */
@@ -141,18 +140,6 @@ export type AssetLocalizationsArgs = {
 }
 
 /** Asset system model */
-export type AssetOgpPostArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  locales?: InputMaybe<Array<Locale>>
-  orderBy?: InputMaybe<PostOrderByInput>
-  skip?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<PostWhereInput>
-}
-
-/** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation
 }
@@ -215,7 +202,6 @@ export type AssetCreateInput = {
   /** Inline mutations for managing document localizations excluding the default locale */
   localizations?: InputMaybe<AssetCreateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
-  ogpPost?: InputMaybe<PostCreateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   updatedAt?: InputMaybe<Scalars['DateTime']>
   width?: InputMaybe<Scalars['Float']>
@@ -317,9 +303,6 @@ export type AssetManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>
-  ogpPost_every?: InputMaybe<PostWhereInput>
-  ogpPost_none?: InputMaybe<PostWhereInput>
-  ogpPost_some?: InputMaybe<PostWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -397,7 +380,6 @@ export type AssetUpdateInput = {
   /** Manage document localizations */
   localizations?: InputMaybe<AssetUpdateLocalizationsInput>
   mimeType?: InputMaybe<Scalars['String']>
-  ogpPost?: InputMaybe<PostUpdateManyInlineInput>
   size?: InputMaybe<Scalars['Float']>
   width?: InputMaybe<Scalars['Float']>
 }
@@ -643,9 +625,6 @@ export type AssetWhereInput = {
   mimeType_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   mimeType_starts_with?: InputMaybe<Scalars['String']>
-  ogpPost_every?: InputMaybe<PostWhereInput>
-  ogpPost_none?: InputMaybe<PostWhereInput>
-  ogpPost_some?: InputMaybe<PostWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -2693,10 +2672,10 @@ export type Post = Node & {
   documentInStages: Array<Post>
   /** List of Post versions */
   history: Array<Version>
+  icon?: Maybe<Scalars['String']>
   /** The unique identifier */
   id: Scalars['ID']
   keywords: Array<Scalars['String']>
-  ogp?: Maybe<Asset>
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>
   /** User that last published this document */
@@ -2738,10 +2717,6 @@ export type PostHistoryArgs = {
   limit?: Scalars['Int']
   skip?: Scalars['Int']
   stageOverride?: InputMaybe<Stage>
-}
-
-export type PostOgpArgs = {
-  locales?: InputMaybe<Array<Locale>>
 }
 
 export type PostPublishedByArgs = {
@@ -2797,8 +2772,8 @@ export type PostCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>
   date: Scalars['Date']
   description?: InputMaybe<Scalars['String']>
+  icon?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
-  ogp?: InputMaybe<AssetCreateOneInlineInput>
   slug: Scalars['String']
   tableofcontent?: InputMaybe<Scalars['Json']>
   tag?: InputMaybe<TagCreateManyInlineInput>
@@ -2910,6 +2885,25 @@ export type PostManyWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>
+  icon?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  icon_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  icon_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  icon_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  icon_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  icon_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  icon_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  icon_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  icon_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  icon_starts_with?: InputMaybe<Scalars['String']>
   id?: InputMaybe<Scalars['ID']>
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>
@@ -2939,7 +2933,6 @@ export type PostManyWhereInput = {
   keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
   /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
   keywords_not?: InputMaybe<Array<Scalars['String']>>
-  ogp?: InputMaybe<AssetWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -3027,6 +3020,8 @@ export enum PostOrderByInput {
   DateDesc = 'date_DESC',
   DescriptionAsc = 'description_ASC',
   DescriptionDesc = 'description_DESC',
+  IconAsc = 'icon_ASC',
+  IconDesc = 'icon_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   KeywordsAsc = 'keywords_ASC',
@@ -3047,8 +3042,8 @@ export type PostUpdateInput = {
   coverImage?: InputMaybe<AssetUpdateOneInlineInput>
   date?: InputMaybe<Scalars['Date']>
   description?: InputMaybe<Scalars['String']>
+  icon?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
-  ogp?: InputMaybe<AssetUpdateOneInlineInput>
   slug?: InputMaybe<Scalars['String']>
   tableofcontent?: InputMaybe<Scalars['Json']>
   tag?: InputMaybe<TagUpdateManyInlineInput>
@@ -3076,6 +3071,7 @@ export type PostUpdateManyInput = {
   content?: InputMaybe<Scalars['String']>
   date?: InputMaybe<Scalars['Date']>
   description?: InputMaybe<Scalars['String']>
+  icon?: InputMaybe<Scalars['String']>
   keywords?: InputMaybe<Array<Scalars['String']>>
   tableofcontent?: InputMaybe<Scalars['Json']>
   title?: InputMaybe<Scalars['String']>
@@ -3205,6 +3201,25 @@ export type PostWhereInput = {
   description_not_starts_with?: InputMaybe<Scalars['String']>
   /** All values starting with the given string. */
   description_starts_with?: InputMaybe<Scalars['String']>
+  icon?: InputMaybe<Scalars['String']>
+  /** All values containing the given string. */
+  icon_contains?: InputMaybe<Scalars['String']>
+  /** All values ending with the given string. */
+  icon_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are contained in given list. */
+  icon_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values that are not equal to given value. */
+  icon_not?: InputMaybe<Scalars['String']>
+  /** All values not containing the given string. */
+  icon_not_contains?: InputMaybe<Scalars['String']>
+  /** All values not ending with the given string */
+  icon_not_ends_with?: InputMaybe<Scalars['String']>
+  /** All values that are not contained in given list. */
+  icon_not_in?: InputMaybe<Array<Scalars['String']>>
+  /** All values not starting with the given string. */
+  icon_not_starts_with?: InputMaybe<Scalars['String']>
+  /** All values starting with the given string. */
+  icon_starts_with?: InputMaybe<Scalars['String']>
   id?: InputMaybe<Scalars['ID']>
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>
@@ -3234,7 +3249,6 @@ export type PostWhereInput = {
   keywords_contains_some?: InputMaybe<Array<Scalars['String']>>
   /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
   keywords_not?: InputMaybe<Array<Scalars['String']>>
-  ogp?: InputMaybe<AssetWhereInput>
   publishedAt?: InputMaybe<Scalars['DateTime']>
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>
@@ -5595,6 +5609,7 @@ export type GetPostsQuery = {
     date: any
     updatedAt: any
     slug: string
+    icon: string
   }>
 }
 
@@ -5666,6 +5681,7 @@ export const GetPostsDocument = gql`
       date
       updatedAt
       slug
+      icon
     }
   }
 `

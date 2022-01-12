@@ -8,6 +8,7 @@ export const GET_POSTS = gql`
       date
       updatedAt
       slug
+      icon
     }
   }
 `
