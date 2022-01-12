@@ -1,7 +1,7 @@
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 import type { VFC } from 'react'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 /**
  * @package
@@ -20,7 +20,7 @@ export const ThemeChange: VFC = () => {
     setEnabled(!enabled)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (theme === 'light') {
       setEnabled(true)
     }
