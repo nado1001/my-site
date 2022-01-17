@@ -13150,7 +13150,7 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-media@^1.4.0:
+use-media@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/use-media/-/use-media-1.4.0.tgz#e777bf1f382a7aacabbd1f9ce3da2b62e58b2a98"
   integrity sha512-XsgyUAf3nhzZmEfhc5MqLHwyaPjs78bgytpVJ/xDl0TF4Bptf3vEpBNBBT/EIKOmsOc8UbuECq3mrP3mt1QANA==
@@ -13251,7 +13251,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-valtio@^1.2.8:
+valtio@1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.2.8.tgz#59472314efe03ef259a70a49c8fb8dfbdf2668f4"
   integrity sha512-xDfSulIVwrvsSwHVLfVcBe/pt6MwE/IUsansyqE5AuM7P/1xonnWFcRvR1AqDQV3N9gKlMkq1NAc9TD6EE1eGQ==
