@@ -1,12 +1,11 @@
 import 'highlight.js/styles/github-dark.css'
 
-import { ChevronRightIcon } from '@heroicons/react/outline'
+import { MenuAlt2Icon } from '@heroicons/react/solid'
 import cc from 'classcat'
 import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import type { VFC } from 'react'
-import { useState } from 'react'
 
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient'
 import type { GetPostQuery, GetPostsQuery } from '../../apollo/graphql'
@@ -16,6 +15,7 @@ import { MarkdownToHtml } from '../../component/MarkdownToHtml'
 import { Seo } from '../../component/Seo'
 import { TableOfContent } from '../../component/TableOfContent'
 import { ArticleLayout } from '../../layout'
+import { useTableOfContentState } from '../../states/store'
 
 type Props = {
   data: GetPostQuery
@@ -50,10 +50,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const Articles: VFC<Props> = (props) => {
   const post = props.data.post
-  const [open, setOpen] = useState<boolean>(false)
+  const { open, setOpen } = useTableOfContentState()
 
   const handleClickTableOfContent = () => {
-    setOpen(!open)
+    setOpen()
   }
 
   return (
@@ -68,28 +68,23 @@ const Articles: VFC<Props> = (props) => {
       />
       <ArticleLayout>
         <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-24 md:flex md:justify-between">
-          <div className="md:hidden sticky top-0">
+          <div className="md:hidden sticky top-0 z-50">
             <>
               <button
                 className="w-full flex justify-start bg-white dark:bg-darkBg02 py-3 px-5 border-b border-border01 dark:border-darkBorder01"
                 onClick={handleClickTableOfContent}
               >
                 <div className="flex items-center w-full">
-                  <div>目次</div>
-                  <div className="w-5 ml-1">
-                    <ChevronRightIcon
-                      className={cc([
-                        'transform transition-all',
-                        { 'rotate-90': open }
-                      ])}
-                    />
+                  <div className="w-5 mr-2">
+                    <MenuAlt2Icon />
                   </div>
+                  <div>目次</div>
                 </div>
               </button>
               {open && (
                 <>
                   <button
-                    className="h-screen w-full absolute"
+                    className="h-screen w-full fixed top-0 dark:bg-[rgba(0,0,0,0.7)] bg-[rgba(0,0,0,0.2)]"
                     onClick={handleClickTableOfContent}
                   />
                   <TableOfContent

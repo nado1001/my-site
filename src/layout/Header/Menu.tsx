@@ -4,9 +4,8 @@ import cc from 'classcat'
 import Link from 'next/link'
 import type { VFC } from 'react'
 import { createElement } from 'react'
-import { useSnapshot } from 'valtio'
 
-import { handleSetMenu, menuState } from './Header'
+import { useMenuState } from '../../states/store'
 
 const menuList = [
   {
@@ -27,12 +26,16 @@ const menuList = [
  * @package
  */
 export const Menu: VFC = () => {
-  const snap = useSnapshot(menuState)
+  const { open, setOpen } = useMenuState()
+
+  const handleSetMenu = (): void => {
+    setOpen()
+  }
 
   return (
     <nav
       className={cc([
-        snap.isOpen ? 'md:block' : 'md:hidden',
+        open ? 'md:block' : 'md:hidden',
         'md:dark:bg-darkBg02  sm:dark:bg-darkBg01 md:w-[240px] md:py-6 bg-white sm:border-t dark:border-darkBorder01 sm:fixed md:absolute md:top-[60px] md:left-12 border-border01 sm:bottom-0 sm:flex sm:items-center sm:w-screen sm:py-[14px] z-50 md:border md:rounded-lg'
       ])}
     >
