@@ -5665,6 +5665,7 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
+    icon: string
   }>
   tags: Array<{
     __typename?: 'Tag'

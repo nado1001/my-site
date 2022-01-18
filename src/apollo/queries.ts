@@ -50,6 +50,7 @@ export const GET_POSTS_BY_TAG_NAME = gql`
       date
       updatedAt
       slug
+      icon
     }
     tags(where: { AND: { tagSlug: $tag } }) {
       tagName
