@@ -70,17 +70,17 @@ const Articles: VFC<Props> = (props) => {
         <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-24 md:flex md:justify-between">
           <div className="md:hidden sticky top-0 z-50">
             <>
-              <button
-                className="w-full flex justify-start bg-white dark:bg-darkBg02 py-3 px-5 border-b border-border01 dark:border-darkBorder01"
-                onClick={handleClickTableOfContent}
-              >
-                <div className="flex items-center w-full">
+              <div className="w-full h-12 flex justify-start bg-white dark:bg-darkBg02 px-5 border-b border-border01 dark:border-darkBorder01">
+                <button
+                  className="flex items-center"
+                  onClick={handleClickTableOfContent}
+                >
                   <div className="w-5 mr-2">
                     <MenuAlt2Icon />
                   </div>
                   <div>目次</div>
-                </div>
-              </button>
+                </button>
+              </div>
               {open && (
                 <>
                   <button
