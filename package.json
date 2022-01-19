@@ -34,7 +34,7 @@
     "swr": "1.1.2",
     "unified": "10.1.1",
     "use-media": "1.4.0",
-    "valtio": "1.2.8"
+    "valtio": "1.2.9"
   },
   "devDependencies": {
     "@babel/core": "7.16.7",
