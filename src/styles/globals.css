@@ -29,3 +29,15 @@
 .post hr {
   @apply my-8 border-t-2 border-border01 dark:border-darkBorder01 border-dashed;
 }
+
+.post blockquote {
+  @apply relative mt-5 pt-[30px] pb-2 px-[15px] rounded-xl box-border dark:bg-[#303133] bg-[#f9fafb] text-[#959595] italic;
+}
+.post blockquote:before {
+  @apply inline-block absolute top-[5px] left-1 text-[#cfcfcf] text-[90px] leading-none;
+  content: '“';
+  font-family: sans-serif;
+}
+.post blockquote p {
+  @apply p-0 my-[10px] mx-0 leading-[1.7];
+}
