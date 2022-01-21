@@ -5,7 +5,7 @@ import cc from 'classcat'
 import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
-import type { VFC } from 'react'
+import type { ReactElement, VFC } from 'react'
 import { createElement } from 'react'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
@@ -137,7 +137,10 @@ const Articles: VFC<Props> = (props) => {
                 })}
               </div>
               <div className="post">
-                {processor.processSync(props.highlightedBody).result}
+                {
+                  processor.processSync(props.highlightedBody)
+                    .result as ReactElement
+                }
               </div>
             </section>
           </div>
