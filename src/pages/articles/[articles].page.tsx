@@ -6,11 +6,16 @@ import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
 import type { VFC } from 'react'
+import { createElement } from 'react'
+import rehypeParse from 'rehype-parse'
+import rehypeReact from 'rehype-react'
+import { unified } from 'unified'
 
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient'
 import type { GetPostQuery, GetPostsQuery } from '../../apollo/graphql'
 import { GET_POST, GET_POSTS } from '../../apollo/queries'
 import { Author } from '../../component/Author'
+import { CustomLink } from '../../component/CustomLink'
 import { MarkdownToHtml } from '../../component/MarkdownToHtml'
 import { Seo } from '../../component/Seo'
 import { TableOfContent } from '../../component/TableOfContent'
@@ -47,6 +52,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 60 * 60
   })
 }
+
+const processor = unified()
+  .use(rehypeParse, { fragment: true })
+  .use(rehypeReact, {
+    createElement: createElement,
+    components: {
+      a: CustomLink as any
+    }
+  })
 
 const Articles: VFC<Props> = (props) => {
   const post = props.data.post
@@ -122,12 +136,9 @@ const Articles: VFC<Props> = (props) => {
                   )
                 })}
               </div>
-              <div
-                className="post"
-                dangerouslySetInnerHTML={{
-                  __html: props.highlightedBody
-                }}
-              />
+              <div className="post">
+                {processor.processSync(props.highlightedBody).result}
+              </div>
             </section>
           </div>
           <aside className="md:max-w-[250px]">
