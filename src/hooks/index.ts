@@ -1,1 +1,1 @@
-export { useStaticSWR } from './useStaticSWR'
+export { useIsomorphicEffect } from './useIsomorphicEffect'

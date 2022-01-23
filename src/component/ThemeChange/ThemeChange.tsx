@@ -1,7 +1,9 @@
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
 import type { VFC } from 'react'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
+
+import { useIsomorphicEffect } from '../../hooks'
 
 /**
  * @package
@@ -20,10 +22,7 @@ export const ThemeChange: VFC = () => {
     setEnabled(!enabled)
   }
 
-  const useIsomorphicLayoutEffect =
-    typeof window !== 'undefined' ? useLayoutEffect : useEffect
-
-  useIsomorphicLayoutEffect(() => {
+  useIsomorphicEffect(() => {
     if (theme === 'light') {
       setEnabled(true)
     }
