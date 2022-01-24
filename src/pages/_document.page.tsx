@@ -15,7 +15,7 @@ class MyDocument extends Document {
         className="sm:scroll-pt-[50px]"
       >
         <Head>
-          <link href="/favicon.png" rel="icon" />
+          <link href="/favicon.svg" rel="icon" />
         </Head>
         <body className="bg-bg01 dark:bg-darkBg01">
           <Main />
