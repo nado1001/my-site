@@ -9,6 +9,7 @@ import { GET_POSTS } from '../apollo/queries'
 import { Article } from '../component/Article'
 import { Seo } from '../component/Seo'
 import { Layout } from '../layout'
+import { generatedRssFeed } from '../lib/feed'
 
 type Props = {
   data: GetPostsQuery
@@ -20,6 +21,9 @@ export const getStaticProps: GetStaticProps = async () => {
     query: GET_POSTS,
     variables: {}
   })
+
+  await generatedRssFeed(data)
+
   return addApolloState(apolloClient, {
     props: { data },
     revalidate: 60 * 60

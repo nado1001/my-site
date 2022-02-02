@@ -11,7 +11,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>
 }
-const defaultOptions = {}
+const defaultOptions = {} as const
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string
@@ -5606,10 +5606,11 @@ export type GetPostsQuery = {
     __typename?: 'Post'
     id: string
     title: string
+    content: string
     date: any
     updatedAt: any
     slug: string
-    icon: string
+    icon?: string
   }>
 }
 
@@ -5619,26 +5620,23 @@ export type GetPostQueryVariables = Exact<{
 
 export type GetPostQuery = {
   __typename?: 'Query'
-  post?:
-    | {
-        __typename?: 'Post'
-        id: string
-        title: string
-        slug: string
-        content?: string | null | undefined
-        date: any
-        updatedAt: any
-        description?: string | null | undefined
-        keywords: Array<string>
-        tableofcontent?: any | null | undefined
-        tag: Array<{
-          __typename?: 'Tag'
-          tagName?: string | null | undefined
-          tagSlug?: string | null | undefined
-        }>
-      }
-    | null
-    | undefined
+  post?: {
+    __typename?: 'Post'
+    id: string
+    title: string
+    slug: string
+    content: string
+    date: any
+    updatedAt: any
+    description?: string | null
+    keywords: Array<string>
+    tableofcontent?: any | null
+    tag: Array<{
+      __typename?: 'Tag'
+      tagName?: string | null
+      tagSlug?: string | null
+    }>
+  } | null
 }
 
 export type GetTagsQueryVariables = Exact<{ [key: string]: never }>
@@ -5647,8 +5645,8 @@ export type GetTagsQuery = {
   __typename?: 'Query'
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null | undefined
-    tagSlug?: string | null | undefined
+    tagName?: string | null
+    tagSlug?: string | null
   }>
 }
 
@@ -5665,12 +5663,12 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
-    icon: string
+    icon?: string | null
   }>
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null | undefined
-    tagSlug?: string | null | undefined
+    tagName?: string | null
+    tagSlug?: string | null
   }>
 }
 
@@ -5679,6 +5677,7 @@ export const GetPostsDocument = gql`
     posts {
       id
       title
+      content
       date
       updatedAt
       slug
@@ -5847,6 +5846,7 @@ export const GetPostsByTagNameDocument = gql`
       date
       updatedAt
       slug
+      icon
     }
     tags(where: { AND: { tagSlug: $tag } }) {
       tagName

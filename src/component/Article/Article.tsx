@@ -9,6 +9,7 @@ type Props = {
   id: string
   // tag: Array<{ tagName: string; tagSlug: string }>
   title: string
+  content: string
   date: string
   slug: string
   icon?: string
