@@ -5607,7 +5607,6 @@ export type GetPostsQuery = {
     id: string
     title: string
     description: string
-    content: string
     date: any
     updatedAt: any
     slug: string
@@ -5667,7 +5666,7 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
-    icon?: string | null | undefined
+    icon: string
   }>
   tags: Array<{
     __typename?: 'Tag'
