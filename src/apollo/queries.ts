@@ -5,6 +5,7 @@ export const GET_POSTS = gql`
     posts {
       id
       title
+      description
       content
       date
       updatedAt

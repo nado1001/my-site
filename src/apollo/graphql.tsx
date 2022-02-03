@@ -5606,11 +5606,12 @@ export type GetPostsQuery = {
     __typename?: 'Post'
     id: string
     title: string
+    description: string
     content: string
     date: any
     updatedAt: any
     slug: string
-    icon?: string
+    icon: string
   }>
 }
 
@@ -5620,23 +5621,26 @@ export type GetPostQueryVariables = Exact<{
 
 export type GetPostQuery = {
   __typename?: 'Query'
-  post?: {
-    __typename?: 'Post'
-    id: string
-    title: string
-    slug: string
-    content: string
-    date: any
-    updatedAt: any
-    description?: string | null
-    keywords: Array<string>
-    tableofcontent?: any | null
-    tag: Array<{
-      __typename?: 'Tag'
-      tagName?: string | null
-      tagSlug?: string | null
-    }>
-  } | null
+  post?:
+    | {
+        __typename?: 'Post'
+        id: string
+        title: string
+        slug: string
+        content?: string | null | undefined
+        date: any
+        updatedAt: any
+        description?: string | null | undefined
+        keywords: Array<string>
+        tableofcontent?: any | null | undefined
+        tag: Array<{
+          __typename?: 'Tag'
+          tagName?: string | null | undefined
+          tagSlug?: string | null | undefined
+        }>
+      }
+    | null
+    | undefined
 }
 
 export type GetTagsQueryVariables = Exact<{ [key: string]: never }>
@@ -5645,8 +5649,8 @@ export type GetTagsQuery = {
   __typename?: 'Query'
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null
-    tagSlug?: string | null
+    tagName?: string | null | undefined
+    tagSlug?: string | null | undefined
   }>
 }
 
@@ -5663,12 +5667,12 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
-    icon?: string | null
+    icon?: string | null | undefined
   }>
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null
-    tagSlug?: string | null
+    tagName?: string | null | undefined
+    tagSlug?: string | null | undefined
   }>
 }
 
@@ -5677,6 +5681,7 @@ export const GetPostsDocument = gql`
     posts {
       id
       title
+      description
       content
       date
       updatedAt
