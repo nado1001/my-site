@@ -11,7 +11,7 @@ export type SeoProps = {
 }
 
 const isProd = process.env.NODE_ENV == 'production'
-const url = isProd ? 'https://nado.dev/' : 'http://localhost:3000'
+const url = isProd ? 'https://nado1999.me' : 'http://localhost:3000'
 
 export const Seo: VFC<SeoProps> = (props) => {
   const {
