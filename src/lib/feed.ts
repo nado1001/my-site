@@ -21,6 +21,7 @@ export const generatedRssFeed = async ({ posts }: GetPostsQuery) => {
     link: baseUrl,
     language: 'ja',
     image: `${baseUrl}/favicon.png`,
+    favicon: `${baseUrl}/favicon.svg`,
     copyright: `All rights reserved ${date.getFullYear()}, ${author.name}`,
     updated: date,
     feedLinks: {
@@ -36,7 +37,10 @@ export const generatedRssFeed = async ({ posts }: GetPostsQuery) => {
       description: post.description,
       id: url,
       link: url,
-      date: new Date(post.date)
+      date: new Date(post.date),
+      image: `https://res.cloudinary.com/nado2022112/image/upload/l_text:Sawarabi%20Gothic_80_bold:${encodeURI(
+        post.title
+      )},co_rgb:333,w_1000,c_fit/v1641924252/article-ogp_keuplf.png`
     })
   })
 
