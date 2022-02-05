@@ -11,7 +11,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>
 }
-const defaultOptions = {}
+const defaultOptions = {} as const
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string
@@ -5606,6 +5606,7 @@ export type GetPostsQuery = {
     __typename?: 'Post'
     id: string
     title: string
+    description: string
     date: any
     updatedAt: any
     slug: string
@@ -5679,6 +5680,8 @@ export const GetPostsDocument = gql`
     posts {
       id
       title
+      description
+      content
       date
       updatedAt
       slug
@@ -5847,6 +5850,7 @@ export const GetPostsByTagNameDocument = gql`
       date
       updatedAt
       slug
+      icon
     }
     tags(where: { AND: { tagSlug: $tag } }) {
       tagName

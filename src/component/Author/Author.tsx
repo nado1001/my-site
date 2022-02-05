@@ -1,3 +1,4 @@
+import { RssIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import type { VFC } from 'react'
@@ -46,6 +47,9 @@ export const Author: VFC = () => {
               height="22"
               alt="github"
             />
+          </a>
+          <a href="/feed.xml" className="ml-2 inline-block hover:opacity-80">
+            <RssIcon width={24} />
           </a>
         </div>
       </div>
