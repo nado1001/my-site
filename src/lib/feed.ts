@@ -31,7 +31,7 @@ export const generatedRssFeed = async ({ posts }: GetPostsQuery) => {
   })
 
   posts.forEach((post) => {
-    const url = `${baseUrl}/${post.slug}`
+    const url = `${baseUrl}/articles/${post.slug}`
     feed.addItem({
       title: post.title,
       description: post.description,
