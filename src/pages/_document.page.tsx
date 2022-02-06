@@ -16,7 +16,6 @@ class MyDocument extends Document {
       >
         <Head>
           <link href="/favicon.svg" rel="icon" />
-          <meta name="robots" content="noindex" />
         </Head>
         <body className="bg-bg01 dark:bg-darkBg01">
           <Main />
