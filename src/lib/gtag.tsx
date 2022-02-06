@@ -6,7 +6,7 @@ export const GA4_TRACKING_ID = process.env.NEXT_PUBLIC_GA4_ID
 export const UA_TRACKING_ID = process.env.NEXT_PUBLIC_UA_ID
 
 export const pageview = (url: string) => {
-  if (UA_TRACKING_ID) {
+  if (UA_TRACKING_ID && window.gtag) {
     window.gtag('config', UA_TRACKING_ID, {
       page_path: url
     })
