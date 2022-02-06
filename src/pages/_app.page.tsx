@@ -2,11 +2,10 @@ import '../styles/globals.css'
 
 import { ApolloProvider } from '@apollo/client'
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 
 import { useApollo } from '../apollo/apolloClient'
-import { GoogleAnalytics, usePageView } from '../lib/gtag'
+import { usePageView } from '../lib/gtag'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
@@ -15,9 +14,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={apolloClient}>
       <ThemeProvider attribute="class" defaultTheme="dark">
-        <Head>
-          <GoogleAnalytics />
-        </Head>
         <Component {...pageProps} />
       </ThemeProvider>
     </ApolloProvider>
