@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply dark:text-white text-[#4e4e4e];
+}
+
 .post h2 {
   @apply font-bold text-[25px] mt-[50px];
 }
@@ -40,4 +44,8 @@
 }
 .post blockquote p {
   @apply p-0 my-[10px] mx-0 leading-[1.7];
+}
+
+.post p > code {
+  @apply dark:bg-gray-600 bg-[#eeeeee] px-2 rounded;
 }

@@ -1,6 +1,8 @@
 import type { DocumentContext } from 'next/document'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
+import { GoogleAnalytics } from '../lib/gtag'
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -16,7 +18,7 @@ class MyDocument extends Document {
       >
         <Head>
           <link href="/favicon.svg" rel="icon" />
-          <meta name="robots" content="noindex" />
+          <GoogleAnalytics />
         </Head>
         <body className="bg-bg01 dark:bg-darkBg01">
           <Main />
