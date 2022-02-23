@@ -68,7 +68,7 @@
     "eslint-plugin-tailwindcss": "3.5.0",
     "feed": "4.2.2",
     "msw": "0.38.1",
-    "next-sitemap": "2.4.6",
+    "next-sitemap": "2.5.1",
     "postcss": "8.4.6",
     "prettier": "2.5.1",
     "react-is": "17.0.2",
