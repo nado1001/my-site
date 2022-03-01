@@ -11,7 +11,7 @@
     "gen-types": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "3.5.9",
+    "@apollo/client": "3.5.10",
     "@apollo/react-hooks": "4.0.0",
     "@headlessui/react": "1.5.0",
     "@heroicons/react": "1.0.5",
