@@ -40,9 +40,9 @@
   "devDependencies": {
     "@babel/core": "7.17.5",
     "@graphql-codegen/cli": "2.6.2",
-    "@graphql-codegen/typescript": "2.4.5",
-    "@graphql-codegen/typescript-operations": "2.3.2",
-    "@graphql-codegen/typescript-react-apollo": "3.2.8",
+    "@graphql-codegen/typescript": "2.4.7",
+    "@graphql-codegen/typescript-operations": "2.3.4",
+    "@graphql-codegen/typescript-react-apollo": "3.2.10",
     "@storybook/addon-actions": "6.4.19",
     "@storybook/addon-essentials": "6.4.19",
     "@storybook/addon-links": "6.4.19",
