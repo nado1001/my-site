@@ -11,7 +11,7 @@ type Props = {
   title: string
   date: string
   slug: string
-  icon?: string
+  icon?: string | null
 }
 
 /**

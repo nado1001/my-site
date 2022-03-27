@@ -10,7 +10,10 @@ import { Layout } from '../../layout'
 
 const Tags: VFC = () => {
   const { data, loading } = useQuery<GetTagsQuery>(GET_TAGS, {
-    fetchPolicy: 'cache-and-network'
+    fetchPolicy: 'cache-and-network',
+    variables: {
+      stage: process.env.stage
+    }
   })
 
   return (

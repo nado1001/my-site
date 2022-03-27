@@ -3,7 +3,7 @@ import { CodeIcon, DesktopComputerIcon } from '@heroicons/react/solid'
 import { VFC } from 'react'
 
 type Props = {
-  icon?: string
+  icon?: string | null
   className?: string
 }
 

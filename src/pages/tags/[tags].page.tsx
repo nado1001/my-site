@@ -16,7 +16,10 @@ type Props = {
 export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetTagsQuery>({
-    query: GET_TAGS
+    query: GET_TAGS,
+    variables: {
+      stage: process.env.stage
+    }
   })
   const paths = data.tags.map((tag) => {
     return { params: { tags: tag.tagSlug! } }
@@ -28,7 +31,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostsByTagNameQuery>({
     query: GET_POSTS_BY_TAG_NAME,
-    variables: { tag: params?.tags }
+    variables: {
+      tag: params?.tags,
+      stage: process.env.stage
+    }
   })
 
   return addApolloState(apolloClient, {
