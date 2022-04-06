@@ -55,7 +55,7 @@ body {
   @apply list-decimal ml-4;
 }
 
-.post ol {
+.post ul {
   @apply list-disc ml-4;
 }
 
