@@ -36,7 +36,7 @@ export const Author: VFC = () => {
             />
           </a>
           <a
-            href="https://github.com/take-tech1001"
+            href="https://github.com/nado1001"
             target="_blank"
             className="ml-2 inline-block hover:opacity-80"
             rel="noreferrer"
