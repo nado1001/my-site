@@ -38,7 +38,7 @@
     "valtio": "1.5.1"
   },
   "devDependencies": {
-    "@babel/core": "7.17.8",
+    "@babel/core": "7.17.9",
     "@graphql-codegen/cli": "2.6.2",
     "@graphql-codegen/typescript": "2.4.8",
     "@graphql-codegen/typescript-operations": "2.3.5",
@@ -55,7 +55,7 @@
     "@typescript-eslint/eslint-plugin": "5.18.0",
     "@typescript-eslint/parser": "5.18.0",
     "autoprefixer": "10.4.4",
-    "babel-loader": "8.2.4",
+    "babel-loader": "8.2.5",
     "classcat": "5.0.3",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
