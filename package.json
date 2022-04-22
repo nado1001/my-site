@@ -8,7 +8,8 @@
     "lint": "next lint",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
-    "gen-types": "graphql-codegen --config codegen.yml"
+    "gen-types": "graphql-codegen --config codegen.yml",
+    "chromatic": "chromatic"
   },
   "dependencies": {
     "@apollo/client": "3.5.10",
@@ -56,6 +57,7 @@
     "@typescript-eslint/parser": "5.18.0",
     "autoprefixer": "10.4.4",
     "babel-loader": "8.2.5",
+    "chromatic": "^6.5.4",
     "classcat": "5.0.3",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.5",

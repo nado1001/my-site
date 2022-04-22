@@ -37,10 +37,10 @@ export const TableOfContent: VFC<Props> = (props) => {
                 <li
                   key={content.name}
                   className={cc([
-                    '-indent-6 pl-6',
+                    '-indent-6 pl-6 leading-6',
                     content.tag === 'h2'
-                      ? 'font-bold text-lg'
-                      : 'text-base ml-4',
+                      ? 'font-bold text-[15px]'
+                      : 'text-sm ml-4',
                     { 'mt-2': index !== 0 }
                   ])}
                 >

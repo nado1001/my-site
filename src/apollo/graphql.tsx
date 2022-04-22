@@ -3530,7 +3530,7 @@ export type QueryPostsArgs = {
   locales?: Array<Locale>
   orderBy?: InputMaybe<PostOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
-  stage?: Stage
+  stage?: InputMaybe<Stage>
   where?: InputMaybe<PostWhereInput>
 }
 
@@ -3542,7 +3542,7 @@ export type QueryPostsConnectionArgs = {
   locales?: Array<Locale>
   orderBy?: InputMaybe<PostOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
-  stage?: Stage
+  stage?: InputMaybe<Stage>
   where?: InputMaybe<PostWhereInput>
 }
 
@@ -3624,7 +3624,7 @@ export type QueryTagsArgs = {
   locales?: Array<Locale>
   orderBy?: InputMaybe<TagOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
-  stage?: Stage
+  stage?: InputMaybe<Stage>
   where?: InputMaybe<TagWhereInput>
 }
 
@@ -3636,7 +3636,7 @@ export type QueryTagsConnectionArgs = {
   locales?: Array<Locale>
   orderBy?: InputMaybe<TagOrderByInput>
   skip?: InputMaybe<Scalars['Int']>
-  stage?: Stage
+  stage?: InputMaybe<Stage>
   where?: InputMaybe<TagWhereInput>
 }
 
@@ -5565,6 +5565,8 @@ export enum _MutationKind {
   DeleteMany = 'deleteMany',
   Publish = 'publish',
   PublishMany = 'publishMany',
+  SchedulePublish = 'schedulePublish',
+  ScheduleUnpublish = 'scheduleUnpublish',
   Unpublish = 'unpublish',
   UnpublishMany = 'unpublishMany',
   Update = 'update',
@@ -5598,7 +5600,9 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
-export type GetPostsQueryVariables = Exact<{ [key: string]: never }>
+export type GetPostsQueryVariables = Exact<{
+  stage?: Stage
+}>
 
 export type GetPostsQuery = {
   __typename?: 'Query'
@@ -5606,55 +5610,56 @@ export type GetPostsQuery = {
     __typename?: 'Post'
     id: string
     title: string
-    description: string
+    description?: string | null
     date: any
     updatedAt: any
     slug: string
-    icon: string
+    icon?: string | null
   }>
 }
 
 export type GetPostQueryVariables = Exact<{
   slug: Scalars['String']
+  stage?: Stage
 }>
 
 export type GetPostQuery = {
   __typename?: 'Query'
-  post?:
-    | {
-        __typename?: 'Post'
-        id: string
-        title: string
-        slug: string
-        content?: string | null | undefined
-        date: any
-        updatedAt: any
-        description?: string | null | undefined
-        keywords: Array<string>
-        tableofcontent?: any | null | undefined
-        tag: Array<{
-          __typename?: 'Tag'
-          tagName?: string | null | undefined
-          tagSlug?: string | null | undefined
-        }>
-      }
-    | null
-    | undefined
+  post?: {
+    __typename?: 'Post'
+    id: string
+    title: string
+    slug: string
+    content?: string | null
+    date: any
+    updatedAt: any
+    description?: string | null
+    keywords: Array<string>
+    tableofcontent?: any | null
+    tag: Array<{
+      __typename?: 'Tag'
+      tagName?: string | null
+      tagSlug?: string | null
+    }>
+  } | null
 }
 
-export type GetTagsQueryVariables = Exact<{ [key: string]: never }>
+export type GetTagsQueryVariables = Exact<{
+  stage?: Stage
+}>
 
 export type GetTagsQuery = {
   __typename?: 'Query'
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null | undefined
-    tagSlug?: string | null | undefined
+    tagName?: string | null
+    tagSlug?: string | null
   }>
 }
 
 export type GetPostsByTagNameQueryVariables = Exact<{
   tag: Scalars['String']
+  stage?: Stage
 }>
 
 export type GetPostsByTagNameQuery = {
@@ -5666,22 +5671,21 @@ export type GetPostsByTagNameQuery = {
     date: any
     updatedAt: any
     slug: string
-    icon: string
+    icon?: string | null
   }>
   tags: Array<{
     __typename?: 'Tag'
-    tagName?: string | null | undefined
-    tagSlug?: string | null | undefined
+    tagName?: string | null
+    tagSlug?: string | null
   }>
 }
 
 export const GetPostsDocument = gql`
-  query getPosts {
-    posts {
+  query getPosts($stage: Stage! = PUBLISHED) {
+    posts(stage: $stage, orderBy: createdAt_DESC) {
       id
       title
       description
-      content
       date
       updatedAt
       slug
@@ -5702,6 +5706,7 @@ export const GetPostsDocument = gql`
  * @example
  * const { data, loading, error } = useGetPostsQuery({
  *   variables: {
+ *      stage: // value for 'stage'
  *   },
  * });
  */
@@ -5735,8 +5740,8 @@ export type GetPostsQueryResult = Apollo.QueryResult<
   GetPostsQueryVariables
 >
 export const GetPostDocument = gql`
-  query getPost($slug: String!) {
-    post(where: { slug: $slug }) {
+  query getPost($slug: String!, $stage: Stage! = PUBLISHED) {
+    post(where: { slug: $slug }, stage: $stage) {
       id
       title
       tag {
@@ -5767,6 +5772,7 @@ export const GetPostDocument = gql`
  * const { data, loading, error } = useGetPostQuery({
  *   variables: {
  *      slug: // value for 'slug'
+ *      stage: // value for 'stage'
  *   },
  * });
  */
@@ -5795,8 +5801,8 @@ export type GetPostQueryResult = Apollo.QueryResult<
   GetPostQueryVariables
 >
 export const GetTagsDocument = gql`
-  query getTags {
-    tags {
+  query getTags($stage: Stage! = PUBLISHED) {
+    tags(stage: $stage, orderBy: createdAt_DESC) {
       tagName
       tagSlug
     }
@@ -5815,6 +5821,7 @@ export const GetTagsDocument = gql`
  * @example
  * const { data, loading, error } = useGetTagsQuery({
  *   variables: {
+ *      stage: // value for 'stage'
  *   },
  * });
  */
@@ -5843,8 +5850,8 @@ export type GetTagsQueryResult = Apollo.QueryResult<
   GetTagsQueryVariables
 >
 export const GetPostsByTagNameDocument = gql`
-  query getPostsByTagName($tag: String!) {
-    posts(where: { tag_some: { AND: { tagSlug: $tag } } }) {
+  query getPostsByTagName($tag: String!, $stage: Stage! = PUBLISHED) {
+    posts(where: { tag_some: { AND: { tagSlug: $tag } } }, stage: $stage) {
       id
       title
       date
@@ -5852,7 +5859,7 @@ export const GetPostsByTagNameDocument = gql`
       slug
       icon
     }
-    tags(where: { AND: { tagSlug: $tag } }) {
+    tags(where: { AND: { tagSlug: $tag } }, stage: $stage) {
       tagName
       tagSlug
     }
@@ -5872,6 +5879,7 @@ export const GetPostsByTagNameDocument = gql`
  * const { data, loading, error } = useGetPostsByTagNameQuery({
  *   variables: {
  *      tag: // value for 'tag'
+ *      stage: // value for 'stage'
  *   },
  * });
  */

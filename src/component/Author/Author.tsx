@@ -36,7 +36,7 @@ export const Author: VFC = () => {
             />
           </a>
           <a
-            href="https://github.com/take-tech1001"
+            href="https://github.com/nado1001"
             target="_blank"
             className="ml-2 inline-block hover:opacity-80"
             rel="noreferrer"
@@ -54,9 +54,11 @@ export const Author: VFC = () => {
         </div>
       </div>
       <p className="pt-6">
-        名古屋在住Webエンジニア
+        名古屋在住フロントエンドエンジニア
         <br />
         現在は東京の受託開発企業にリモートで勤務
+        <br />
+        技術スタック：React, TypeScript, GraphQL など
         <br />
         好きな作家は三秋縋・河野裕
       </p>

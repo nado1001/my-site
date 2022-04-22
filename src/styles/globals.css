@@ -46,6 +46,28 @@ body {
   @apply p-0 my-[10px] mx-0 leading-[1.7];
 }
 
-.post p > code {
+.post p > code,
+.post td > code {
   @apply dark:bg-gray-600 bg-[#eeeeee] px-2 rounded;
+}
+
+.post ol {
+  @apply list-decimal ml-4;
+}
+
+.post ul {
+  @apply list-disc ml-4;
+}
+
+.post table {
+  @apply my-4 border-collapse overflow-auto sm:w-full;
+}
+
+.post thead tr {
+  @apply bg-bg01 dark:bg-darkBg01;
+}
+
+.post th,
+.post td {
+  @apply p-2 border border-border01 dark:border-darkBorder01;
 }

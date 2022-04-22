@@ -30,7 +30,10 @@ type Props = {
 export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostsQuery>({
-    query: GET_POSTS
+    query: GET_POSTS,
+    variables: {
+      stage: process.env.stage
+    }
   })
   const paths = data.posts.map((post) => {
     return { params: { articles: post.slug } }
@@ -42,7 +45,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostQuery>({
     query: GET_POST,
-    variables: { slug: params?.articles }
+    variables: {
+      slug: params?.articles,
+      stage: process.env.stage
+    }
   })
 
   const highlightedBody = await MarkdownToHtml(data.post?.content!)
@@ -54,8 +60,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 const processor = unified()
-  .use(rehypeParse, { fragment: true })
-  .use(rehypeReact, {
+  .use(rehypeParse as any, { fragment: true })
+  .use(rehypeReact as any, {
     createElement: createElement,
     components: {
       a: CustomLink as any
@@ -110,7 +116,7 @@ const Articles: VFC<Props> = (props) => {
             </>
           </div>
           <div className="md:dark:bg-darkBg02 md:bg-white dark:border-darkBorder01 md:border md:p-10 md:rounded-lg md:w-[calc(100%-300px)]">
-            <div className="flex sm:flex-col sm:items-center md:items-end md:justify-between sm:p-12 md:pb-6">
+            <div className="flex sm:flex-col sm:items-center md:items-end md:justify-between sm:py-12 sm:px-6 md:pb-6">
               <h1 className="text-3xl font-semibold">{post?.title}</h1>
               <span className="text-xs block sm:mt-5">
                 {format(new Date(post?.date), 'yyyy.MM.dd')}

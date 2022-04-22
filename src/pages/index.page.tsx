@@ -19,7 +19,9 @@ export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostsQuery>({
     query: GET_POSTS,
-    variables: {}
+    variables: {
+      stage: process.env.stage
+    }
   })
 
   await generatedRssFeed(data)
