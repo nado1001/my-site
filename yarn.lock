@@ -13419,10 +13419,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-valtio@1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.5.1.tgz#2ffcd75a21f6d4900a4462e18f1b08bb56d121ec"
-  integrity sha512-xU7agtknShEPEGkr6xomAyfzbgJGRRvCo0+utx5D2Qf6pTpTzRVP0BlztIb8vh1HtoJlWE9R9LTsFftvCEpN6w==
+valtio@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.6.0.tgz#37332b2a937ceab4cb8a500c50063add600032b8"
+  integrity sha512-I/AUMRGlGpskbTdwYbiJutMKq4AHPgV8GWMwvPPQ6jdAhlWO4gheK4bTKZ22Ff5ONXjjZE8mQ0vL5l0em4wJGg==
   dependencies:
     proxy-compare "2.1.0"
     use-sync-external-store "1.0.0"
