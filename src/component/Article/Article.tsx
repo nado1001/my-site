@@ -1,7 +1,7 @@
 import cc from 'classcat'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import { ArchiveCardIcon } from '../Icon/ArchiveCardIcon'
 
@@ -17,7 +17,7 @@ type Props = {
 /**
  * @package
  */
-export const Article: VFC<Props> = (props) => {
+export const Article: FC<Props> = (props) => {
   const { title, date, slug, icon } = props
 
   return (

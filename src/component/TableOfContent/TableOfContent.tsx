@@ -1,5 +1,5 @@
 import cc from 'classcat'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import { useTableOfContentState } from '../../states/store'
 
@@ -17,7 +17,7 @@ type Props = {
 /**
  * @package
  */
-export const TableOfContent: VFC<Props> = (props) => {
+export const TableOfContent: FC<Props> = (props) => {
   const { setOpen } = useTableOfContentState()
   const handleClickOpen = () => {
     setOpen()

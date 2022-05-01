@@ -1,5 +1,5 @@
 import NextHeadSeo from 'next-head-seo'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 export type SeoProps = {
   path: string
@@ -13,7 +13,7 @@ export type SeoProps = {
 const isProd = process.env.NODE_ENV == 'production'
 const url = isProd ? 'https://nado1999.me' : 'http://localhost:3000'
 
-export const Seo: VFC<SeoProps> = (props) => {
+export const Seo: FC<SeoProps> = (props) => {
   const {
     path,
     title,

@@ -1,10 +1,10 @@
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import styles from './Loading.module.css'
 
 /**
  * @package
  */
-export const Loading: VFC = () => {
+export const Loading: FC = () => {
   return <div className={styles.loader} />
 }

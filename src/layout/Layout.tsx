@@ -1,4 +1,4 @@
-import type { ReactNode, VFC } from 'react'
+import type { FC, ReactNode } from 'react'
 
 import { Author } from '../component/Author'
 import { Header } from './Header'
@@ -11,7 +11,7 @@ type Props = {
 /**
  * @package
  */
-export const Layout: VFC<Props> = ({ children }) => {
+export const Layout: FC<Props> = ({ children }) => {
   return (
     <div>
       <Header />

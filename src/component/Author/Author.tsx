@@ -1,12 +1,12 @@
 import { RssIcon } from '@heroicons/react/solid'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 /**
  * @package
  */
-export const Author: VFC = () => {
+export const Author: FC = () => {
   const { theme } = useTheme()
 
   return (

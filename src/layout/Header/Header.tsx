@@ -2,7 +2,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import { ThemeChange } from '../../component/ThemeChange'
 import { useMenuState } from '../../states/store'
@@ -10,7 +10,7 @@ import { useMenuState } from '../../states/store'
 /**
  * @package
  */
-export const Header: VFC = () => {
+export const Header: FC = () => {
   const { theme } = useTheme()
   const { open, setOpen } = useMenuState()
 

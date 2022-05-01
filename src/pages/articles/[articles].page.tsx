@@ -5,7 +5,7 @@ import cc from 'classcat'
 import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import Link from 'next/link'
-import type { ReactElement, VFC } from 'react'
+import type { FC, ReactElement } from 'react'
 import { createElement } from 'react'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
@@ -68,7 +68,7 @@ const processor = unified()
     }
   })
 
-const Articles: VFC<Props> = (props) => {
+const Articles: FC<Props> = (props) => {
   const post = props.data.post
   const { open, setOpen } = useTableOfContentState()
 

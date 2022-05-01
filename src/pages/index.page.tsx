@@ -1,7 +1,7 @@
 // import { useQuery } from '@apollo/client'
 import cc from 'classcat'
 import type { GetStaticProps } from 'next'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import { addApolloState, initializeApollo } from '../apollo/apolloClient'
 import type { GetPostsQuery } from '../apollo/graphql'
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 }
 
-const Home: VFC<Props> = (props) => {
+const Home: FC<Props> = (props) => {
   return (
     <>
       <Seo
