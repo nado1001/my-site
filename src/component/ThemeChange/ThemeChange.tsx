@@ -1,6 +1,6 @@
 import { Switch } from '@headlessui/react'
 import { useTheme } from 'next-themes'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 import { useState } from 'react'
 
 import { useIsomorphicEffect } from '../../hooks'
@@ -8,7 +8,7 @@ import { useIsomorphicEffect } from '../../hooks'
 /**
  * @package
  */
-export const ThemeChange: VFC = () => {
+export const ThemeChange: FC = () => {
   const { theme, setTheme } = useTheme()
   const [enabled, setEnabled] = useState(false)
 

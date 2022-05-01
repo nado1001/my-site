@@ -2,7 +2,7 @@ import { HomeIcon } from '@heroicons/react/solid'
 import { TagIcon } from '@heroicons/react/solid'
 import cc from 'classcat'
 import Link from 'next/link'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 import { createElement } from 'react'
 
 import { useMenuState } from '../../states/store'
@@ -25,7 +25,7 @@ const menuList = [
 /**
  * @package
  */
-export const Menu: VFC = () => {
+export const Menu: FC = () => {
   const { open, setOpen } = useMenuState()
 
   const handleSetMenu = (): void => {

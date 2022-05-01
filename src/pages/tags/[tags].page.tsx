@@ -1,6 +1,6 @@
 import cc from 'classcat'
 import type { GetStaticPaths, GetStaticProps } from 'next'
-import type { VFC } from 'react'
+import type { FC } from 'react'
 
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient'
 import type { GetPostsByTagNameQuery, GetTagsQuery } from '../../apollo/graphql'
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   })
 }
 
-const Tags: VFC<Props> = (props) => {
+const Tags: FC<Props> = (props) => {
   return (
     <>
       <Seo

@@ -10,7 +10,7 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:react-hooks/recommended',
+    // 'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'next/core-web-vitals',
     'prettier'

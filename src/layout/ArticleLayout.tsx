@@ -1,4 +1,4 @@
-import type { ReactNode, VFC } from 'react'
+import type { FC, ReactNode } from 'react'
 
 import { Header } from './Header'
 import { Menu } from './Header'
@@ -10,7 +10,7 @@ type Props = {
 /**
  * @package
  */
-export const ArticleLayout: VFC<Props> = ({ children }) => {
+export const ArticleLayout: FC<Props> = ({ children }) => {
   return (
     <div>
       <Header />
