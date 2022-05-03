@@ -14,7 +14,7 @@
   "dependencies": {
     "@apollo/client": "3.6.2",
     "@apollo/react-hooks": "4.0.0",
-    "@headlessui/react": "1.6.0",
+    "@headlessui/react": "1.6.1",
     "@heroicons/react": "1.0.6",
     "date-fns": "2.28.0",
     "deepmerge": "4.2.2",
