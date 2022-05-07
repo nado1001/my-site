@@ -9,7 +9,10 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook",
     "gen-types": "graphql-codegen --config codegen.yml",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "test": "vitest run",
+    "test:ui": "vitest run --ui",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@apollo/client": "3.6.2",

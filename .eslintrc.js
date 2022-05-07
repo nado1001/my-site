@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: { project: './tsconfig.json' },
-  env: { node: true },
+  env: { node: true, jest: true },
   plugins: [
     '@typescript-eslint',
     'tailwindcss',
