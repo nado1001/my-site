@@ -7,7 +7,6 @@ import { ArchiveCardIcon } from '../Icon/ArchiveCardIcon'
 
 type Props = {
   id: string
-  // tag: Array<{ tagName: string; tagSlug: string }>
   title: string
   date: string
   slug: string
@@ -27,7 +26,7 @@ export const Article: FC<Props> = (props) => {
       ])}
     >
       <Link href={`/articles/${slug}`}>
-        <a className="block w-full h-full">
+        <a className="block w-full h-full" data-testid="article-nav">
           <div className="dark:bg-darkBg04 bg-bg02 flex justify-center items-center sm:py-4 md:py-6 dark:border-b-0 border-b border-border01 rounded-t-[6px]">
             <ArchiveCardIcon
               icon={icon}
@@ -35,7 +34,10 @@ export const Article: FC<Props> = (props) => {
             />
           </div>
           <div className="sm:p-[9px] md:px-4 md:py-7 text-[15px] rounded-b-[6px]">
-            <span className="block text-right text-xs">
+            <span
+              className="block text-right text-xs"
+              data-testid="article-date"
+            >
               {format(new Date(date), 'yyyy.MM.dd')}
             </span>
             <h2 className="mt-2 font-semibold">{title}</h2>
