@@ -1,5 +1,9 @@
 import { BookOpenIcon } from '@heroicons/react/outline'
-import { CodeIcon, DesktopComputerIcon } from '@heroicons/react/solid'
+import {
+  CheckCircleIcon,
+  CodeIcon,
+  DesktopComputerIcon
+} from '@heroicons/react/solid'
 import { FC } from 'react'
 
 type Props = {
@@ -15,6 +19,9 @@ export const ArchiveCardIcon: FC<Props> = (props) => {
 
     case 'pc':
       return <DesktopComputerIcon className={className} />
+
+    case 'check':
+      return <CheckCircleIcon className={className} />
 
     default:
       return <BookOpenIcon className={className} />
