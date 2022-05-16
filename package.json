@@ -57,7 +57,7 @@
     "@testing-library/user-event": "14.2.0",
     "@types/gtag.js": "0.0.10",
     "@types/lodash.isequal": "4.5.6",
-    "@types/node": "16.11.35",
+    "@types/node": "16.11.36",
     "@types/react": "18.0.9",
     "@types/testing-library__user-event": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "5.23.0",
