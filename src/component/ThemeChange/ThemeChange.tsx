@@ -1,4 +1,5 @@
-import { Switch, useMantineTheme } from '@mantine/core'
+import { Switch, Tooltip } from '@mantine/core'
+import { useHotkeys } from '@mantine/hooks'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
 import { useState } from 'react'
@@ -9,7 +10,6 @@ import { useIsomorphicEffect } from '../../hooks'
  * @package
  */
 export const ThemeChange: FC = () => {
-  const mantineTheme = useMantineTheme()
   const { theme, setTheme } = useTheme()
   const [enabled, setEnabled] = useState(false)
 
@@ -23,6 +23,8 @@ export const ThemeChange: FC = () => {
     setEnabled(!enabled)
   }
 
+  useHotkeys([['mod+J', () => handleThemeChange()]])
+
   useIsomorphicEffect(() => {
     if (theme === 'dark') {
       setEnabled(true)
@@ -31,13 +33,16 @@ export const ThemeChange: FC = () => {
 
   return (
     <div>
-      <Switch
-        checked={enabled}
-        onChange={handleThemeChange}
-        color={mantineTheme.colors.dark[1]}
-        size="lg"
-        defaultChecked={!enabled}
-      />
+      <Tooltip label="⌘ + J" openDelay={500}>
+        <Switch
+          checked={enabled}
+          onChange={handleThemeChange}
+          size="lg"
+          classNames={{
+            input: 'cursor-pointer'
+          }}
+        />
+      </Tooltip>
     </div>
   )
 }
