@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps)
   usePageView()
 
-  const myTheme: MantineThemeOverride = {
+  const theme: MantineThemeOverride = {
     primaryColor: 'dark',
     colors: {
       dark: [
@@ -22,17 +22,18 @@ function MyApp({ Component, pageProps }: AppProps) {
         '#666980',
         '#4d4f66',
         '#34354a',
-        '#01010a',
+        '#2b2c3d',
         '#1d1e30',
         '#0c0d21',
         '#01010a'
       ]
-    }
+    },
+    primaryShade: 9
   }
 
   return (
     <ApolloProvider client={apolloClient}>
-      <MantineProvider theme={myTheme} withGlobalStyles withNormalizeCSS>
+      <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Component {...pageProps} />
         </ThemeProvider>
