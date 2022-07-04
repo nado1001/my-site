@@ -80,7 +80,7 @@
     "jest-extended": "^2.0.0",
     "jsdom": "20.0.0",
     "msw": "0.43.0",
-    "next-page-tester": "^0.32.0",
+    "next-page-tester": "0.33.0",
     "next-sitemap": "3.1.8",
     "postcss": "8.4.14",
     "prettier": "2.7.1",
