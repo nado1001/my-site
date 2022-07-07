@@ -79,7 +79,7 @@
     "feed": "4.2.2",
     "jest-extended": "^2.0.0",
     "jsdom": "20.0.0",
-    "msw": "0.43.0",
+    "msw": "0.43.1",
     "next-page-tester": "0.33.0",
     "next-sitemap": "3.1.10",
     "postcss": "8.4.14",
