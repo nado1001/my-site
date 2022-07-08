@@ -1,14 +1,12 @@
-import type { DocumentContext } from 'next/document'
+import { createGetInitialProps } from '@mantine/next'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { GoogleAnalytics } from '../lib/gtag'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
+const getInitialProps = createGetInitialProps()
 
-    return initialProps
-  }
+class MyDocument extends Document {
+  static getInitialProps = getInitialProps
 
   render() {
     return (

@@ -1,4 +1,5 @@
-import { Switch } from '@headlessui/react'
+import { Switch, Tooltip } from '@mantine/core'
+import { useHotkeys } from '@mantine/hooks'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
 import { useState } from 'react'
@@ -22,28 +23,26 @@ export const ThemeChange: FC = () => {
     setEnabled(!enabled)
   }
 
+  useHotkeys([['mod+J', () => handleThemeChange()]])
+
   useIsomorphicEffect(() => {
-    if (theme === 'light') {
+    if (theme === 'dark') {
       setEnabled(true)
     }
   }, [])
 
   return (
     <div>
-      <Switch
-        checked={enabled}
-        onChange={handleThemeChange}
-        className={`${
-          enabled ? 'bg-border01' : 'bg-darkBg01'
-        } relative inline-flex flex-shrink-0 h-[28px] w-[60px] border-2 border-transparent rounded-full cursor-pointer transition-crs ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-      >
-        <span
-          aria-hidden="true"
-          className={`${
-            enabled ? 'translate-x-8' : 'translate-x-0'
-          } pointer-events-none inline-block h-[24px] w-[24px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200`}
+      <Tooltip label="⌘ + J" openDelay={500}>
+        <Switch
+          checked={enabled}
+          onChange={handleThemeChange}
+          size="lg"
+          classNames={{
+            input: 'cursor-pointer'
+          }}
         />
-      </Switch>
+      </Tooltip>
     </div>
   )
 }
