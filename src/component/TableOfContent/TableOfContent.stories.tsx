@@ -1,5 +1,4 @@
 import type { Meta, Story } from '@storybook/react/types-6-0'
-import { format } from 'date-fns'
 import React from 'react'
 
 import { TableOfContent } from './TableOfContent'
