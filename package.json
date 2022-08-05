@@ -19,7 +19,7 @@
     "@apollo/react-hooks": "4.0.0",
     "@heroicons/react": "1.0.6",
     "@mantine/core": "4.2.12",
-    "@mantine/hooks": "4.2.12",
+    "@mantine/hooks": "5.0.3",
     "@mantine/next": "4.2.12",
     "date-fns": "2.29.1",
     "deepmerge": "4.2.2",
