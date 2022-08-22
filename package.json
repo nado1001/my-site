@@ -59,7 +59,7 @@
     "@testing-library/user-event": "14.4.3",
     "@types/gtag.js": "0.0.10",
     "@types/lodash.isequal": "4.5.6",
-    "@types/node": "16.11.51",
+    "@types/node": "16.11.52",
     "@types/react": "18.0.17",
     "@types/testing-library__user-event": "4.2.0",
     "@typescript-eslint/eslint-plugin": "5.33.1",
