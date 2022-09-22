@@ -1,6 +1,6 @@
 import 'highlight.js/styles/github-dark.css'
 
-import { MenuAlt2Icon } from '@heroicons/react/solid'
+import { Bars3BottomLeftIcon } from '@heroicons/react/24/solid'
 import cc from 'classcat'
 import { format } from 'date-fns'
 import type { GetStaticPaths, GetStaticProps } from 'next'
@@ -96,7 +96,7 @@ const Articles: FC<Props> = (props) => {
                   onClick={handleClickTableOfContent}
                 >
                   <div className="w-5 mr-2">
-                    <MenuAlt2Icon />
+                    <Bars3BottomLeftIcon />
                   </div>
                   <div>目次</div>
                 </button>
