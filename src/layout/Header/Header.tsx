@@ -1,4 +1,4 @@
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
@@ -26,7 +26,7 @@ export const Header: FC = () => {
             className="sm:hidden w-12 mr-[10px] p-[10px] rounded-[50%] dark:hover:bg-[rgba(255,255,255,0.08)] hover:bg-[rgba(0,0,0,0.04)]"
             onClick={handleSetMenu}
           >
-            {open ? <XIcon /> : <MenuIcon />}
+            {open ? <XMarkIcon /> : <Bars3Icon />}
           </button>
           <Link href="/">
             <a>

@@ -1,4 +1,4 @@
-import { RssIcon } from '@heroicons/react/solid'
+import { RssIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
