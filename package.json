@@ -2,7 +2,7 @@
   "name": "nado.dev",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "make app",
     "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
