@@ -2519,14 +2519,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/core@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-5.5.0.tgz#c28f220d209adcab8954e82b4e103a0249e39c11"
-  integrity sha512-bMYG3za1UOEUaM01MCRWY0/nFdSj7DTE9+WV95v+wejHVOIvzX1/P3ukzbDKbtVsfWbguFRR4E4ajc2RENcg8g==
+"@mantine/core@5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-5.5.1.tgz#e08fdde889ded79d526016e80c5336102c435565"
+  integrity sha512-5I1tfNwO+qslcViyi+M1EplWqeKEBsy7gSF6zvDRtkvDhz1+F/SzqXHbZVxKYPbhhpTvq9LbOJZgftK3T73CZA==
   dependencies:
     "@floating-ui/react-dom-interactions" "^0.10.1"
-    "@mantine/styles" "5.5.0"
-    "@mantine/utils" "5.5.0"
+    "@mantine/styles" "5.5.1"
+    "@mantine/utils" "5.5.1"
     "@radix-ui/react-scroll-area" "1.0.0"
     react-textarea-autosize "8.3.4"
 
@@ -2559,18 +2559,18 @@
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/styles@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-5.5.0.tgz#fe931d0a7464bebbf17f6d2e46df885214f8751b"
-  integrity sha512-0B6TeC0gRtergMD5X+9YizjOllv3kKRU6zxyvsp5dYIw339WH4+G89Qaz1Y6HQEzj85Gw3OoUx87czNLzM+L+w==
+"@mantine/styles@5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-5.5.1.tgz#03ba069894c364d7ffc3708146e98b1b96a013e0"
+  integrity sha512-RZaQvrz0BorczJFX5+78fKbGXfD3r9N/NSFPQQOkS96oAOyoU1bOKgdIoML/2QMhYJq1REe6z86txl7r4/AUWw==
   dependencies:
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/utils@5.5.0":
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.0.tgz#bceb8a0da64a4ace5ff56b2aa169c1c5f532bfe8"
-  integrity sha512-Ej+hYfu49faFV6velJlFWLb/ErrcM3dzgYhzRPFcMpx+HZHUheTUtthFOicieGbHBd1lPXprSkMHd3UaddfY/w==
+"@mantine/utils@5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.5.1.tgz#da8db3e3ef9ad0f6d3fa26872f22f6a860b0ea8f"
+  integrity sha512-XO6SJ8I9PvmPxF62W2RxhRfdxqDVO/5AThaO+JFQyCcldRy7gwlRsHolaAolJ9l7IABTtdyvbDu7hNFb8GxPmA==
 
 "@mapbox/hast-util-table-cell-style@^0.2.0":
   version "0.2.0"
