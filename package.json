@@ -2,7 +2,7 @@
   "name": "nado.dev",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "make app",
     "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
@@ -42,7 +42,6 @@
     "remark-parse": "10.0.1",
     "remark-rehype": "10.1.0",
     "unified": "10.1.2",
-    "use-media": "1.4.0",
     "valtio": "1.7.4"
   },
   "devDependencies": {
