@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={apolloClient}>
       <MantineProvider theme={theme} withGlobalStyles withNormalizeCSS>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Component {...pageProps} />
         </ThemeProvider>
       </MantineProvider>
