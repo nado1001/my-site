@@ -2412,29 +2412,21 @@
   resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-5.6.3.tgz#2878de1998358dbd208cb8864b765bb1ddb650d1"
   integrity sha512-de3Fm7Z2MrWms8Ah/YbG9fr6CLLtAfz5LCwtqnRXgOetqbu38ZERYNi7TMFxnhGdZko90QjdIpiQRJBsfVax+g==
 
-"@mantine/next@5.6.2":
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/@mantine/next/-/next-5.6.2.tgz#e748bbe4bf562e76b98dae7b69a986a2cc24d821"
-  integrity sha512-cKrqQ5oAXebKhLkDpK95+rcuc3SZg+nV6OxG9+IvZGXT7jEK+Rr2BmGf/XJVdZ9B+YIh+jKKz4S8mIc6hCTuMg==
+"@mantine/next@5.6.3":
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@mantine/next/-/next-5.6.3.tgz#b828ae9e772d4cf760fab1e3c164cb4a465c8b92"
+  integrity sha512-NWFaqFxkIx+xha/dU33WoHJ5o9A4ldEyWJuAWIPsLDJQk22eU6+tjBbq5yz/1j9v3LRMU8lqkQasuyCErFJvWg==
   dependencies:
-    "@mantine/ssr" "5.6.2"
-    "@mantine/styles" "5.6.2"
+    "@mantine/ssr" "5.6.3"
+    "@mantine/styles" "5.6.3"
 
-"@mantine/ssr@5.6.2":
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/@mantine/ssr/-/ssr-5.6.2.tgz#d3b8bd5e73081c91be0c019b409a0e91157c32b7"
-  integrity sha512-cZFMA4r8Wz9LyMIko2+4SeJb/ZuQ3uVEzeofwpcgIxuE9qmNIxt3CmZ7VMW+Pjk/8nCA+yQPqNHPXm39n5gHmQ==
+"@mantine/ssr@5.6.3":
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/@mantine/ssr/-/ssr-5.6.3.tgz#bb3a9ba4f2213cb401c23843e46e1bd440247c5c"
+  integrity sha512-b3iq+EhcsX+ZpVFQDFT3AlQaycjmx/Wcy8RfMLumF+3bst9bwjQ9p8Pg1g8rufdV3/5hvtnpPr0Fo7ZQrUB+Ng==
   dependencies:
-    "@mantine/styles" "5.6.2"
+    "@mantine/styles" "5.6.3"
     html-react-parser "1.4.12"
-
-"@mantine/styles@5.6.2":
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-5.6.2.tgz#01a401be81bc2d3ca05888fef8f4b36ce8e92b99"
-  integrity sha512-lMIYU+tbZS2F7LBCD2KOxGbR4Upx0Vl8gbbxDYFJIPi/M0LCQbQg5tYTIVtlO2oNAiIoTOpPVt66ITLFPdlEkg==
-  dependencies:
-    clsx "1.1.1"
-    csstype "3.0.9"
 
 "@mantine/styles@5.6.3":
   version "5.6.3"
