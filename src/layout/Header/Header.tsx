@@ -1,5 +1,5 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
