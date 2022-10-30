@@ -129,15 +129,15 @@ const Articles: FC<Props> = (props) => {
               >
                 {post?.tag.map((tag, index) => {
                   return (
-                    <Link href={`/tags/${tag.tagSlug}`} key={index}>
-                      <a
-                        className={cc([
-                          'dark:bg-[#464646] dark:hover:bg-darkHoverBg01 hover:opacity-70 bg-[#ededed] dark:border-darkBorder01 border rounded-[2.5rem] text-sm px-6 py-[4px]',
-                          { 'ml-3': index !== 0 }
-                        ])}
-                      >
-                        {tag.tagName}
-                      </a>
+                    <Link
+                      href={`/tags/${tag.tagSlug}`}
+                      key={index}
+                      className={cc([
+                        'dark:bg-[#464646] dark:hover:bg-darkHoverBg01 hover:opacity-70 bg-[#ededed] dark:border-darkBorder01 border rounded-[2.5rem] text-sm px-6 py-[4px]',
+                        { 'ml-3': index !== 0 }
+                      ])}
+                    >
+                      {tag.tagName}
                     </Link>
                   )
                 })}

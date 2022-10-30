@@ -29,18 +29,16 @@ export const Header: FC = () => {
             {open ? <XMarkIcon /> : <Bars3Icon />}
           </button>
           <Link href="/">
-            <a>
-              <Image
-                src={
-                  theme === 'dark'
-                    ? '/image/logo/logo_dark.svg'
-                    : '/image/logo/logo.svg'
-                }
-                alt="nado"
-                width={68}
-                height={39}
-              />
-            </a>
+            <Image
+              src={
+                theme === 'dark'
+                  ? '/image/logo/logo_dark.svg'
+                  : '/image/logo/logo.svg'
+              }
+              alt="nado"
+              width={68}
+              height={39}
+            />
           </Link>
         </div>
         <ThemeChange />

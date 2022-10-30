@@ -40,10 +40,11 @@ const Tags: FC<Props> = (props) => {
                 key={index}
                 className="font-bold border border-border01 dark:border-darkBorder01 rounded-lg dark:bg-[#1d2022] dark:hover:bg-darkBg03 bg-white hover:shadow-lg "
               >
-                <Link href={`/tags/${tag.tagSlug}`}>
-                  <a className="w-full min-h-[65px] flex items-center justify-center flex-col text-sm text-center">
-                    {tag.tagName}
-                  </a>
+                <Link
+                  href={`/tags/${tag.tagSlug}`}
+                  className="w-full min-h-[65px] flex items-center justify-center flex-col text-sm text-center"
+                >
+                  {tag.tagName}
                 </Link>
               </li>
             )
