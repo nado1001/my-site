@@ -27,6 +27,7 @@ const menuList = [
  */
 export const Menu: FC = () => {
   const { open, setOpen } = useMenuState()
+  console.log(open)
 
   const handleSetMenu = (): void => {
     setOpen()
