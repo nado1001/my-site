@@ -15496,10 +15496,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-valtio@1.7.5:
-  version "1.7.5"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.7.5.tgz#02a3ee207b4c7552294bbccb68d5f73c9f60302f"
-  integrity sha512-YGgYA1fkjDWIJuI2Z178GWxocd7f+AGfwe7vSL9+WKWfQuzWBEMqIIZ2UnEuy58DpEOYFSQTLfxQGOFIatEpmQ==
+valtio@1.7.6:
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.7.6.tgz#d75d9041e4e089df2cb67f09bcb3ae1be442445c"
+  integrity sha512-zsGrCCYOIpy8egQxftduFyJusF/BMu3CganhHKUOE/I6t6V6yA1MDfZZkrYoWYCGkC3rSBYcIHEEsoYQM9lV2w==
   dependencies:
     proxy-compare "2.3.0"
     use-sync-external-store "1.2.0"
