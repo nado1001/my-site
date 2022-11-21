@@ -22,7 +22,7 @@
     "@heroicons/react": "2.0.13",
     "@mantine/core": "5.8.2",
     "@mantine/hooks": "5.8.2",
-    "@mantine/next": "5.8.0",
+    "@mantine/next": "5.8.2",
     "date-fns": "2.29.3",
     "deepmerge": "4.2.2",
     "graphql": "16.6.0",
