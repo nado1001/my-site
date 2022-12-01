@@ -2571,14 +2571,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@mantine/core@5.8.4":
-  version "5.8.4"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-5.8.4.tgz#305209f7452cca0274499abab8e225495255bcb0"
-  integrity sha512-TZ6hhrkk7GPq74mHTJuoZvI3UgDwUr0MbJChGfL9F/PGfXjHlg0C9ZQEiVUCeUpCNkract3peiuQglwMOD3Fzg==
+"@mantine/core@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-5.9.0.tgz#8ae8bf6a80a79edfd65b41786378630ee96fe847"
+  integrity sha512-ofjUWMDmAepuU5hGIk/RabLhJkd4Bl6Wx6KtPUpIzxjsgkhIr18o6UDBiVXm96muAvQfo4Ru8nhpG8P0VnPOUQ==
   dependencies:
     "@floating-ui/react-dom-interactions" "^0.10.1"
-    "@mantine/styles" "5.8.4"
-    "@mantine/utils" "5.8.4"
+    "@mantine/styles" "5.9.0"
+    "@mantine/utils" "5.9.0"
     "@radix-ui/react-scroll-area" "1.0.0"
     react-textarea-autosize "8.3.4"
 
@@ -2611,10 +2611,18 @@
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/utils@5.8.4":
-  version "5.8.4"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.8.4.tgz#46d535abd6ba76662de23d9c15daa28a11312200"
-  integrity sha512-JR5eg406hkBPmYKBznDpisv54TZO7tNw1BAFDlgXsqGE6N8EZnxTEpuS+i9rFLsqqt0QGyvmQFIl6vfser0FNQ==
+"@mantine/styles@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-5.9.0.tgz#067fe20e68ac9c5c0c4033a491da36912ea74abb"
+  integrity sha512-xt7zPz7pISTnmP/OWBLsqVJocn7AMHAnwRvbfs8q4M8Vm1kn1IQEIpLUuWGcJn1+z8py5GxCwIVMU3jBEuow4A==
+  dependencies:
+    clsx "1.1.1"
+    csstype "3.0.9"
+
+"@mantine/utils@5.9.0":
+  version "5.9.0"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-5.9.0.tgz#f21ba4c518a6561bea079c7c909298f35f492a99"
+  integrity sha512-UU5kO1VcsntrKvznJMjZ1S/ZM6arAXFkBnBqAKfCPOPJJIcwUWOfQP8u1sxp8ounAHThp9GtkpuzzGOQy1rcPA==
 
 "@mapbox/hast-util-table-cell-style@^0.2.0":
   version "0.2.0"
