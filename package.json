@@ -21,7 +21,7 @@
     "@emotion/server": "11.10.0",
     "@heroicons/react": "2.0.13",
     "@mantine/core": "5.9.1",
-    "@mantine/hooks": "5.9.1",
+    "@mantine/hooks": "5.9.2",
     "@mantine/next": "5.9.1",
     "date-fns": "2.29.3",
     "deepmerge": "4.2.2",
