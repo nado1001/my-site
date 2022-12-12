@@ -4,8 +4,8 @@ import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
 import type { GetPostsQuery } from '@/apollo/graphql'
 import { GET_POSTS } from '@/apollo/queries'
 import { Article } from '@/component/Article'
+import { generatedRssFeed } from '@/lib/feed'
 
-// import { generatedRssFeed } from '@/lib/feed'
 import { DefaultLayout } from './DefaultLayout'
 
 type Props = {
@@ -21,8 +21,6 @@ const getPosts = async (): Promise<Props> => {
     }
   })
 
-  // await generatedRssFeed(data)
-
   return addApolloState(apolloClient, {
     data
   })
@@ -32,6 +30,8 @@ export default async function Page() {
   const {
     data: { posts }
   } = await getPosts()
+
+  await generatedRssFeed({ posts })
 
   return (
     <DefaultLayout>
