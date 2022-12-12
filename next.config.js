@@ -1,7 +1,11 @@
 const isProd = process.env.NODE_ENV === 'production'
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   typescript: { ignoreBuildErrors: true },
   poweredByHeader: false,
@@ -11,4 +15,4 @@ module.exports = {
   experimental: {
     appDir: true
   }
-}
+})
