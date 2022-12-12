@@ -6,7 +6,7 @@ import { GET_POSTS } from '@/apollo/queries'
 import { Article } from '@/component/Article'
 import { generatedRssFeed } from '@/lib/feed'
 
-// import { DefaultLayout } from './DefaultLayout'
+import { DefaultLayout } from './DefaultLayout'
 
 type Props = {
   data: GetPostsQuery
@@ -34,13 +34,13 @@ export default async function Page() {
   } = await getPosts()
 
   return (
-    <>
+    <DefaultLayout>
       <h1 className="font-bold text-4xl sm:py-8 md:pb-7">Articles</h1>
       <div className={cc(['grid grid-cols-article md:gap-[30px] sm:gap-4'])}>
         {posts.map((post) => {
           return <Article key={post.id} {...post} />
         })}
       </div>
-    </>
+    </DefaultLayout>
   )
 }
