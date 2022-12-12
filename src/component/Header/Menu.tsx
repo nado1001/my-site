@@ -7,7 +7,7 @@ import Link from 'next/link'
 import type { FC } from 'react'
 import { createElement } from 'react'
 
-import { useMenuState } from '../../states/store'
+import { useMenuState } from '@/states/store'
 
 const menuList = [
   {

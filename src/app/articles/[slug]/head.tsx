@@ -1,7 +1,7 @@
-import { addApolloState, initializeApollo } from '../../../apollo/apolloClient'
-import { GetPostQuery } from '../../../apollo/graphql'
-import { GET_POST } from '../../../apollo/queries'
-import { Seo } from '../../../component/Seo'
+import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
+import { GetPostQuery } from '@/apollo/graphql'
+import { GET_POST } from '@/apollo/queries'
+import { Seo } from '@/component/Seo'
 
 const getPost = async (slug: string): Promise<{ data: GetPostQuery }> => {
   const apolloClient = initializeApollo()

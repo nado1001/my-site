@@ -1,13 +1,10 @@
 import cc from 'classcat'
 
-import { addApolloState, initializeApollo } from '../../../apollo/apolloClient'
-import type {
-  GetPostsByTagNameQuery,
-  GetTagsQuery
-} from '../../../apollo/graphql'
-import { GET_POSTS_BY_TAG_NAME, GET_TAGS } from '../../../apollo/queries'
-import { Article } from '../../../component/Article'
-import { Seo } from '../../../component/Seo'
+import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
+import type { GetPostsByTagNameQuery, GetTagsQuery } from '@/apollo/graphql'
+import { GET_POSTS_BY_TAG_NAME, GET_TAGS } from '@/apollo/queries'
+import { Article } from '@/component/Article'
+import { Seo } from '@/component/Seo'
 
 type Props = {
   data: GetPostsByTagNameQuery

@@ -1,13 +1,13 @@
 'use client'
 
-import '../styles/globals.css'
+import '@/styles/globals.css'
 
 import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'next-themes'
 import React from 'react'
 
-import { useApollo } from '../apollo/apolloClient'
-import { GoogleAnalytics, usePageView } from '../lib/gtag'
+import { useApollo } from '@/apollo/apolloClient'
+import { GoogleAnalytics, usePageView } from '@/lib/gtag'
 
 export default function RootLayout({
   children

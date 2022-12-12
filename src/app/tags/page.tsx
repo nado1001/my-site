@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-import { addApolloState, initializeApollo } from '../../apollo/apolloClient'
-import type { GetTagsQuery } from '../../apollo/graphql'
-import { GET_TAGS } from '../../apollo/queries'
-import { Seo } from '../../component/Seo'
+import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
+import type { GetTagsQuery } from '@/apollo/graphql'
+import { GET_TAGS } from '@/apollo/queries'
+import { Seo } from '@/component/Seo'
 
 type Props = {
   data: GetTagsQuery

@@ -1,4 +1,4 @@
-import { Seo } from '../component/Seo'
+import { Seo } from '@/component/Seo'
 
 export default function Head() {
   return (

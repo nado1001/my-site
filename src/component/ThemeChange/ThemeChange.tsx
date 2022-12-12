@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes'
 import type { FC } from 'react'
 import { useState } from 'react'
 
-import { useIsomorphicEffect } from '../../hooks'
+import { useIsomorphicEffect } from '@/hooks'
 
 /**
  * @package

@@ -1,11 +1,12 @@
 import cc from 'classcat'
 
-import { initializeApollo } from '../apollo/apolloClient'
-import type { GetPostsQuery } from '../apollo/graphql'
-import { GET_POSTS } from '../apollo/queries'
-import { Article } from '../component/Article'
-import { Seo } from '../component/Seo'
-import { generatedRssFeed } from '../lib/feed'
+import { initializeApollo } from '@/apollo/apolloClient'
+import type { GetPostsQuery } from '@/apollo/graphql'
+import { GET_POSTS } from '@/apollo/queries'
+import { Article } from '@/component/Article'
+import { Seo } from '@/component/Seo'
+import { generatedRssFeed } from '@/lib/feed'
+
 import { DefaultLayout } from './DefaultLayout'
 
 type Props = {

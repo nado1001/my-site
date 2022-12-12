@@ -1,5 +1,5 @@
 import 'highlight.js/styles/github-dark.css'
-import '../../../styles/globals.css'
+import '@/styles/globals.css'
 
 import cc from 'classcat'
 import { format } from 'date-fns'
@@ -9,14 +9,14 @@ import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
 import { unified } from 'unified'
 
-import { addApolloState, initializeApollo } from '../../../apollo/apolloClient'
-import type { GetPostQuery, GetPostsQuery } from '../../../apollo/graphql'
-import { GET_POST, GET_POSTS } from '../../../apollo/queries'
-import { Author } from '../../../component/Author'
-import { CustomLink } from '../../../component/CustomLink'
-import { MarkdownToHtml } from '../../../component/MarkdownToHtml'
-import { Seo } from '../../../component/Seo'
-import { TableOfContent } from '../../../component/TableOfContent'
+import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
+import type { GetPostQuery, GetPostsQuery } from '@/apollo/graphql'
+import { GET_POST, GET_POSTS } from '@/apollo/queries'
+import { Author } from '@/component/Author'
+import { CustomLink } from '@/component/CustomLink'
+import { MarkdownToHtml } from '@/component/MarkdownToHtml'
+import { Seo } from '@/component/Seo'
+import { TableOfContent } from '@/component/TableOfContent'
 
 type Props = {
   data: GetPostQuery

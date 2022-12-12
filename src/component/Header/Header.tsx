@@ -6,7 +6,8 @@ import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
 
-import { useMenuState } from '../../states/store'
+import { useMenuState } from '@/states/store'
+
 import { ThemeChange } from '../ThemeChange'
 
 /**

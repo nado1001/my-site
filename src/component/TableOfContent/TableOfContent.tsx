@@ -4,7 +4,7 @@ import { Bars3BottomLeftIcon } from '@heroicons/react/24/outline'
 import cc from 'classcat'
 import type { FC } from 'react'
 
-import { useTableOfContentState } from '../../states/store'
+import { useTableOfContentState } from '@/states/store'
 
 type TableOfContentList = {
   tag: string

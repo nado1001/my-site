@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react'
 
-import { Header, Menu } from '../../../component/Header'
+import { Header, Menu } from '@/component/Header'
 
 type Props = {
   children: ReactNode
