@@ -3916,7 +3916,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/gtag.js@0.0.12":
+"@types/gtag.js@^0.0.12":
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.12.tgz#095122edca896689bdfcdd73b057e23064d23572"
   integrity sha512-YQV9bUsemkzG81Ea295/nF/5GijnD2Af7QhEofh7xu+kvCN6RdodgNwwGWXB5GMI3NoyvQo0odNctoH/qLMIpg==
@@ -11603,10 +11603,10 @@ next-page-tester@0.33.0:
     stealthy-require "^1.1.1"
     tiny-glob "^0.2.9"
 
-next-sitemap@3.1.30:
-  version "3.1.30"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.30.tgz#6f81699a3d07366bf6df0da6f9f3fe34de4e67e6"
-  integrity sha512-mZqq9xWrTp/tgUM7+Oz/qxT6x2vnJhwQ3AGke2GjypRbUo44QaTb+4Cp1uX9GwXBaiuuuXDoWyS5VxJP3pJljw==
+next-sitemap@^3.1.32:
+  version "3.1.32"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-3.1.32.tgz#e4a7227cab23b5e5c68bc54d335b86d3ff1e05f8"
+  integrity sha512-jkIKpwLXpWWTPfmDO46+6nu4+qpar4CjvUwCR9rYZHWtzE/wFfaCVFKpGtFMl6MFjpu8GjiE6kWFEa7uF3bzzg==
   dependencies:
     "@corex/deepmerge" "^4.0.29"
     minimist "^1.2.6"

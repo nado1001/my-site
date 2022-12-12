@@ -1,3 +1,5 @@
+'use client'
+
 import { Switch, Tooltip } from '@mantine/core'
 import { useHotkeys } from '@mantine/hooks'
 import { useTheme } from 'next-themes'
@@ -23,7 +25,7 @@ export const ThemeChange: FC = () => {
     setEnabled(!enabled)
   }
 
-  useHotkeys([['mod+J', () => handleThemeChange()]])
+  useHotkeys([['mod+K', () => handleThemeChange()]])
 
   useIsomorphicEffect(() => {
     if (theme === 'dark') {

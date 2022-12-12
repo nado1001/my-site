@@ -1,8 +1,7 @@
 import type { FC, ReactNode } from 'react'
 
 import { Author } from '../component/Author'
-import { Header } from './Header'
-import { Menu } from './Header'
+import { Header, Menu } from '../component/Header'
 
 type Props = {
   children: ReactNode
@@ -11,7 +10,7 @@ type Props = {
 /**
  * @package
  */
-export const Layout: FC<Props> = ({ children }) => {
+export const DefaultLayout: FC<Props> = ({ children }) => {
   return (
     <div>
       <Header />

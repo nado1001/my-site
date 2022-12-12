@@ -1,3 +1,5 @@
+'use client'
+
 import { RssIcon } from '@heroicons/react/24/solid'
 import Image from 'next/legacy/image'
 import { useTheme } from 'next-themes'

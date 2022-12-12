@@ -1,3 +1,5 @@
+'use client'
+
 import { HomeIcon } from '@heroicons/react/24/solid'
 import { TagIcon } from '@heroicons/react/24/solid'
 import cc from 'classcat'
