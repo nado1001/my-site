@@ -15,14 +15,12 @@ type Props = {
 
 const getPosts = async (): Promise<Props> => {
   const apolloClient = initializeApollo()
-  const { data, error } = await apolloClient.query<GetPostsQuery>({
+  const { data } = await apolloClient.query<GetPostsQuery>({
     query: GET_POSTS,
     variables: {
       stage: process.env.stage
     }
   })
-
-  if (error) throw new Error(error.message)
 
   await generatedRssFeed(data)
 
