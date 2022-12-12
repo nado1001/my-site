@@ -31,7 +31,11 @@ export default async function Page() {
     data: { posts }
   } = await getPosts()
 
-  await generatedRssFeed({ posts })
+  try {
+    await generatedRssFeed({ posts })
+  } catch (error) {
+    console.log(error)
+  }
 
   return (
     <DefaultLayout>
