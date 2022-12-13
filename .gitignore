@@ -12,8 +12,8 @@
 /.next/
 /out/
 /public/feed.xml
-/public/robots.txt
-/public/sitemap*.xml
+# /public/robots.txt
+# /public/sitemap*.xml
 
 # production
 /build

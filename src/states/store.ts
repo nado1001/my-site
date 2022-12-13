@@ -1,3 +1,5 @@
+'use client'
+
 import { proxy, useSnapshot } from 'valtio'
 
 type Store = {

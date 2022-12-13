@@ -1,3 +1,5 @@
+'use client'
+
 import { HomeIcon } from '@heroicons/react/24/solid'
 import { TagIcon } from '@heroicons/react/24/solid'
 import cc from 'classcat'
@@ -5,7 +7,7 @@ import Link from 'next/link'
 import type { FC } from 'react'
 import { createElement } from 'react'
 
-import { useMenuState } from '../../states/store'
+import { useMenuState } from '@/states/store'
 
 const menuList = [
   {
