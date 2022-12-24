@@ -84,7 +84,7 @@ const Presentation: FC<PresentationProps> = (props) => {
           className="mt-5 list-inside leading-8"
           style={{ listStyleType: 'circle' }}
         >
-          {tableofcontent.map((content: TableOfContentList, index: number) => {
+          {tableofcontent?.map((content: TableOfContentList, index: number) => {
             return (
               <li
                 key={content.name}
