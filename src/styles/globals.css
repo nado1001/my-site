@@ -56,7 +56,7 @@ body {
 }
 
 .post ul {
-  @apply list-disc ml-4;
+  @apply list-disc ml-4 leading-7;
 }
 
 .post table {
