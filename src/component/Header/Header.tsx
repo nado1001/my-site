@@ -1,11 +1,14 @@
+'use client'
+
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import type { FC } from 'react'
 
-import { ThemeChange } from '../../component/ThemeChange'
-import { useMenuState } from '../../states/store'
+import { useMenuState } from '@/states/store'
+
+import { ThemeChange } from '../ThemeChange'
 
 /**
  * @package
@@ -29,18 +32,16 @@ export const Header: FC = () => {
             {open ? <XMarkIcon /> : <Bars3Icon />}
           </button>
           <Link href="/">
-            <a>
-              <Image
-                src={
-                  theme === 'dark'
-                    ? '/image/logo/logo_dark.svg'
-                    : '/image/logo/logo.svg'
-                }
-                alt="nado"
-                width={68}
-                height={39}
-              />
-            </a>
+            <Image
+              src={
+                theme === 'dark'
+                  ? '/image/logo/logo_dark.svg'
+                  : '/image/logo/logo.svg'
+              }
+              alt="nado"
+              width={68}
+              height={39}
+            />
           </Link>
         </div>
         <ThemeChange />

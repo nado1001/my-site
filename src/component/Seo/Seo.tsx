@@ -1,9 +1,6 @@
-import NextHeadSeo from 'next-head-seo'
-import type { FC } from 'react'
-
-export type SeoProps = {
+type Props = {
   path: string
-  title?: string
+  title: string
   description?: string
   ogImage?: string
   noindex?: boolean
@@ -13,13 +10,13 @@ export type SeoProps = {
 const isProd = process.env.NODE_ENV == 'production'
 const url = isProd ? 'https://nado1999.me' : 'http://localhost:3000'
 
-export const Seo: FC<SeoProps> = (props) => {
+export const Seo = (props: Props) => {
   const {
     path,
     title,
     description = 'nadoの個人ブログ',
     ogImage,
-    noindex,
+    noindex = false,
     noTitleTemplate
   } = props
 
@@ -30,22 +27,21 @@ export const Seo: FC<SeoProps> = (props) => {
   const ogImageUrl = ogImage ? ogImage : APP_ROOT_URL + '/default-og.png'
 
   return (
-    <NextHeadSeo
-      title={noTitleTemplate ? title : `${title} | nado`}
-      canonical={pageUrl}
-      description={description}
-      robots={noindex ? 'noindex, nofollow' : undefined}
-      og={{
-        title,
-        description,
-        url: pageUrl,
-        image: ogImageUrl,
-        type: 'article',
-        siteName: 'nado'
-      }}
-      twitter={{
-        card: 'summary_large_image'
-      }}
-    />
+    <>
+      <link href="/favicon.svg" rel="icon" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta property="og:site_name" content="nado" />
+      <link rel="canonical" href={pageUrl} />
+      <title>{noTitleTemplate ? title : `${title} | nado`}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:site_name" content="nado" />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
+      {noindex && <meta name="robots" content="noindex" />}
+    </>
   )
 }

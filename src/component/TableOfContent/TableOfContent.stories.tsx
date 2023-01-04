@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 const Template: Story = (args) => (
-  <TableOfContent tableofcontent={args.tableofcontent} />
+  <TableOfContent tableofcontent={args.tableofcontent} isPc />
 )
 
 export const Default = Template.bind({})

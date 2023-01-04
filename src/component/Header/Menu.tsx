@@ -1,3 +1,5 @@
+'use client'
+
 import { HomeIcon } from '@heroicons/react/24/solid'
 import { TagIcon } from '@heroicons/react/24/solid'
 import cc from 'classcat'
@@ -5,7 +7,7 @@ import Link from 'next/link'
 import type { FC } from 'react'
 import { createElement } from 'react'
 
-import { useMenuState } from '../../states/store'
+import { useMenuState } from '@/states/store'
 
 const menuList = [
   {
@@ -41,20 +43,18 @@ export const Menu: FC = () => {
     >
       {menuList.map((item) => {
         return (
-          <div
-            key={item.id}
-            className={cc(['sm:w-1/2 md:h-[45px]'])}
-            onClick={handleSetMenu}
-          >
-            <Link href={item.link}>
-              <a className="flex sm:flex-col items-center px-6 md:h-full md:w-full md:dark:hover:bg-[rgba(255,255,255,0.08)] md:hover:bg-[rgba(0,0,0,0.04)]">
-                {createElement(item.icon, {
-                  className: 'h-6 w-6 dark:text-white text-[#757575]'
-                })}
-                <span className="text-[12px] md:ml-[25px] md:text-[15px]">
-                  {item.text}
-                </span>
-              </a>
+          <div key={item.id} className={cc(['sm:w-1/2 md:h-[45px]'])}>
+            <Link
+              href={item.link}
+              className="flex sm:flex-col items-center px-6 md:h-full md:w-full md:dark:hover:bg-[rgba(255,255,255,0.08)] md:hover:bg-[rgba(0,0,0,0.04)]"
+              onClick={handleSetMenu}
+            >
+              {createElement(item.icon, {
+                className: 'h-6 w-6 dark:text-white text-[#757575]'
+              })}
+              <span className="text-[12px] md:ml-[25px] md:text-[15px]">
+                {item.text}
+              </span>
             </Link>
           </div>
         )
