@@ -6,8 +6,8 @@ import { useEffect } from 'react'
 
 export const GA4_TRACKING_ID = process.env.NEXT_PUBLIC_GA4_ID || ''
 
-export const pageview = (url: string) => {
-  if (!GA4_TRACKING_ID) return
+export const pageView = (url: string) => {
+  if (!GA4_TRACKING_ID || typeof window === 'undefined') return
 
   window.gtag('config', GA4_TRACKING_ID, {
     page_path: url
@@ -20,7 +20,7 @@ export const usePageView = () => {
 
   useEffect(() => {
     const url = pathname + searchParams.toString()
-    pageview(url)
+    pageView(url)
   }, [pathname, searchParams])
 }
 
