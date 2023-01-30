@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
@@ -16,12 +16,13 @@ export const pageView = (url: string) => {
 
 export const usePageView = () => {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const searchParams = useSearchParams()
 
   useEffect(() => {
-    const url = pathname + searchParams.toString()
-    pageView(url)
-  }, [pathname, searchParams])
+    if (pathname == null) return
+
+    pageView(pathname)
+  }, [pathname])
 }
 
 const PageView = () => {
@@ -29,26 +30,28 @@ const PageView = () => {
   return <></>
 }
 
-export const GoogleAnalytics = () => (
-  <>
-    <Script
-      defer
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA4_TRACKING_ID}`}
-      strategy="afterInteractive"
-    />
-    <Script
-      defer
-      id="ga"
-      dangerouslySetInnerHTML={{
-        __html: `
+export const GoogleAnalytics = () => {
+  return (
+    <>
+      <Script
+        defer
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script
+        defer
+        id="ga"
+        dangerouslySetInnerHTML={{
+          __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());    
           gtag('config', '${GA4_TRACKING_ID}');
         `
-      }}
-      strategy="afterInteractive"
-    />
-    <PageView />
-  </>
-)
+        }}
+        strategy="afterInteractive"
+      />
+      <PageView />
+    </>
+  )
+}
