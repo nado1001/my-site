@@ -1,13 +1,13 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
 export const GA4_TRACKING_ID = process.env.NEXT_PUBLIC_GA4_ID || ''
 
-export const pageview = (url: string) => {
-  if (!GA4_TRACKING_ID) return
+export const pageView = (url: string) => {
+  if (!GA4_TRACKING_ID || typeof window === 'undefined') return
 
   window.gtag('config', GA4_TRACKING_ID, {
     page_path: url
@@ -16,33 +16,42 @@ export const pageview = (url: string) => {
 
 export const usePageView = () => {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  // const searchParams = useSearchParams()
 
   useEffect(() => {
-    const url = pathname + searchParams.toString()
-    pageview(url)
-  }, [pathname, searchParams])
+    if (pathname == null) return
+
+    pageView(pathname)
+  }, [pathname])
 }
 
-export const GoogleAnalytics = () => (
-  <>
-    <Script
-      defer
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA4_TRACKING_ID}`}
-      strategy="afterInteractive"
-    />
-    <Script
-      defer
-      id="ga"
-      dangerouslySetInnerHTML={{
-        __html: `
+const PageView = () => {
+  usePageView()
+  return <></>
+}
+
+export const GoogleAnalytics = () => {
+  return (
+    <>
+      <Script
+        defer
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script
+        defer
+        id="ga"
+        dangerouslySetInnerHTML={{
+          __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());    
           gtag('config', '${GA4_TRACKING_ID}');
         `
-      }}
-      strategy="afterInteractive"
-    />
-  </>
-)
+        }}
+        strategy="afterInteractive"
+      />
+      <PageView />
+    </>
+  )
+}

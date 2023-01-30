@@ -27,7 +27,7 @@ const getPosts = async (): Promise<Props> => {
   })
 }
 
-export default async function Page() {
+const Home = async () => {
   const {
     data: { posts }
   } = await getPosts()
@@ -57,3 +57,5 @@ export default async function Page() {
     </>
   )
 }
+
+export default Home
