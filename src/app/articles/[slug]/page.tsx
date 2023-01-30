@@ -23,8 +23,8 @@ type Props = {
   highlightedBody: string
 }
 
-export const dynamicParams = false
-export const revalidate = 3600
+// export const dynamicParams = false
+// export const revalidate = 3600
 
 export async function generateStaticParams() {
   const apolloClient = initializeApollo()
