@@ -24,6 +24,11 @@ export const usePageView = () => {
   }, [pathname, searchParams])
 }
 
+const PageView = () => {
+  usePageView()
+  return <></>
+}
+
 export const GoogleAnalytics = () => (
   <>
     <Script
@@ -44,5 +49,6 @@ export const GoogleAnalytics = () => (
       }}
       strategy="afterInteractive"
     />
+    <PageView />
   </>
 )
