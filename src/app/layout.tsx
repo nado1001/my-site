@@ -3,7 +3,7 @@
 import '@/styles/globals.css'
 
 // import { ApolloProvider } from '@apollo/client'
-// import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from 'next-themes'
 import React from 'react'
 
 // import { useApollo } from '@/apollo/apolloClient'
@@ -24,9 +24,9 @@ export default function RootLayout({
       </head>
       <body>
         {/* <ApolloProvider client={apolloClient}> */}
-        {/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
-        {children}
-        {/* </ThemeProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
         {/* </ApolloProvider> */}
       </body>
     </html>
