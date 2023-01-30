@@ -21,29 +21,33 @@ export const Seo = (props: Props) => {
   } = props
 
   const APP_ROOT_URL = url
-  // Absolute page url
   const pageUrl = APP_ROOT_URL + path
-  // Absolute og image url
   const ogImageUrl = ogImage ? ogImage : APP_ROOT_URL + '/default-og.png'
 
   return (
     <>
       <link href="/favicon.svg" rel="icon" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta property="og:site_name" content="nado" />
-      <link rel="canonical" href={pageUrl} />
+      {noindex && <meta name="robots" content="noindex" />}
       <title>{noTitleTemplate ? title : `${title} | nado`}</title>
       <meta name="description" content={description} />
+
+      {/* OGP */}
+      <meta property="og:type" content="article" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="article" />
       <meta property="og:url" content={pageUrl} />
-      <meta property="og:site_name" content="nado" />
       <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:site_name" content="nado" />
+      <meta property="og:locale" content="ja_JP" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@nado_b1ue" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:card" content="summary_large_image" />
-      {noindex && <meta name="robots" content="noindex" />}
+
+      <link rel="canonical" href={pageUrl} />
     </>
   )
 }
