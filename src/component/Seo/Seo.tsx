@@ -40,6 +40,8 @@ export const Seo = (props: Props) => {
       <meta property="og:url" content={pageUrl} />
       <meta property="og:site_name" content="nado" />
       <meta property="og:image" content={ogImageUrl} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary_large_image" />
       {noindex && <meta name="robots" content="noindex" />}
     </>
