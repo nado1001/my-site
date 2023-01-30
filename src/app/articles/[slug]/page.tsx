@@ -4,7 +4,6 @@ import '@/styles/globals.css'
 import cc from 'classcat'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import { cache } from 'react'
 import { createElement, ReactElement } from 'react'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
@@ -41,7 +40,7 @@ export async function generateStaticParams() {
   })
 }
 
-const getPost = cache(async (slug: string): Promise<Props> => {
+const getPost = async (slug: string): Promise<Props> => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostQuery>({
     query: GET_POST,
@@ -57,7 +56,7 @@ const getPost = cache(async (slug: string): Promise<Props> => {
     data,
     highlightedBody
   })
-})
+}
 
 const processor = unified()
   .use(rehypeParse as any, { fragment: true })
