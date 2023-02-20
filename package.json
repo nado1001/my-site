@@ -82,7 +82,7 @@
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-tailwindcss": "3.8.3",
     "feed": "4.2.2",
-    "jest-extended": "3.2.3",
+    "jest-extended": "3.2.4",
     "jsdom": "21.1.0",
     "msw": "1.0.1",
     "next-page-tester": "0.33.0",
