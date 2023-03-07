@@ -16,7 +16,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@apollo/client": "3.7.9",
+    "@apollo/client": "3.7.10",
     "@apollo/react-hooks": "4.0.0",
     "@emotion/react": "11.10.6",
     "@emotion/server": "11.10.0",
