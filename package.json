@@ -21,9 +21,9 @@
     "@emotion/react": "11.10.6",
     "@emotion/server": "11.10.0",
     "@heroicons/react": "2.0.16",
-    "@mantine/core": "6.0.1",
-    "@mantine/hooks": "6.0.1",
-    "@mantine/next": "6.0.1",
+    "@mantine/core": "6.0.2",
+    "@mantine/hooks": "6.0.2",
+    "@mantine/next": "6.0.2",
     "@next/bundle-analyzer": "^13.0.6",
     "date-fns": "2.29.3",
     "deepmerge": "4.3.0",
@@ -47,7 +47,7 @@
     "valtio": "1.10.3"
   },
   "devDependencies": {
-    "@babel/core": "7.21.0",
+    "@babel/core": "7.21.3",
     "@graphql-codegen/cli": "3.2.2",
     "@graphql-codegen/typescript": "3.0.2",
     "@graphql-codegen/typescript-operations": "3.0.2",
