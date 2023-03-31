@@ -47,7 +47,7 @@
     "valtio": "1.10.3"
   },
   "devDependencies": {
-    "@babel/core": "7.21.3",
+    "@babel/core": "7.21.4",
     "@graphql-codegen/cli": "3.2.2",
     "@graphql-codegen/typescript": "3.0.2",
     "@graphql-codegen/typescript-operations": "3.0.2",
