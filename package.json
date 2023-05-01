@@ -86,7 +86,7 @@
     "jsdom": "21.1.2",
     "msw": "1.2.1",
     "next-page-tester": "0.33.0",
-    "next-sitemap": "4.0.8",
+    "next-sitemap": "4.0.9",
     "postcss": "8.4.23",
     "prettier": "2.8.8",
     "react-is": "18.2.0",
