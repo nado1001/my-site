@@ -18,7 +18,7 @@
   "dependencies": {
     "@apollo/client": "3.7.15",
     "@apollo/react-hooks": "4.0.0",
-    "@emotion/react": "11.11.0",
+    "@emotion/react": "11.11.1",
     "@emotion/server": "11.11.0",
     "@heroicons/react": "2.0.18",
     "@mantine/core": "6.0.13",
