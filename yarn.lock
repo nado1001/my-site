@@ -2266,51 +2266,51 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@mantine/core@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-6.0.17.tgz#734b31c79199a9cf2bfb0bbd7482f5c2c411ff9a"
-  integrity sha512-g3EDxcTJKisvEGTsGJPCGXiDumwr4O0nGNXwoGLnrg19nh3FAMfEIq18sJJLtRrBuarSbrvgMVYvKx1R6rTOWg==
+"@mantine/core@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-6.0.18.tgz#4e27341163dc1596436d1acd4e3bc1af60f34283"
+  integrity sha512-i2Powv0sQYdW8vjJIC7xeo6XJDfGRpavCcQ8JpNVsCoC+db5RToEIsQc3jpgYBPY1/iWeUJuKPMMkQA5V+xMMA==
   dependencies:
     "@floating-ui/react" "^0.19.1"
-    "@mantine/styles" "6.0.17"
-    "@mantine/utils" "6.0.17"
+    "@mantine/styles" "6.0.18"
+    "@mantine/utils" "6.0.18"
     "@radix-ui/react-scroll-area" "1.0.2"
     react-remove-scroll "^2.5.5"
     react-textarea-autosize "8.3.4"
 
-"@mantine/hooks@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.17.tgz#dc942c87e6dcfa14a70e4e4a162c22eeb4ff3724"
-  integrity sha512-7vf2w1NlzKlUynSuyI2DAIKoEOYKYC8k+tlSsk3BRdbzhbJAiWxcYzJy5seg5dFW1WIpKAZ0wiVdHXf/WRlRgg==
+"@mantine/hooks@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-6.0.18.tgz#720c6102b09d8c187d629c5e5bc7d9fe267d169e"
+  integrity sha512-i9RxEtC+7t5qG5Gn5SqTHkHxH9MSsGi9mQebt/GitX9+d9BVBwYLqutlDlHvb8bvDteuYphX5VWLSnJXT4Pivw==
 
-"@mantine/next@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/next/-/next-6.0.17.tgz#126ba2e6a339648ee47bbe82018cb19826b09a07"
-  integrity sha512-/JmKysJ0blftAU8+YtWZ4m3MIXUtiyaPXamEYCkcv+V+8oAa9x4EquX/eK6gOVbEEhUoHGCbIZ3nt54NQiC2dQ==
+"@mantine/next@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/next/-/next-6.0.18.tgz#6a1a4384728960f74db2ac56235c220a08c36aa8"
+  integrity sha512-NkQpnib4E9EMzAFHKKGB/6YRid1SFRyD6xe3ZmJvHPE9Ug7sbGw3iTVuitZJtKujSZtTq1oY46bcATW3TYdJ5A==
   dependencies:
-    "@mantine/ssr" "6.0.17"
-    "@mantine/styles" "6.0.17"
+    "@mantine/ssr" "6.0.18"
+    "@mantine/styles" "6.0.18"
 
-"@mantine/ssr@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/ssr/-/ssr-6.0.17.tgz#42989361fca774482ef332ec04e569861c73182d"
-  integrity sha512-l4G0GROr/1w96uWmEMrczwxLF5BSR0b2uK/ErTrq6+ozmrFSl+LvU/JKoYnyoo+bgbfhVn8dpNOxpkOYF5fTDg==
+"@mantine/ssr@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/ssr/-/ssr-6.0.18.tgz#0e566a0424ebf41713c48aa575f3a99f6fd14522"
+  integrity sha512-gbtLgqnhva2ygeRkbqYl00bZdqoAPnNp17YCwn4BMtxy6ifx0BlsyRI34RTi+hwRSghqHgpNGwkOn/k7+ORoWw==
   dependencies:
-    "@mantine/styles" "6.0.17"
+    "@mantine/styles" "6.0.18"
     html-react-parser "1.4.12"
 
-"@mantine/styles@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-6.0.17.tgz#fef8a64f0e32b970c397e1c22dceb6ab09fb090f"
-  integrity sha512-utNwQJgKHguNS0iPyyeFRJy4nbt280XMbmfUf4GCxXlyl/mQxq+JoaKP/OmU7+8kfbtLS9kHeuBSghrC65Nt1g==
+"@mantine/styles@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-6.0.18.tgz#3df22381252fee71761fb51da7ed77de6bcd23ba"
+  integrity sha512-SNKcHkkmqLWUtE9lPucqOGNopvP4VsUtVRVtIUldRwvpzqoeuX1NJH6BwB8GPfVU0Wck/VeEhvGs+XzBe2xTRA==
   dependencies:
     clsx "1.1.1"
     csstype "3.0.9"
 
-"@mantine/utils@6.0.17":
-  version "6.0.17"
-  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.17.tgz#7d4a6c7686a3ee19a0ac248ef14780f00730837b"
-  integrity sha512-U6SWV/asYE6NhiHx4ltmVZdQR3HwGVqJxVulhOylMcV1tX/P1LMQUCbGV2Oe4O9jbX4/YW5B/CBb4BbEhENQFQ==
+"@mantine/utils@6.0.18":
+  version "6.0.18"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.18.tgz#da9ac8b13364277ad1a41b1ad5681fceebc89871"
+  integrity sha512-xvTnAUUHsdpsBm7OrcBueGEPdBwDm7wzUBsHweqSZMjT/HQOf4w4iirefNrFhMD2wNVetNL42kEngEBe6t63/w==
 
 "@mapbox/hast-util-table-cell-style@^0.2.0":
   version "0.2.0"
