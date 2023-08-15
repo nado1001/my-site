@@ -6354,10 +6354,10 @@ eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-import-access@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import-access/-/eslint-plugin-import-access-2.1.0.tgz#78736c82c6806361c766fcf24c638ac5973dbe8e"
-  integrity sha512-6/UlrK3mtOFBTDvyUqQoskWUeKSYn1yJGnmWDJTYH1n9vf4e2/qN/vlJUe000CeSISPvxmFSVLNwkZn6lHJqRw==
+eslint-plugin-import-access@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import-access/-/eslint-plugin-import-access-2.1.1.tgz#5ca8572423cf3d95cc57b5629e3a43f4eb509e8c"
+  integrity sha512-vRfBoOykOxha7Mmpix4K0t/yNuE9pBRyuZj2V5kqX6q3MqZ5nl4DI3WqOtdJGmlhOlRfMSxUIPqeKklOtj1knA==
   dependencies:
     "@typescript-eslint/utils" "^6.2.0"
     tsutils "^3.21.0"
