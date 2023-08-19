@@ -26,7 +26,7 @@ export const Seo = (props: Props) => {
 
   return (
     <>
-      <link href="/favicon.svg" rel="icon" />
+      <link href="/image/nado.svg" rel="icon" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       {noindex && <meta name="robots" content="noindex" />}
       <title>{noTitleTemplate ? title : `${title} | nado`}</title>
