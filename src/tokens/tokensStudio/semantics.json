@@ -1,0 +1,70 @@
+{
+  "colors": {
+    "background-dark": {
+      "value": "{colors.black.primary}",
+      "type": "color",
+      "description": "ダークモード時の全体の背景"
+    },
+    "header-dark": {
+      "value": "{colors.black.secondary}",
+      "type": "color",
+      "description": "ダークモード時のヘッダー"
+    },
+    "card-dark": {
+      "value": "{colors.black.tertiary}",
+      "type": "color",
+      "description": "ダークモード時のカードコンポーネント"
+    },
+    "card-head-dark": {
+      "value": "{colors.gray.tertiary}",
+      "type": "color",
+      "description": "カードコンポーネントの上部分"
+    },
+    "tag-dark": {
+      "value": "{colors.gray.quaternary}",
+      "type": "color",
+      "description": "ダークモード時のタグ"
+    },
+    "border-gray": {
+      "value": "{colors.gray.primary}",
+      "type": "color"
+    },
+    "border-gray-dark": {
+      "value": "{colors.gray.secondary}",
+      "type": "color"
+    },
+    "card-head-light": {
+      "value": "{colors.blue.primary}",
+      "type": "color",
+      "description": "カードコンポーネントの上部分(lightモード時）"
+    },
+    "article-dark": {
+      "value": "{colors.black.secondary}",
+      "type": "color",
+      "description": "記事コンテンツ部分(darkモード時）"
+    },
+    "text-dark": {
+      "value": "{colors.gray.quinary}",
+      "type": "color",
+      "description": "darkモード時のテキスト"
+    }
+  },
+  "borderRadius": {
+    "gray-light": {
+      "value": {
+        "color": "{colors.border-gray}",
+        "width": "1",
+        "style": "solid"
+      },
+      "type": "border"
+    },
+    "gray-dark": {
+      "value": {
+        "color": "{colors.border-gray-dark}",
+        "width": "1",
+        "style": "solid"
+      },
+      "type": "border"
+    }
+  }
+}

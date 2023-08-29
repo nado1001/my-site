@@ -14,7 +14,7 @@
     "test:ui": "vitest run --ui",
     "coverage": "vitest run --coverage",
     "analyze": "ANALYZE=true next build",
-    "transform": "token-transformer src/tokens src/tokens/style-dictionary-tokens.json"
+    "transform": "token-transformer src/tokens/tokensStudio src/tokens/tokens.json"
   },
   "dependencies": {
     "@apollo/client": "3.8.1",
