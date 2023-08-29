@@ -25,6 +25,11 @@
       "type": "color",
       "description": "ダークモード時のタグ"
     },
+    "tag-light": {
+      "value": "{colors.gray.secondary}",
+      "type": "color",
+      "description": "ライトモード時のタグ"
+    },
     "border-gray": {
       "value": "{colors.gray.primary}",
       "type": "color"
