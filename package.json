@@ -13,7 +13,8 @@
     "test": "vitest run",
     "test:ui": "vitest run --ui",
     "coverage": "vitest run --coverage",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=true next build",
+    "transform": "token-transformer src/tokens src/tokens/style-dictionary-tokens.json"
   },
   "dependencies": {
     "@apollo/client": "3.8.1",
@@ -91,6 +92,7 @@
     "prettier": "3.0.2",
     "react-is": "18.2.0",
     "tailwindcss": "3.3.3",
+    "token-transformer": "^0.0.33",
     "typescript": "5.2.2",
     "vitest": "0.34.3"
   }
