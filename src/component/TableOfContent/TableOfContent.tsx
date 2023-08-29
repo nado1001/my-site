@@ -45,7 +45,7 @@ export const TableOfContent: FC<Props> = (props) => {
 
   return (
     <>
-      <div className="w-full h-12 flex justify-start bg-white dark:bg-darkBg02 px-5 border-b border-border01 dark:border-darkBorder01">
+      <div className="w-full h-12 flex justify-start bg-white-primary dark:bg-headerDark px-5 border-b border-borderGray dark:border-borderGrayDark">
         <button className="flex items-center" onClick={handleClick}>
           <div className="w-5 mr-2">
             <Bars3BottomLeftIcon />
@@ -78,8 +78,8 @@ const Presentation: FC<PresentationProps> = (props) => {
 
   return (
     <div className={cc([`${className} md:sticky md:top-8`])}>
-      <div className="bg-white dark:bg-darkBg03 border dark:border-darkBorder01 rounded-lg px-5 pt-5 pb-10 shadow-md sm:absolute sm:top-4 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-[calc(100%-100px)]">
-        <span className="sm:hidden block font-bold text-xl">目次</span>
+      <div className="bg-white-primary dark:bg-cardDark border dark:border-borderGrayDark rounded-lg px-5 pt-5 pb-10 shadow-md absolute md:static top-4 md:top-auto left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 w-[calc(100%-100px)] md:w-auto">
+        <span className="pc-only font-bold text-xl">目次</span>
         <ul
           className="mt-5 list-inside leading-8"
           style={{ listStyleType: 'circle' }}
