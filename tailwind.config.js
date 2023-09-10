@@ -11,12 +11,12 @@
         cardDark: "#303133",
         cardHeadDark: "#575757",
         tagDark: "#464646",
-        tagLight: "#818181",
         borderGray: "#E2E2E2",
         borderGrayDark: "#818181",
         cardHeadLight: "#EFF9FF",
         articleDark: "#212121",
         textDark: "#4e4e4e",
+        tagLight: "#818181",
         black: {
           primary: "#222429",
           secondary: "#212121",
