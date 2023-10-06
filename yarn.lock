@@ -3690,10 +3690,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/gtag.js@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.14.tgz#e19f5c310400907ed6f3cbbf00bb5e9f2b6f12f6"
-  integrity sha512-NcR9rf3B93ie5T086NIpXGTtoIJeOeQ14+IBIBwfNBztb175e/0gONc60ywUU4+f9dwctgz9L3I4h5Gs/hl31g==
+"@types/gtag.js@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@types/gtag.js/-/gtag.js-0.0.15.tgz#9862d27cf6e2fdb9f67bdcc00cc5d1bb73e43d20"
+  integrity sha512-HT912iMVOWvj4yGwNTt5tBPMBWtrqIBH9xuOPrkXMuzXohXv1+lFw4fihX8fv1fl+7BqAca/ij7ezQjL2jLWlQ==
 
 "@types/hast@^2.0.0":
   version "2.3.4"
