@@ -7225,10 +7225,10 @@ headers-polyfill@3.2.5:
   resolved "https://registry.yarnpkg.com/headers-polyfill/-/headers-polyfill-3.2.5.tgz#6e67d392c9d113d37448fe45014e0afdd168faed"
   integrity sha512-tUCGvt191vNSQgttSyJoibR+VO+I6+iCHIUdhzEMJKE+EAL8BwCN7fUOZlY4ofOelNHsK+gEjxB/B+9N3EWtdA==
 
-highlight.js@11.8.0:
-  version "11.8.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
-  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
+highlight.js@11.9.0:
+  version "11.9.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.9.0.tgz#04ab9ee43b52a41a047432c8103e2158a1b8b5b0"
+  integrity sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==
 
 highlight.js@~11.4.0:
   version "11.4.0"
