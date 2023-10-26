@@ -5184,10 +5184,10 @@ chokidar@^3.4.2, chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chromatic@7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-7.5.0.tgz#551fa41cfbdadbd28aaa764fdb4461246fa02b3c"
-  integrity sha512-9B1rT8/L71BZTmAGXFBvKGrudnVZ4uBcGFckx0ZEMvOXboI0DOyr1/ehmSB1YmPOhu+r/7dy2jfTEzPmYcpXJg==
+chromatic@7.5.4:
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-7.5.4.tgz#28f51466e82e8737712db2dd3d494df0dcd31964"
+  integrity sha512-DiBwsn8yABN6SFSeEf5gTbwGIqhfP+rjrAQENgeLFDUV3vX3tGdI8oVgseaeCwk8tn08ZukrmB/k3ZG9RPJPTA==
 
 ci-info@^3.2.0:
   version "3.8.0"
