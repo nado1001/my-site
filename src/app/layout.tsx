@@ -7,7 +7,7 @@ import { ThemeProvider } from 'next-themes'
 import React from 'react'
 
 import { useApollo } from '@/apollo/apolloClient'
-import { GoogleAnalytics, usePageView } from '@/lib/gtag'
+import { GoogleAnalytics } from '@/lib/gtag'
 
 export default function RootLayout({
   children
@@ -15,10 +15,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const apolloClient = useApollo(children)
-  usePageView()
 
   return (
-    <html lang="ja" className="sm:scroll-pt-[50px] scroll-smooth">
+    <html lang="ja" className="sm:scroll-pt-[50px] scroll-smooth dark">
       <head>
         <GoogleAnalytics />
       </head>

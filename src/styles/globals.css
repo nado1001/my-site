@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply dark:text-white text-[#4e4e4e];
+  @apply dark:text-white-primary text-textDark dark:bg-backgroundDark;
+}
+
+.pc-only {
+  @apply hidden sm:block;
+}
+
+.sp-only {
+  @apply block sm:hidden;
 }
 
 .post h2 {
@@ -31,11 +39,11 @@ body {
 }
 
 .post hr {
-  @apply my-8 border-t-2 border-border01 dark:border-darkBorder01 border-dashed;
+  @apply my-8 border-t-2 border-borderGray dark:border-borderGrayDark border-dashed;
 }
 
 .post blockquote {
-  @apply relative mt-5 pt-[30px] pb-2 px-[15px] rounded-xl box-border dark:bg-[#303133] bg-[#f9fafb] text-[#959595] italic;
+  @apply relative mt-5 pt-[30px] pb-2 px-[15px] rounded-xl box-border dark:bg-cardDark bg-[#f9fafb] text-[#959595] italic;
 }
 .post blockquote:before {
   @apply inline-block absolute top-[5px] left-1 text-[#cfcfcf] text-[90px] leading-none;
@@ -64,10 +72,10 @@ body {
 }
 
 .post thead tr {
-  @apply bg-bg01 dark:bg-darkBg01;
+  @apply bg-[#f9fafb] dark:bg-backgroundDark;
 }
 
 .post th,
 .post td {
-  @apply p-2 border border-border01 dark:border-darkBorder01;
+  @apply p-2 border border-borderGray dark:border-borderGrayDark;
 }

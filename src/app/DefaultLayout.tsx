@@ -16,11 +16,11 @@ export const DefaultLayout: FC<Props> = ({ children }) => {
       <Header />
       <Menu />
       <main className="md:mx-[74px]">
-        <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-12 flex sm:flex-col sm:min-h-screen">
-          <div className="md:max-w-[724px] md:w-full md:col-start-1 md:col-end-2 sm:mx-4 sm:mb-32 sm:flex-1">
+        <div className="md:max-w-screen-lg md:mx-auto md:pb-12 md:pt-12 flex flex-col md:flex-row min-h-screen">
+          <div className="md:max-w-[724px] md:w-full md:mx-0 mx-4 mb-32 flex-1">
             {children}
           </div>
-          <aside className="md:max-w-[250px] md:col-start-2 md:col-end-3 md:pt-[68px] md:ml-[50px]">
+          <aside className="md:max-w-[250px] md:pt-[68px] md:ml-[50px]">
             <Author />
           </aside>
         </div>

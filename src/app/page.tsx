@@ -4,6 +4,7 @@ import { addApolloState, initializeApollo } from '@/apollo/apolloClient'
 import type { GetPostsQuery } from '@/apollo/graphql'
 import { GET_POSTS } from '@/apollo/queries'
 import { Article } from '@/component/Article'
+import { Seo } from '@/component/Seo'
 import { generatedRssFeed } from '@/lib/feed'
 
 import { DefaultLayout } from './DefaultLayout'
@@ -26,7 +27,7 @@ const getPosts = async (): Promise<Props> => {
   })
 }
 
-export default async function Page() {
+const Home = async () => {
   const {
     data: { posts }
   } = await getPosts()
@@ -38,13 +39,27 @@ export default async function Page() {
   }
 
   return (
-    <DefaultLayout>
-      <h1 className="font-bold text-4xl sm:py-8 md:pb-7">Articles</h1>
-      <div className={cc(['grid grid-cols-article md:gap-[30px] sm:gap-4'])}>
-        {posts.map((post) => {
-          return <Article key={post.id} {...post} />
-        })}
-      </div>
-    </DefaultLayout>
+    <>
+      <Seo
+        path=""
+        noTitleTemplate={true}
+        title="nado"
+        description="ナドの個人ブログ"
+      />
+      <DefaultLayout>
+        <h1 className="font-bold text-4xl py-8 md:pb-7 md:pt-0">Articles</h1>
+        <div
+          className={cc([
+            'grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] md:gap-[30px] gap-4'
+          ])}
+        >
+          {posts.map((post) => {
+            return <Article key={post.id} {...post} />
+          })}
+        </div>
+      </DefaultLayout>
+    </>
   )
 }
+
+export default Home

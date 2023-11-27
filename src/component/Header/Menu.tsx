@@ -38,19 +38,19 @@ export const Menu: FC = () => {
     <nav
       className={cc([
         open ? 'md:block' : 'md:hidden',
-        'md:dark:bg-darkBg02  sm:dark:bg-darkBg01 md:w-[240px] md:py-6 bg-white sm:border-t dark:border-darkBorder01 sm:fixed md:absolute md:top-[60px] md:left-12 border-border01 sm:bottom-0 sm:flex sm:items-center sm:w-screen sm:py-[14px] z-50 md:border md:rounded-lg'
+        'md:dark:bg-headerDark dark:bg-backgroundDark md:w-[240px] md:py-6 bg-white-primry border-t dark:border-borderGrayDark fixed md:absolute md:top-[60px] md:left-12 border-borderGray bottom-0 md:bottom-auto flex items-center w-screen py-[14px] z-50 md:border md:rounded-lg'
       ])}
     >
       {menuList.map((item) => {
         return (
-          <div key={item.id} className={cc(['sm:w-1/2 md:h-[45px]'])}>
+          <div key={item.id} className={cc(['w-1/2 md:w-auto md:h-[45px]'])}>
             <Link
               href={item.link}
-              className="flex sm:flex-col items-center px-6 md:h-full md:w-full md:dark:hover:bg-[rgba(255,255,255,0.08)] md:hover:bg-[rgba(0,0,0,0.04)]"
+              className="flex flex-col md:flex-row items-center px-6 md:h-full md:w-full md:dark:hover:bg-[rgba(255,255,255,0.08)] md:hover:bg-[rgba(0,0,0,0.04)]"
               onClick={handleSetMenu}
             >
               {createElement(item.icon, {
-                className: 'h-6 w-6 dark:text-white text-[#757575]'
+                className: 'h-6 w-6 dark:text-white-primary text-[#757575]'
               })}
               <span className="text-[12px] md:ml-[25px] md:text-[15px]">
                 {item.text}

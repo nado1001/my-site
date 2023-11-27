@@ -12,7 +12,7 @@ export const Author: FC = () => {
   const { theme } = useTheme()
 
   return (
-    <div className="bg-white md:dark:bg-darkBg03 sm:dark:bg-darkBg01 md:border sm:border-t dark:border-darkBorder01 md:rounded-lg px-5 md:py-10 sm:pt-8 sm:pb-28 shadow-md">
+    <div className="bg-white-primary md:dark:bg-cardDark dark:bg-backgroundDark md:border border-t dark:border-borderGrayDark md:rounded-lg px-5 md:py-10 pt-8 pb-28 shadow-md">
       <div className="flex items-end">
         <Image
           src="/image/nado.svg"

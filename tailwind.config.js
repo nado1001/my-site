@@ -1,27 +1,53 @@
-module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{ts,tsx}'],
-  darkMode: 'class', // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+ module.exports = {
+  mode: "jit",
+  content: ["./src/**/*.{ts,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        bg01: '#f9fafb',
-        bg02: '#eff9ff',
-        darkBg01: '#0F0F0F',
-        darkBg02: '#212121',
-        darkBg03: '#303133',
-        darkBg04: '#575757',
-        darkHoverBg01: '#414142',
-        border01: '#E2E2E2',
-        darkBorder01: '#818181',
-        text01: '#2E2E2E'
+        backgroundDark: "#222429",
+        headerDark: "#212121",
+        cardDark: "#303133",
+        cardHeadDark: "#575757",
+        tagDark: "#464646",
+        borderGray: "#E2E2E2",
+        borderGrayDark: "#818181",
+        cardHeadLight: "#EFF9FF",
+        articleDark: "#212121",
+        textDark: "#4e4e4e",
+        tagLight: "#818181",
+        black: {
+          primary: "#222429",
+          secondary: "#212121",
+          tertiary: "#303133"
+        },
+        white: {
+          primary: "#fff"
+        },
+        gray: {
+          primary: "#E2E2E2",
+          secondary: "#818181",
+          tertiary: "#575757",
+          quaternary: "#464646",
+          quinary: "#4e4e4e"
+        },
+        blue: {
+          primary: "#EFF9FF"
+        }
       },
-      screens: { sm: { max: '767px' } },
-      gridTemplateColumns: {
-        article: 'repeat(auto-fill, minmax(160px, 1fr))'
+      borderRadius: {
+        grayLight: {
+          color: "#E2E2E2",
+          width: 1,
+          style: "solid"
+        },
+        grayDark: {
+          color: "#818181",
+          width: 1,
+          style: "solid"
+        }
       }
-    }
+    },
   },
-  variants: {},
-  plugins: []
 }

@@ -4,7 +4,6 @@ import '@/styles/globals.css'
 import cc from 'classcat'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import { cache } from 'react'
 import { createElement, ReactElement } from 'react'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
@@ -24,8 +23,8 @@ type Props = {
   highlightedBody: string
 }
 
-export const dynamicParams = false
-export const revalidate = 3600
+// export const dynamicParams = false
+// export const revalidate = 3600
 
 export async function generateStaticParams() {
   const apolloClient = initializeApollo()
@@ -41,7 +40,7 @@ export async function generateStaticParams() {
   })
 }
 
-const getPost = cache(async (slug: string): Promise<Props> => {
+const getPost = async (slug: string): Promise<Props> => {
   const apolloClient = initializeApollo()
   const { data } = await apolloClient.query<GetPostQuery>({
     query: GET_POST,
@@ -57,7 +56,7 @@ const getPost = cache(async (slug: string): Promise<Props> => {
     data,
     highlightedBody
   })
-})
+}
 
 const processor = unified()
   .use(rehypeParse as any, { fragment: true })
@@ -93,14 +92,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
           </>
         </div>
 
-        <div className="md:dark:bg-darkBg02 md:bg-white dark:border-darkBorder01 md:border md:p-10 md:rounded-lg md:w-[calc(100%-300px)]">
-          <div className="flex sm:flex-col sm:items-center md:items-end md:justify-between sm:py-12 sm:px-6 md:pb-6">
+        <div className="md:dark:bg-cardDark md:bg-white-primary dark:border-borderGrayDark md:border md:p-10 md:rounded-lg md:w-[calc(100%-300px)]">
+          <div className="flex flex-col items-center md:flex-row md:items-end md:justify-between py-12 px-6 md:pb-6 md:px-0 md:pt-0">
             <h1 className="text-3xl font-semibold">{data.post.title}</h1>
-            <span className="text-xs block sm:mt-5">
+            <span className="text-xs block mt-5">
               {format(new Date(data.post.date), 'yyyy.MM.dd')}
             </span>
           </div>
-          <section className="sm:dark:bg-darkBg02 sm:bg-white dark:border-darkBorder01 sm:border-t sm:border-b sm:px-4 sm:pt-[30px] sm:pb-[50px] sm:mb-32">
+          <section className="dark:border-borderGrayDark md:border-none border-t border-b px-4 md:px-0 pt-[30px] md:pt-0 pb-[50px] md:pb-0 mb-32 md:mb-0">
             <div
               className="flex items-start overflow-x-scroll"
               style={{ wordBreak: 'keep-all' }}
@@ -111,7 +110,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                     href={`/tags/${tag.tagSlug}`}
                     key={index}
                     className={cc([
-                      'dark:bg-[#464646] dark:hover:bg-darkHoverBg01 hover:opacity-70 bg-[#ededed] dark:border-darkBorder01 border rounded-[2.5rem] text-sm px-6 py-[4px]',
+                      'dark:bg-tagDark dark:hover:bg-[#414142] hover:opacity-70 bg-tagLight dark:border-borderGrayDark border rounded-[2.5rem] text-sm px-6 py-[4px]',
                       { 'ml-3': index !== 0 }
                     ])}
                   >
@@ -129,10 +128,10 @@ export default async function Post({ params }: { params: { slug: string } }) {
         <aside className="md:max-w-[250px]">
           <div className="h-full flex flex-col">
             <Author />
-            <div className="h-8 sm:hidden" />
+            <div className="h-8 pc-only" />
             <TableOfContent
               tableofcontent={data.post.tableofcontent}
-              className="sm:hidden"
+              className="pc-only"
               isPc={true}
             />
           </div>

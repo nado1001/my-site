@@ -21,7 +21,7 @@ export const generatedRssFeed = async ({ posts }: GetPostsQuery) => {
     link: baseUrl,
     language: 'ja',
     image: `${baseUrl}/favicon.png`,
-    favicon: `${baseUrl}/favicon.svg`,
+    favicon: `${baseUrl}/image/nado.svg`,
     copyright: `All rights reserved ${date.getFullYear()}, ${author.name}`,
     updated: date,
     feedLinks: {
