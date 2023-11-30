@@ -13,6 +13,8 @@ module.exports = withBundleAnalyzer({
     stage: isProd ? 'PUBLISHED' : 'DRAFT'
   },
   experimental: {
-    appDir: true
+    appDir: true,
+    workerThreads: false,
+    cpus: 1
   }
 })
