@@ -3,6 +3,7 @@
 import '@/styles/globals.css'
 
 import { ApolloProvider } from '@apollo/client'
+import { MantineProvider } from '@mantine/core'
 import { ThemeProvider } from 'next-themes'
 import React from 'react'
 
@@ -24,7 +25,7 @@ export default function RootLayout({
       <body>
         <ApolloProvider client={apolloClient}>
           <ThemeProvider attribute="class" defaultTheme="dark">
-            {children}
+            <MantineProvider>{children}</MantineProvider>
           </ThemeProvider>
         </ApolloProvider>
       </body>
