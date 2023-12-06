@@ -76,7 +76,7 @@
     "classcat": "5.0.4",
     "eslint": "8.55.0",
     "eslint-config-next": "13.5.6",
-    "eslint-config-prettier": "9.0.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-import-access": "2.1.2",
     "eslint-plugin-jsx-a11y": "6.7.1",
