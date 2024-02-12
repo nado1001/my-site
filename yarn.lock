@@ -5289,10 +5289,10 @@ chokidar@^3.5.3:
   optionalDependencies:
     fsevents "~2.3.2"
 
-chromatic@10.9.3:
-  version "10.9.3"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-10.9.3.tgz#4e6d5bad8314462be13f208f2871dd2f54a9b12c"
-  integrity sha512-orjiRwXjX1tiEwukb5T/tZsR+mLQ7QQa6nL4XYhhzvlHZSQkBWaZWOPQamC2+7JfgRKB0PEwbzoQajOa/e3PxQ==
+chromatic@10.9.4:
+  version "10.9.4"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-10.9.4.tgz#8c9474733dc21c4b38ff04b5714f59089d494507"
+  integrity sha512-etDUGE0vN2T/q5oNqXnsve9LtDCVl+7zHXKIuVtK+BT3k4XbAo8qaD/tnIozZHfrKGtepd8f9AjBq02CjfCYFQ==
 
 ci-info@^3.2.0:
   version "3.8.0"
