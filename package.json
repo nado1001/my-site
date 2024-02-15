@@ -18,7 +18,7 @@
     "build:sd": "node sd.config.js"
   },
   "dependencies": {
-    "@apollo/client": "3.9.4",
+    "@apollo/client": "3.9.5",
     "@apollo/react-hooks": "4.0.0",
     "@emotion/react": "11.11.3",
     "@emotion/server": "11.11.0",
