@@ -12355,10 +12355,10 @@ uvu@^0.5.0:
     kleur "^4.0.3"
     sade "^1.7.3"
 
-valtio@1.13.1:
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.13.1.tgz#6709fb21a331519dbc9ceba725ce33e4c7029ae2"
-  integrity sha512-zowA+lrJPnj6YfIMrVzLKlpBJ/mrIJtMoStPoVLfFMQzvmqdB/JAFNBsxRJ707Oso0lyRgxRfaq4QbE9Uz0tYg==
+valtio@1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/valtio/-/valtio-1.13.2.tgz#e31d452d5da3550935417670aafd34d832dc7241"
+  integrity sha512-Qik0o+DSy741TmkqmRfjq+0xpZBXi/Y6+fXZLn0xNF1z/waFMbE3rkivv5Zcf9RrMUp6zswf2J7sbh2KBlba5A==
   dependencies:
     derive-valtio "0.1.0"
     proxy-compare "2.6.0"
