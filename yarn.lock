@@ -10397,9 +10397,9 @@ scuid@^1.1.0:
   integrity sha512-MuCAyrGZcTLfQoH2XoBlQ8C6bzwN88XT/0slOGz0pn8+gIP85BOAfYa44ZXQUTOwRwPU0QvgU+V+OSajl/59Xg==
 
 sd-tailwindcss-transformer@^1.4.0:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.1.tgz#40403243bdaee6b1c78a4d12cc59e2dea3f59075"
-  integrity sha512-g/CbF9vj9zZUGUsj7QrCLckCDLNhG0w+ppssmN+uT/u7FCUV9EPE42uwjVghNBrb0ggqxrZcVoc/4Kl+tqDeSQ==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/sd-tailwindcss-transformer/-/sd-tailwindcss-transformer-1.4.3.tgz#561e6c3d467cae449f8fe8a5257123a11f81eddc"
+  integrity sha512-S7bGc1Orkmdp6EUe/bhGB91SDL0QXqcwe8lpRFTcy5cZXNowfml9TI5tm6829VSi4t0IAOOWA37CwX3pBLglWg==
 
 semver@^6.0.0, semver@^6.3.1:
   version "6.3.1"
