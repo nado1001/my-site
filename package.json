@@ -82,7 +82,7 @@
     "eslint-plugin-jsx-a11y": "6.9.0",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-simple-import-sort": "12.1.0",
-    "eslint-plugin-tailwindcss": "3.17.3",
+    "eslint-plugin-tailwindcss": "3.17.4",
     "feed": "4.2.2",
     "jest-extended": "4.0.2",
     "jsdom": "24.1.0",
