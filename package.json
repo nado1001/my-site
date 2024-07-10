@@ -22,7 +22,7 @@
     "@apollo/react-hooks": "4.0.0",
     "@emotion/react": "11.11.4",
     "@emotion/server": "11.11.0",
-    "@heroicons/react": "2.1.4",
+    "@heroicons/react": "2.1.5",
     "@mantine/core": "7.11.1",
     "@mantine/hooks": "7.11.1",
     "@mantine/next": "6.0.21",
