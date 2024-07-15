@@ -97,6 +97,6 @@
     "tailwindcss": "3.4.4",
     "token-transformer": "^0.0.33",
     "typescript": "5.5.3",
-    "vitest": "2.0.2"
+    "vitest": "2.0.3"
   }
 }
