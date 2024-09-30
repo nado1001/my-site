@@ -2129,10 +2129,10 @@
   resolved "https://registry.yarnpkg.com/@jsonjoy.com/util/-/util-1.3.0.tgz#e5623885bb5e0c48c1151e4dae422fb03a5887a1"
   integrity sha512-Cebt4Vk7k1xHy87kHY7KSPLT77A7Ev7IfOblyLZhtYEhrdQ6fX4EoLq3xOQ3O/DRMEh2ok5nyC180E+ABS8Wmw==
 
-"@mantine/core@7.13.0":
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-7.13.0.tgz#0a068575cd425aae1dfff132186b4b20609ff3df"
-  integrity sha512-aQpx3Q69ATDhVopBNkWS0sql93ZaPqeA5jTgqU7GxZvJdkpG87vbKYgp4cDV/gqr7BYu4kel0smeHYuPemiZ8Q==
+"@mantine/core@7.13.1":
+  version "7.13.1"
+  resolved "https://registry.yarnpkg.com/@mantine/core/-/core-7.13.1.tgz#96c5e4801cb30771ae7ff4648eb8b3f24302b307"
+  integrity sha512-KH/WrcY/5pf3FxUUbtG77xyd7kfp6SRPAJFkxjFlg9kXroiQ7baljphY371CwPYPINERShUdvCQLpz4r4WMIHA==
   dependencies:
     "@floating-ui/react" "^0.26.9"
     clsx "^2.1.1"
@@ -2141,10 +2141,10 @@
     react-textarea-autosize "8.5.3"
     type-fest "^4.12.0"
 
-"@mantine/hooks@7.13.0":
-  version "7.13.0"
-  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.13.0.tgz#7d91e20841456ef0ec8dbd1952409439fe35ac37"
-  integrity sha512-oQpwSi0gajH3UR1DFa9MQ+zeYy75xbc8Im9jIIepLbiJXtIcPK+yll1BMxNwPQLYU1pYI6ZgUazI2PoykVNmsg==
+"@mantine/hooks@7.13.1":
+  version "7.13.1"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.13.1.tgz#0fd9972c9ec0a840a2f3dfb02fcd8f1f4b8d868a"
+  integrity sha512-Hfd4v380pPJUKDbARk+egdAanx7bpGZmaOn8G3QBZjwDufVopxip0WPkifUKUIMeYY1CTboa+1go9l56ZWrrSg==
 
 "@mantine/next@6.0.22":
   version "6.0.22"
