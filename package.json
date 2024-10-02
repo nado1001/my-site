@@ -65,7 +65,7 @@
     "@types/gtag.js": "^0.0.20",
     "@types/lodash.isequal": "4.5.8",
     "@types/node": "20.16.10",
-    "@types/react": "18.3.10",
+    "@types/react": "18.3.11",
     "@types/testing-library__user-event": "4.2.0",
     "@typescript-eslint/eslint-plugin": "8.8.0",
     "@typescript-eslint/parser": "8.8.0",
