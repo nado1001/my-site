@@ -46,7 +46,7 @@
     "remark-parse": "10.0.2",
     "remark-rehype": "10.1.0",
     "unified": "11.0.5",
-    "valtio": "1.13.2"
+    "valtio": "2.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.25.8",
