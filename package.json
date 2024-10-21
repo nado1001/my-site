@@ -79,7 +79,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-import-access": "2.2.2",
-    "eslint-plugin-jsx-a11y": "6.10.0",
+    "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react-hooks": "5.0.0",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-tailwindcss": "3.17.5",
