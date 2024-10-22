@@ -72,7 +72,7 @@
     "@vitejs/plugin-react": "4.3.3",
     "autoprefixer": "10.4.20",
     "babel-loader": "9.2.1",
-    "chromatic": "11.12.6",
+    "chromatic": "11.14.0",
     "classcat": "5.0.5",
     "eslint": "9.13.0",
     "eslint-config-next": "14.2.15",
